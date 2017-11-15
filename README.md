@@ -4,6 +4,16 @@ Remember me is a site for storing your reading tips. The project is work in prog
 
 The planned features include creating, listing, editing and deleting tips.
 
+## Developing
+This project was initialized using [create-react-app](https://github.com/facebookincubator/create-react-app)
+* `yarn install` after cloning the repo
+* `yarn start` to start the server locally (`localhost://3000`)
+* `yarn test` to run tests
+* `yarn add` to add a depepency
+* `eslint .` to run eslint checks
+
+Feel free to use ES6
+
 ## Prerequisites
 * Node 6 or higher on your machine to run locally
 
@@ -15,6 +25,8 @@ The planned features include creating, listing, editing and deleting tips.
 
 ## Built with
 * React with Redux
+* ESLint as style check
+* Webpack and Babel as configured via [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
 
