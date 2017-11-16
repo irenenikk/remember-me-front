@@ -1,0 +1,12 @@
+language: node_js
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: xaoO44ohK1ooIzmQKLb+aqMJJKZ51q5vw7AObqRlZsN4x1u5UsynprDWoyTOanwKriZnp9EzQ48Q6s9TG2fWacBFQ89gtROk3d9Z3rY2Uf2/RWeCKR5iMeCCRXbyPskpurJ0Wmxs9eoZ8fkLBJbT9PbjZru22wLYCMRJvFM81NidCT/cjFeXMj4kcqQ71vbBeTnzYZKrQ65phcyCJh7KCGNkVcMbCKzmVBiLMvbA2R0N6g8OZDeLZCJaLS17Y+bFQYjOgR4v1C6Yo4EEl0612WMjEtAuNBhBjK/IoER2QmcgIkX34/fMMaMKcHwSu72xO7yNSkCSuzj6QpDtChBOK9nVRNsCnuCehDQxi/kDcOUCt6nVkuH0/egdmJJ17N1RnNTyD2CtUquiRH8jP9fv/1GZbQ9T9XUsPBXF9NdWVymyqi3W31m69pj7CGhmbqk81fFCRmyO11aMWeuGL5alsjBoW9fcQcT7D2/lLo4PF1ZcTN1HbTIw8K61JOey14w+o1lNL86wtUJb+U6FXtzkZn3za8x0F2Dstp9Y6nIBzyv0BNl0nMuRikjG9F+tVzu3kfQASIcC+7KaEc9d5tTWwMrpO9bhKaa5wzI2yBnUOnTJHUDIJYzTG25CcTVP7RUZKQptarYTNCE4sXHVf6AHifnAf0bjgT6GkcdEIOeziKQ=
+  app: remember-me-front
+  on:
+    repo: irenenikk/remember-me-front
