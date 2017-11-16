@@ -11,8 +11,8 @@ export default function makeStore() {
   const store = createStore(
     rootReducer,
     composeEnhancers(
-      applyMiddleware(thunk.withExtraArgument(api)),
-    ),
+      applyMiddleware(thunk.withExtraArgument(api))
+    )
   );
   api.syncStore(store);
   return store;
