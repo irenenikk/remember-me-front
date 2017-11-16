@@ -12,7 +12,7 @@ class App extends Component {
         <div>
           <button
             onClick={this.props.handleClick}>
-            Toggle the value by clicking!
+            Just testing heroku deploy
           </button>
         </div>
         <div>{"Value: " + this.props.value}</div>
