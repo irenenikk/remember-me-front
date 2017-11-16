@@ -1,4 +1,7 @@
 # remember-me-front
+[![heroku link](https://camo.githubusercontent.com/8d1f0e62ca9067026ead054e935e6cf408a11a12/687474703a2f2f6865726f6b752d62616467652e6865726f6b756170702e636f6d2f3f6170703d616e67756c61726a732d63727970746f267374796c653d666c6174267376673d31)](https://remember-me-front.herokuapp.com/)
+[![Build Status](https://api.travis-ci.org/irenenikk/remember-me-front.svg?branch=master)](https://travis-ci.org/irenenikk/remember-me-front)
+[![License: MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/irenenikk/remember-me-front/blob/master/LICENSE)
 
 Remember me is a site for storing your reading tips. The project is work in progress and is a part of the course [Software Engineering](https://github.com/mluukkai/ohjelmistotuotanto2017/wiki/miniprojekti) at the University of Helsinki.
 
