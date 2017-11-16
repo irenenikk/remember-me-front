@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { clickAction } from '../../state/actions';
+import Form from '../Form';
 import './index.css';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             Just testing heroku deploy
           </button>
         </div>
+        <Form />
         <div>{"Value: " + this.props.value}</div>
       </div>
     );
