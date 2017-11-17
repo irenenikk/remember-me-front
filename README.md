@@ -25,6 +25,12 @@ Feel free to use ES6
 ## Backlog
 * You will find the backlog [here](https://docs.google.com/spreadsheets/d/1eq01w-fGfOIcPo54cV_MVKJF2UQoHha497509iPhAXg/edit?usp=sharing)
 
+## Sprint 1 
+![](https://docs.google.com/spreadsheets/d/e/2PACX-1vSPKgMIuBYVppRYc-T5D1WpD0__bmklyoIom3yZBq9-pcBuB2eC7GY-cueotHRCccc49zkBTgFXW6n5/pubchart?oid=661973320&format=image)
+![](https://docs.google.com/spreadsheets/d/e/2PACX-1vSPKgMIuBYVppRYc-T5D1WpD0__bmklyoIom3yZBq9-pcBuB2eC7GY-cueotHRCccc49zkBTgFXW6n5/pubchart?oid=488963762&format=image)
+![](https://docs.google.com/spreadsheets/d/e/2PACX-1vSPKgMIuBYVppRYc-T5D1WpD0__bmklyoIom3yZBq9-pcBuB2eC7GY-cueotHRCccc49zkBTgFXW6n5/pubchart?oid=1111038195&format=image)
+
+
 ## Definition of Done
 * DoD is defined [here](/docs/DoD.md)
 
