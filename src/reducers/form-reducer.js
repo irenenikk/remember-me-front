@@ -1,22 +1,29 @@
 import { createReducer } from 'redux-create-reducer';
-import { CLICK , INPUT_CHANGED} from '../state/actions';
+import { CLICK , INPUT_BOOKWRITER_CHANGED, INPUT_BOOKTITLE_CHANGED} from '../state/actions';
 
 const initialState = {
-  value: false,
-  inputValue: "moi",
+  inputBookWriterValue: "",
+  inputBookTitleValue: "",
+  demoClickValue: false ,
 };
 
 export default createReducer(initialState, {
   [CLICK](state, action) {
     return {
       ...state,
-      value: !state.value,
+      demoClickValue: !state.demoClickValue,
     };
   },
-  [INPUT_CHANGED](state, action) {
+  [INPUT_BOOKWRITER_CHANGED](state, action) {
     return {
       ...state,
-      inputValue: action.input,
+      inputBookWriterValue: action.input,
+    };
+  },
+  [INPUT_BOOKTITLE_CHANGED](state, action) {
+    return {
+      ...state,
+      inputBookTitleValue: action.input,
     };
   }
 });
