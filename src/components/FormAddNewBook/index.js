@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clickAction, inputBookWriterChangedAction, inputBookTitleChangedAction } from '../../state/actions';
+import { postBookAction, inputBookWriterChangedAction, inputBookTitleChangedAction } from '../../state/actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -56,7 +56,7 @@ function mapDispatchToProps(dispatch) {
       dispatch(inputBookTitleChangedAction(event.target.value))
     },
     handleClick() {
-      dispatch(clickAction());
+      dispatch(postBookAction());
     },
   };
 }
