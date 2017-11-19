@@ -36,8 +36,7 @@ Feel free to use ES6
 
 ## Built with
 * React with Redux
-* ESLint as style check
-* Webpack and Babel as configured via [create-react-app](https://github.com/facebookincubator/create-react-app)
+* Webpack, ESlint and Babel as configured by [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
 

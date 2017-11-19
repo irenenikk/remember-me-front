@@ -13,40 +13,28 @@ class FormAddNewBook extends Component {
     return (
       <Card className="FormAddNewBook">
         <CardTitle title="Lisää uusi kirja:"> </CardTitle>
-
-        <CardText>
-
-        <TextField
-          value={this.props.inputBookWriterValue}
-          onChange={this.props.inputBookWriterValueHandleOnChange}
-          floatingLabelText="Kirjailijan nimi "
-        >
-        </TextField>
-
-        <br/>
-
-        <TextField
-          value={this.props.inputBookTitleValue}
-          onChange={this.props.inputBookTitleValueHandleOnChange}
-          floatingLabelText="Kirjan nimi "
-        >
-        </TextField>
-
-        </CardText>
-
-        <CardActions>
-
-
-        <RaisedButton
-          label="Tallenna lukulistalle"
-          onClick={this.props.handleClick}
-          primary={true}  >
-        </RaisedButton>
-
-
-        </CardActions>
-
-
+          <CardText>
+            <TextField
+              value={this.props.authorInput}
+              onChange={this.props.inputBookWriterValueHandleOnChange}
+              floatingLabelText="Kirjailijan nimi "
+            >
+            </TextField>
+            <br/>
+            <TextField
+              value={this.props.nameInput}
+              onChange={this.props.inputBookTitleValueHandleOnChange}
+              floatingLabelText="Kirjan nimi "
+            >
+            </TextField>
+          </CardText>
+          <CardActions>
+            <RaisedButton
+              label="Tallenna lukulistalle"
+              onClick={this.props.handleClick}
+              primary={true}  >
+            </RaisedButton>
+          </CardActions>
       </Card>
     );
   }
@@ -54,9 +42,8 @@ class FormAddNewBook extends Component {
 
 function mapStateToProps(state) {
   return {
-    inputBookWriterValue: state.inputBookWriterValue,
-    inputBookTitleValue: state.inputBookTitleValue,
-
+    authorInput: state.bookAuthorInput,
+    nameInput: state.bookNameInput,
   };
 }
 
