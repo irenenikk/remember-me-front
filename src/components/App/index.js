@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { clickAction } from '../../state/actions';
 import FormAddNewBook from '../FormAddNewBook';
+import SearchResults from '../SearchResults';
+
 import './index.css';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -44,6 +46,8 @@ class App extends Component {
            />
 
          </Tabs>
+
+         <SearchResults />
 
       </MuiThemeProvider>
     );
