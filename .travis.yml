@@ -6,6 +6,9 @@ node_js:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
+env:
+ - REACT_APP_APIURL=https://dev-remember-me-back.herokuapp.com/
+
 deploy:
   provider: heroku
   api_key:
