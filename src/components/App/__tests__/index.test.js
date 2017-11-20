@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './index';
+import App from '..//index';
 import { Provider } from 'react-redux';
-import createStore from '../../state/store';
+import createStore from '../../../state/store';
 
 it('renders without crashing', () => {
   const store = createStore();
@@ -12,4 +12,3 @@ it('renders without crashing', () => {
     <App />
   </Provider>, div);
 });
-

@@ -15,9 +15,8 @@ This project was initialized using [create-react-app](https://github.com/faceboo
 * `yarn start` to start the server locally (`localhost://3000`)
 * `yarn test` to run tests
 * `yarn add` to add a depepency
-* `eslint .` to run eslint checks
 
-Feel free to use ES6
+In development, you'll also have to start the [server](https://github.com/rovaniemi/remember-me-back).
 
 ## Prerequisites
 * Node 6 or higher on your machine to run locally
@@ -25,7 +24,7 @@ Feel free to use ES6
 ## Backlog
 * You will find the backlog [here](https://docs.google.com/spreadsheets/d/1eq01w-fGfOIcPo54cV_MVKJF2UQoHha497509iPhAXg/edit?usp=sharing)
 
-## Sprint 1 
+## Sprint 1
 ![](https://docs.google.com/spreadsheets/d/e/2PACX-1vSPKgMIuBYVppRYc-T5D1WpD0__bmklyoIom3yZBq9-pcBuB2eC7GY-cueotHRCccc49zkBTgFXW6n5/pubchart?oid=661973320&format=image)
 ![](https://docs.google.com/spreadsheets/d/e/2PACX-1vSPKgMIuBYVppRYc-T5D1WpD0__bmklyoIom3yZBq9-pcBuB2eC7GY-cueotHRCccc49zkBTgFXW6n5/pubchart?oid=488963762&format=image)
 ![](https://docs.google.com/spreadsheets/d/e/2PACX-1vSPKgMIuBYVppRYc-T5D1WpD0__bmklyoIom3yZBq9-pcBuB2eC7GY-cueotHRCccc49zkBTgFXW6n5/pubchart?oid=1111038195&format=image)
@@ -36,8 +35,7 @@ Feel free to use ES6
 
 ## Built with
 * React with Redux
-* ESLint as style check
-* Webpack and Babel as configured via [create-react-app](https://github.com/facebookincubator/create-react-app)
+* Webpack, ESlint and Babel as configured by [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
 

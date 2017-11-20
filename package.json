@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-eslint": "^8.0.2",
-    "eslint-plugin-import": "^2.8.0",
     "material-ui": "^0.19.4",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
@@ -14,9 +12,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "eslint": "^4.11.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-plugin-react": "^7.4.0",
+    "eslint-config-react-app": "^2.0.1",
     "react-scripts": "1.0.17"
   },
   "scripts": {
@@ -24,5 +20,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://remember-me-back.herokuapp.com"
 }
