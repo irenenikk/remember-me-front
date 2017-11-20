@@ -18,6 +18,8 @@ This project was initialized using [create-react-app](https://github.com/faceboo
 
 In development, you'll also have to start the [server](https://github.com/rovaniemi/remember-me-back).
 
+Both development and production server addresses must be configured in a local `.env` file. The example file can be found [here](.env.example). Just copy the example file, rename it to `.env`, and insert the appropriate addresses.
+
 ## Prerequisites
 * Node 6 or higher on your machine to run locally
 
