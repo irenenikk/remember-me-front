@@ -7,6 +7,8 @@
 
 Remember me is a site for storing your reading tips. The project is work in progress and is a part of the course [Software Engineering](https://github.com/mluukkai/ohjelmistotuotanto2017/wiki/miniprojekti) at the University of Helsinki.
 
+[Application in Heroku](https://remember-me-front.herokuapp.com/)
+
 The planned features include creating, listing, editing and deleting tips.
 
 ## Developing
