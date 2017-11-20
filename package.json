@@ -5,6 +5,7 @@
   "dependencies": {
     "material-ui": "^0.19.4",
     "react": "^16.1.1",
+    "react-cucumber": "^1.0.5",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
     "redux": "^3.6.0",
