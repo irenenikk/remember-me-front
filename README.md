@@ -7,6 +7,8 @@
 
 Remember me is a site for storing your reading tips. The project is work in progress and is a part of the course [Software Engineering](https://github.com/mluukkai/ohjelmistotuotanto2017/wiki/miniprojekti) at the University of Helsinki.
 
+[Application in Heroku](https://remember-me-front.herokuapp.com/)
+
 The planned features include creating, listing, editing and deleting tips.
 
 ## Developing
@@ -17,6 +19,8 @@ This project was initialized using [create-react-app](https://github.com/faceboo
 * `yarn add` to add a depepency
 
 In development, you'll also have to start the [server](https://github.com/rovaniemi/remember-me-back).
+
+Both development and production server addresses must be configured in a local `.env` file. The example file can be found [here](.env.example). Just copy the example file, rename it to `.env`, and insert the appropriate addresses.
 
 ## Prerequisites
 * Node 6 or higher on your machine to run locally

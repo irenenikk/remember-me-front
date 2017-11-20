@@ -3,7 +3,8 @@
 * Koodi GitHubissa
 * User Storyjen hyväksymäkriteerit toteutuvat
 * Uudet toiminnallisuudet on integroitu vanhaan
-* Testikattavuus vähintään 90 %
+* Lopullisessa tuotteessa testikattavuus vähintään 80 %
+* Kehitysvaiheessa manuaalisesti testattu käyttöliittymän kautta
 * Codacyn Code Style vähintään 90 % ja Unused Code yli 90 %
 * Koodi on yhtenäisen tyylin mukaista (ks. tyyliseikkoja)
 
