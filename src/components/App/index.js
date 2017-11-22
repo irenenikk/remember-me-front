@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { clickAction } from '../../state/actions';
-import FormAddNewBook from '../FormAddNewBook';
-import SearchResults from '../SearchResults/List';
+import FormAddNewBook from './FormAddNewBook';
+import SearchResults from './SearchResults/List';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-import './index.css';
-
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FontIcon from 'material-ui/FontIcon';
 import AppBar from 'material-ui/AppBar';
+import InfoBar from './InfoBar'
+import './index.css';
+
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -25,20 +25,15 @@ class App extends Component {
       <MuiThemeProvider className="App" muiTheme={muiTheme}>
       <div>
         <AppBar
-          title="Remember me! - Lukulista"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          title="Remember me - Lukulista"
         />
+        <InfoBar message={this.props.message} />
         <Tabs>
            <Tab
-             icon={<FontIcon className="material-icons">home</FontIcon>}
              label="Lisää kirja">
                 <FormAddNewBook />
           </Tab>
-           <Tab
-             icon={<FontIcon className="material-icons">favorite</FontIcon>}
-             label="Suosikit"
-           />
-         </Tabs>
+        </Tabs>
          <SearchResults />
       </div>
       </MuiThemeProvider>
@@ -48,7 +43,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-
+    message: state.form.message,
   };
 }
 

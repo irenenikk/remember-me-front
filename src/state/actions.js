@@ -2,6 +2,9 @@ export const CLICK = 'CLICK';
 export const INPUT_BOOKWRITER_CHANGED = 'INPUT_BOOKWRITER_CHANGED';
 export const INPUT_BOOKTITLE_CHANGED = 'INPUT_BOOKTITLE_CHANGED';
 export const BOOKS_RECEIVED = 'BOOKS_RECEIVED';
+export const POST_TIP_SUCCESSFUL = 'POST_TIP_SUCCESSFUL';
+export const POST_TIP_FAILED = 'POST_TIP_FAILED';
+export const TIP_SENT = 'TIP_SENT';
 
 export function clickAction() {
   return {
@@ -42,13 +45,33 @@ export function postBookAction() {
     .then(
       (response) => {
         console.info("posting successful");
+        dispatch(getBooksAction());
+        dispatch(postTipSuccessfulAction());
       },
       (error) => {
         console.info("Posting book failed");
+        dispatch(postTipFailedAction());
       },
     );
   };
+}
 
+export function tipSentAction() {
+  return {
+    type: TIP_SENT,
+  };
+}
+
+export function postTipSuccessfulAction() {
+  return {
+    type: POST_TIP_SUCCESSFUL,
+  }
+}
+
+export function postTipFailedAction() {
+  return {
+    type: POST_TIP_FAILED,
+  }
 }
 
 export function booksReceivedAction(books) {
