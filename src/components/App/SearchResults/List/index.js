@@ -18,7 +18,8 @@ class SearchResults extends Component {
               author={b.author}
               description={b.description}
               tags={b.tags}
-            />)}
+            />
+          )}
         </Paper>
       </center>
     );
@@ -31,10 +32,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
+export default connect(mapStateToProps, null)(SearchResults);

@@ -6,7 +6,6 @@ import SearchResults from './SearchResults/List';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import FontIcon from 'material-ui/FontIcon';
 import AppBar from 'material-ui/AppBar';
 import InfoBar from './InfoBar'
 import './index.css';
@@ -47,10 +46,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);

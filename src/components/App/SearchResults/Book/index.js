@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import {Card, CardTitle, CardText} from 'material-ui/Card';
 
-export default class Book extends Component {
-  render() {
-    return (
-      <Card>
-          <CardTitle title={this.props.name} subtitle={this.props.author} />
-          <CardText>
-            {this.props.description}
-          </CardText>
-        </Card>
-    );
-  }
+export default ({ name, author, description }) => {
+  return (
+    <Card>
+        <CardTitle title={name} subtitle={author} />
+        <CardText>
+          {description}
+        </CardText>
+      </Card>
+  );
 }

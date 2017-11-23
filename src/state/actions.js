@@ -5,6 +5,7 @@ export const BOOKS_RECEIVED = 'BOOKS_RECEIVED';
 export const POST_TIP_SUCCESSFUL = 'POST_TIP_SUCCESSFUL';
 export const POST_TIP_FAILED = 'POST_TIP_FAILED';
 export const TIP_SENT = 'TIP_SENT';
+export const RESET_MESSAGE = 'RESET_MESSAGE';
 
 export function clickAction() {
   return {
@@ -56,12 +57,6 @@ export function postBookAction() {
   };
 }
 
-export function tipSentAction() {
-  return {
-    type: TIP_SENT,
-  };
-}
-
 export function postTipSuccessfulAction() {
   return {
     type: POST_TIP_SUCCESSFUL,
@@ -78,5 +73,11 @@ export function booksReceivedAction(books) {
   return {
     books,
     type: BOOKS_RECEIVED,
+  }
+}
+
+export function resetMessageAction() {
+  return {
+    type: RESET_MESSAGE,
   }
 }

@@ -5,7 +5,7 @@ import {
   INPUT_BOOKTITLE_CHANGED,
   POST_TIP_FAILED,
   POST_TIP_SUCCESSFUL,
-  TIP_SENT,
+  RESET_MESSAGE,
 } from '../state/actions';
 
 const tipPostSuccessfulMessage = "Lukuvinkin lähettäminen onnistui.";
@@ -47,4 +47,10 @@ export default createReducer(initialState, {
       message: tipPostFailedMessage,
     };
   },
+  [RESET_MESSAGE](state, action) {
+    return {
+      ...state,
+      message: "",
+    }
+  }
 });
