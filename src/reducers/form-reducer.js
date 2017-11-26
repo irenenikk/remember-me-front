@@ -3,6 +3,10 @@ import {
   CLICK,
   INPUT_BOOKWRITER_CHANGED,
   INPUT_BOOKTITLE_CHANGED,
+  INPUT_BLOGPOSTTITLE_CHANGED,
+  INPUT_BLOGPOSTURL_CHANGED,
+  INPUT_VIDEOTITLE_CHANGED,
+  INPUT_VIDEOURL_CHANGED,
   POST_TIP_FAILED,
   POST_TIP_SUCCESSFUL,
   RESET_MESSAGE,
@@ -15,6 +19,10 @@ const initialState = {
   bookAuthorInput: "",
   bookNameInput: "",
   message: "",
+  blogpostTitleInput: "",
+  blogpostUrlInput: "",
+  videoTitleInput: "",
+  videoUrlInput: "",
 };
 
 export default createReducer(initialState, {
@@ -33,6 +41,30 @@ export default createReducer(initialState, {
     return {
       ...state,
       bookNameInput: action.input,
+    };
+  },
+  [INPUT_BLOGPOSTTITLE_CHANGED](state, action) {
+    return {
+      ...state,
+      blogpostTitleInput: action.input,
+    };
+  },
+  [INPUT_BLOGPOSTURL_CHANGED](state, action) {
+    return {
+      ...state,
+      blogpostUrlInput: action.input,
+    };
+  },
+  [INPUT_VIDEOTITLE_CHANGED](state, action) {
+    return {
+      ...state,
+      videoTitleInput: action.input,
+    };
+  },
+  [INPUT_VIDEOURL_CHANGED](state, action) {
+    return {
+      ...state,
+      videoUrlInput: action.input,
     };
   },
   [POST_TIP_SUCCESSFUL](state, action) {

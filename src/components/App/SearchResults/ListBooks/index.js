@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import Book from '../Book';
 import Paper from 'material-ui/Paper';
 
-import './index.css';
-
-class SearchResults extends Component {
+class ListBooks extends Component {
 
   render() {
     return (
@@ -13,8 +11,8 @@ class SearchResults extends Component {
         <Paper className="paper" zDepth={2} >
           {this.props.books.map(b =>
             <Book
-              key={b.name + "-" + b.author}
-              name={b.name}
+              key={b.id}
+              title={b.title}
               author={b.author}
               description={b.description}
               tags={b.tags}
@@ -32,4 +30,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(SearchResults);
+export default connect(mapStateToProps, null)(ListBooks);

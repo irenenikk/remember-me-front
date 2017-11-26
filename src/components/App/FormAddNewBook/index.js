@@ -13,7 +13,7 @@ class FormAddNewBook extends Component {
     return (
       <center>
         <Card className="FormAddNewBook">
-          <CardTitle title="Lisää uusi kirja:"> </CardTitle>
+          <CardTitle title="Lisää kirja:"> </CardTitle>
             <CardText>
               <TextField
                 value={this.props.authorInput}

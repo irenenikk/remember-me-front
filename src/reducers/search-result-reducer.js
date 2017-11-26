@@ -1,8 +1,10 @@
 import { createReducer } from 'redux-create-reducer';
-import { BOOKS_RECEIVED } from '../state/actions';
+import { BOOKS_RECEIVED, BLOGPOSTS_RECEIVED, VIDEOS_RECEIVED, } from '../state/actions';
 
 const initialState = {
-  books: []
+  books: [],
+  blogposts: [],
+  videos: [],
 };
 
 export default createReducer(initialState, {
@@ -12,4 +14,20 @@ export default createReducer(initialState, {
       books: action.books,
     };
   },
+
+  [BLOGPOSTS_RECEIVED](state, action) {
+    return {
+      ...state,
+      blogposts: action.blogposts,
+    };
+  },
+
+  [VIDEOS_RECEIVED](state, action) {
+    return {
+      ...state,
+      videos: action.videos,
+    };
+  },
+
+
 });
