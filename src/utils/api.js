@@ -134,7 +134,7 @@ export default class Api {
 
   _createBookFormJSON(bookState) {
     return {
-      name: bookState.bookNameInput,
+      title: bookState.bookNameInput,
       author: bookState.bookAuthorInput,
     }
   }
