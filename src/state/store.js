@@ -2,7 +2,7 @@ import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
 import Api from '../utils/api';
 import rootReducer from './reducer';
-import { getBooksAction } from './actions';
+import { getBooksAction, getBlogpostsAction, getVideosAction } from './actions';
 
 export default function makeStore() {
   const api = new Api();
@@ -16,6 +16,9 @@ export default function makeStore() {
     )
   );
   store.dispatch(getBooksAction());
+  store.dispatch(getBlogpostsAction());
+  store.dispatch(getVideosAction());
+
   api.syncStore(store);
   return store;
 }
