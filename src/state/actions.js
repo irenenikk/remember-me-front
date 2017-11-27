@@ -11,10 +11,14 @@ export const BOOKS_RECEIVED = 'BOOKS_RECEIVED';
 export const BLOGPOSTS_RECEIVED = 'BLOGPOSTS_RECEIVED';
 export const VIDEOS_RECEIVED = 'VIDEOS_RECEIVED';
 
-export const POST_TIP_SUCCESSFUL = 'POST_TIP_SUCCESSFUL';
-export const POST_TIP_FAILED = 'POST_TIP_FAILED';
+export const NEW_MESSAGE = 'NEW_MESSAGE';
 export const TIP_SENT = 'TIP_SENT';
 export const RESET_MESSAGE = 'RESET_MESSAGE';
+
+const postSuccessful = 'Tietojen lähetys onnistui.'
+const postFailed = 'Tietojen lähetys ei onnistunut';
+const getFailed = 'Tietojen hakeminen ei onnistunut.'
+const deleteFailed = 'Lukuvinkin poistaminen ei onnistunut.'
 
 export function clickAction() {
   return {
@@ -57,113 +61,17 @@ export function inputVideoTitleChangedAction(input) {
   };
 }
 
-export function inputVideoUrlChangedAction(input) { 
+export function inputVideoUrlChangedAction(input) {
   return {
     input: input,
     type: INPUT_VIDEOURL_CHANGED,
   };
 }
 
-export function getBooksAction() {
-  return async function getter(dispatch, getState, api) {
-    api.getBooks()
-       .then(
-         (response) => {
-          dispatch(booksReceivedAction(response));
-         }
-       , () => {
-         console.info("Couldn't fetch books");
-       })
-  };
-}
-
-export function getBlogpostsAction() {
-  return async function getter(dispatch, getState, api) {
-    api.getBlogposts()
-       .then(
-         (response) => {
-          dispatch(blogpostsReceivedAction(response));
-         }
-       , () => {
-         console.info("Couldn't fetch blogposts");
-       })
-  };
-}
-
-export function getVideosAction() {
-  return async function getter(dispatch, getState, api) {
-    api.getVideos()
-       .then(
-         (response) => {
-          dispatch(videosReceivedAction(response));
-         }
-       , () => {
-         console.info("Couldn't fetch videos");
-       })
-  };
-}
-
-export function postBookAction() {
-  return async function submitter(dispatch, getState, api) {
-    api.postBook(getState().form)
-    .then(
-      (response) => {
-        console.info("posting book successful");
-        dispatch(getBooksAction());
-        dispatch(postTipSuccessfulAction());
-      },
-      (error) => {
-        console.info("Posting book failed");
-        dispatch(postTipFailedAction());
-      },
-    );
-  };
-}
-
-export function postBlogpostAction() {
-  return async function submitter(dispatch, getState, api) {
-    api.postBlogpost(getState().form)
-    .then(
-      (response) => {
-        console.info("posting blogpost successful");
-        dispatch(getBlogpostsAction());
-        dispatch(postTipSuccessfulAction());
-      },
-      (error) => {
-        console.info("Posting blogpost failed");
-        dispatch(postTipFailedAction());
-      },
-    );
-  };
-}
-
-
-export function postVideoAction() {
-  return async function submitter(dispatch, getState, api) {
-    api.postVideo(getState().form)
-    .then(
-      (response) => {
-        console.info("posting video successful");
-        dispatch(getVideosAction());
-        dispatch(postTipSuccessfulAction());
-      },
-      (error) => {
-        console.info("Posting videos failed");
-        dispatch(postTipFailedAction());
-      },
-    );
-  };
-}
-
-export function postTipSuccessfulAction() {
+export function newMessageAction(message) {
   return {
-    type: POST_TIP_SUCCESSFUL,
-  }
-}
-
-export function postTipFailedAction() {
-  return {
-    type: POST_TIP_FAILED,
+    message,
+    type: NEW_MESSAGE,
   }
 }
 
@@ -192,4 +100,132 @@ export function resetMessageAction() {
   return {
     type: RESET_MESSAGE,
   }
+}
+
+export function getBooksAction() {
+  return async function getter(dispatch, getState, api) {
+    api.getBooks()
+       .then(
+         (response) => {
+          dispatch(booksReceivedAction(response));
+         }
+       , () => {
+         dispatch(newMessageAction(getFailed));
+       })
+  };
+}
+
+export function getBlogpostsAction() {
+  return async function getter(dispatch, getState, api) {
+    api.getBlogposts()
+       .then(
+         (response) => {
+          dispatch(blogpostsReceivedAction(response));
+         }
+       , () => {
+         dispatch(newMessageAction(getFailed));
+       })
+  };
+}
+
+export function getVideosAction() {
+  return async function getter(dispatch, getState, api) {
+    api.getVideos()
+       .then(
+         (response) => {
+          dispatch(videosReceivedAction(response));
+         }
+       , () => {
+         dispatch(newMessageAction(getFailed));
+       })
+  };
+}
+
+export function postBookAction() {
+  return async function submitter(dispatch, getState, api) {
+    api.postBook(getState().form)
+    .then(
+      (response) => {
+        dispatch(getBooksAction());
+        dispatch(newMessageAction(postSuccessful));
+      },
+      (error) => {
+        dispatch(newMessageAction(postFailed));
+      },
+    );
+  };
+}
+
+export function postBlogpostAction() {
+  return async function submitter(dispatch, getState, api) {
+    api.postBlogpost(getState().form)
+    .then(
+      (response) => {
+        dispatch(getBlogpostsAction());
+        dispatch(newMessageAction(postSuccessful));
+      },
+      (error) => {
+        dispatch(newMessageAction(postFailed));
+      },
+    );
+  };
+}
+
+
+export function postVideoAction() {
+  return async function submitter(dispatch, getState, api) {
+    api.postVideo(getState().form)
+    .then(
+      (response) => {
+        dispatch(getVideosAction());
+        dispatch(newMessageAction(postSuccessful));
+      },
+      (error) => {
+        dispatch(newMessageAction(postFailed));
+      },
+    );
+  };
+}
+
+export function deleteBookAction(id) {
+  return async function deleter(dispatch, getState, api) {
+    api.deleteBook(id)
+    .then(
+      () => {
+        dispatch(getBooksAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(deleteFailed));
+      },
+    );
+  };
+}
+
+export function deleteVideoAction(id) {
+  return async function deleter(dispatch, getState, api) {
+    api.deleteVideo(id)
+    .then(
+      () => {
+        dispatch(getVideosAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(deleteFailed));
+      },
+    );
+  };
+}
+
+
+export function deleteBlogpostAction(id) {
+  return async function deleter(dispatch, getState, api) {
+    api.deleteBlogpost(id)
+    .then(
+      () => {
+        dispatch(getBlogpostsAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(deleteFailed));
+      },
+    );
+  };
 }

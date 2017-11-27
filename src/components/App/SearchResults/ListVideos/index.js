@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Video from '../Video';
 import Paper from 'material-ui/Paper';
+import { deleteVideoAction } from '../../../../state/actions';
 
 class ListVideos extends Component {
 
@@ -9,13 +10,15 @@ class ListVideos extends Component {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-          {this.props.videos.map(b =>
+          {this.props.videos.map(v =>
             <Video
-              key={b.id}
-              title={b.title}
-              url={b.url}
-              description={b.description}
-              tags={b.tags}
+              id={v.id}
+              key={v.id}
+              title={v.title}
+              url={v.url}
+              description={v.description}
+              tags={v.tags}
+              onDelete={this.props.handleDelete}
             />
           )}
         </Paper>
@@ -30,4 +33,12 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(ListVideos);
+function mapDispatchToProps(dispatch) {
+  return {
+    handleDelete(id) {
+      dispatch(deleteVideoAction(id))
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListVideos);

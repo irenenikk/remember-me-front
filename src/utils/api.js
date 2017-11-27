@@ -127,6 +127,60 @@ export default class Api {
       });
     }
 
+    deleteBook(id) {
+      return new Promise((resolve, reject) => {
+        fetch(`${SERVER}/books/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'omit',
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
+    deleteVideo(id) {
+      return new Promise((resolve, reject) => {
+        fetch(`${SERVER}/videos/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
+    deleteBlogpost(id) {
+      return new Promise((resolve, reject) => {
+        fetch(`${SERVER}/blogposts/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
 
   syncStore(store) {
     this.store = store;
@@ -152,6 +206,4 @@ export default class Api {
       url: videoState.videoUrlInput,
     }
   }
-
-
 }
