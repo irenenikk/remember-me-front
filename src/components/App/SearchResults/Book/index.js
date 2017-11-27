@@ -6,7 +6,7 @@ import DeleteButton from '../DeleteButton';
 export default ({ title, author, description, id, onDelete }) => {
   return (
     <Card>
-        <CardTitle title={title} subtitle={author} />
+      <CardTitle className="book" title={title} subtitle={author} />
         <DeleteButton id={id} onDelete={onDelete} />
         <CardText>
           {description}

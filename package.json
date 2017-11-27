@@ -21,8 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "integration": "yarn build && yarn cucumber-js"
+    "test": "yarn build && yarn cucumber-js",
+    "eject": "react-scripts eject"
   }
 }

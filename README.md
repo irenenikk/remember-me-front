@@ -40,7 +40,7 @@ Both development and production server addresses must be configured in a local `
 ## Built with
 * React with Redux
 * Webpack, ESlint and Babel as configured by [create-react-app](https://github.com/facebookincubator/create-react-app)
-* Code (used in tests) requires a Node >= 8.9.0
+* Integration tests with cucumber-js, nightmare, code and electron. Code requires a node version >= 8.9.0
 
 ## Authors
 

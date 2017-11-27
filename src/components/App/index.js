@@ -42,6 +42,7 @@ class App extends Component {
          </Tab>
 
            <Tab
+             id="add-new-book-button"
              label="Lisää kirja">
                 <FormAddNewBook />
                 <ListBooks />
