@@ -7,13 +7,9 @@ import {
   INPUT_BLOGPOSTURL_CHANGED,
   INPUT_VIDEOTITLE_CHANGED,
   INPUT_VIDEOURL_CHANGED,
-  POST_TIP_FAILED,
-  POST_TIP_SUCCESSFUL,
+  NEW_MESSAGE,
   RESET_MESSAGE,
 } from '../state/actions';
-
-const tipPostSuccessfulMessage = "Lukuvinkin lähettäminen onnistui.";
-const tipPostFailedMessage = "Lukuvinkin lähettäminen epäonnistui."
 
 const initialState = {
   bookAuthorInput: "",
@@ -67,16 +63,10 @@ export default createReducer(initialState, {
       videoUrlInput: action.input,
     };
   },
-  [POST_TIP_SUCCESSFUL](state, action) {
+  [NEW_MESSAGE](state, action) {
     return {
       ...state,
-      message: tipPostSuccessfulMessage,
-    };
-  },
-  [POST_TIP_FAILED](state, action) {
-    return {
-      ...state,
-      message: tipPostFailedMessage,
+      message: action.message,
     };
   },
   [RESET_MESSAGE](state, action) {
