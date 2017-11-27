@@ -192,6 +192,7 @@ export function deleteBookAction(id) {
     api.deleteBook(id)
     .then(
       () => {
+        dispatch(getBooksAction());
       },
       (error) => {
         dispatch(newMessageAction(deleteFailed));
