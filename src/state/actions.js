@@ -200,3 +200,32 @@ export function deleteBookAction(id) {
     );
   };
 }
+
+export function deleteVideoAction(id) {
+  return async function deleter(dispatch, getState, api) {
+    api.deleteVideo(id)
+    .then(
+      () => {
+        dispatch(getVideosAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(deleteFailed));
+      },
+    );
+  };
+}
+
+
+export function deleteBlogpostAction(id) {
+  return async function deleter(dispatch, getState, api) {
+    api.deleteBlogpost(id)
+    .then(
+      () => {
+        dispatch(getBlogpostsAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(deleteFailed));
+      },
+    );
+  };
+}

@@ -1,14 +1,18 @@
 import React from 'react';
 
 import {Card, CardTitle, CardText} from 'material-ui/Card';
+import DeleteButton from '../DeleteButton';
 
-export default ({ title, url, description }) => {
+export default ({ title, url, description, id, onDelete }) => {
   return (
     <Card>
-        <CardTitle title={title} subtitle={url} />
+      <div class="pilar">
+      <CardTitle title={title}/>
+      <a href={url}>{url}</a>
+      </div>
         <CardText>
-          {description}
-        </CardText>
-      </Card>
+        <DeleteButton id={id} onDelete={onDelete} />
+      </CardText>
+    </Card>
   );
 }
