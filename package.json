@@ -1,11 +1,9 @@
 {
   "name": "remember-me",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "material-ui": "^0.19.4",
     "react": "^16.1.1",
-    "react-cucumber": "^1.0.5",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
     "redux": "^3.6.0",
@@ -14,13 +12,16 @@
   },
   "devDependencies": {
     "eslint-config-react-app": "^2.0.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "code": "^4.1.0",
+    "cucumber": "^2.3.1",
+    "nightmare": "^2.10.0",
+    "static-server": "^2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "proxy": "http://remember-me-back.herokuapp.com"
+  }
 }
