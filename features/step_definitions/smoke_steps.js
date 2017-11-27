@@ -10,11 +10,11 @@ defineSupportCode(function ({Given, When, Then}) {
       return this.helloWorldPage.loadPage();
   });
 
-  Then('{message} should be displayed', function (message) {
+  Then('{string} should be displayed', function (message) {
       return this.helloWorldPage.getPageMessage()
           .end()
           .then((result) => {
-              expect(result.message).to.equal();
+              expect(result.message).to.contain(message);
           });
   });
 });

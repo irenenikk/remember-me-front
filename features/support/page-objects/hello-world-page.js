@@ -1,4 +1,4 @@
-const MESSAGE_SELECTOR = '.app div';
+const MESSAGE_SELECTOR = '.app-bar';
 
 class HelloWorldPage {
     constructor(nightmare) {
@@ -14,7 +14,7 @@ class HelloWorldPage {
 
         return this.nightmare
             .goto(path)
-            .wait('#root');
+            .wait('.app-bar');
     }
 
     getPageMessage() {

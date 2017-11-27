@@ -6,4 +6,4 @@ Feature: App Smoke Test
     Scenario: Load the page
         Given a page exists
         When I load the page
-        Then Hello World should be displayed
+        Then Remember me - Lukulista should be displayed

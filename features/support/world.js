@@ -7,7 +7,7 @@ function MinimalistConstructor() {
     this.start = () => {
         this.server = new Promise((resolve) => {
             const server = new StaticServer({
-                rootPath: '.',
+                rootPath: 'build',
                 host: 'localhost',
                 port: 3000
             });

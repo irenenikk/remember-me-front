@@ -30,7 +30,6 @@ class App extends Component {
     return (
       <MuiThemeProvider className="app" muiTheme={muiTheme}>
       <div>
-        <div className="app" >Hello World</div>
         <AppBar
           title="Remember me - Lukulista"
           className="app-bar"
