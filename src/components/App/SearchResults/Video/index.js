@@ -6,7 +6,7 @@ import DeleteButton from '../DeleteButton';
 export default ({ title, url, description, id, onDelete }) => {
   return (
     <Card>
-      <div class="pilar">
+      <div className="pilar">
       <CardTitle title={title} />
       <a href={url}>
             {url}
