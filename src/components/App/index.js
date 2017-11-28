@@ -28,10 +28,11 @@ class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider className="App" muiTheme={muiTheme}>
+      <MuiThemeProvider className="app" muiTheme={muiTheme}>
       <div>
         <AppBar
           title="Remember me - Lukulista"
+          className="app-bar"
         />
         <InfoBar message={this.props.message} />
         <Tabs>
@@ -41,6 +42,7 @@ class App extends Component {
          </Tab>
 
            <Tab
+             id="add-new-book-button"
              label="Lisää kirja">
                 <FormAddNewBook />
                 <ListBooks />

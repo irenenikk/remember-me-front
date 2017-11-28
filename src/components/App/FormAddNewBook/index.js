@@ -16,6 +16,7 @@ class FormAddNewBook extends Component {
           <CardTitle title="Lisää kirja:"> </CardTitle>
             <CardText>
               <TextField
+                id="book-author-input"
                 value={this.props.authorInput}
                 onChange={this.props.inputBookWriterValueHandleOnChange}
                 placeholder="Kirjailijan nimi "
@@ -24,6 +25,7 @@ class FormAddNewBook extends Component {
               </TextField>
               <br/>
               <TextField
+                id="book-title-input"
                 value={this.props.nameInput}
                 onChange={this.props.inputBookTitleValueHandleOnChange}
                 placeholder="Kirjan nimi "
@@ -33,6 +35,7 @@ class FormAddNewBook extends Component {
             </CardText>
             <CardActions>
               <RaisedButton
+                id="submit-book"
                 label="Tallenna lukulistalle"
                 onClick={this.props.handleClick}
                 primary={true}

@@ -7,7 +7,7 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 env:
- - REACT_APP_APIURL=https://dev-remember-me-back.herokuapp.com/
+ - REACT_APP_APIURL=https://dev-remember-me-back.herokuapp.com/api/v01/
 
 deploy:
   provider: heroku
@@ -16,3 +16,12 @@ deploy:
   app: remember-me-front
   on:
     repo: irenenikk/remember-me-front
+
+addons:
+  apt:
+    packages:
+      - xvfb
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - npm install
