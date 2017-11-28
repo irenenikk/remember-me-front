@@ -53,7 +53,7 @@ class HelloWorldPage {
     }
 
     submitBookForm() {
-        return this.nightmare.click('button[type=submit]').wait(500).wait(BOOK_CLASS);
+        return this.nightmare.click('button[type=submit]').wait(BOOK_CLASS);
     }
 }
 
