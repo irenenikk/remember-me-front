@@ -16,13 +16,13 @@ class InfoBar extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     message: state.form.message,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handelHide() {
       dispatch(resetMessageAction());

@@ -46,14 +46,14 @@ class VideoForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     title: state.form.video.title,
     url: state.form.video.url,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     onTitleChange(event) {
       dispatch(inputVideoTitleChangedAction(event.target.value))

@@ -86,7 +86,7 @@ export default class Api {
 
   postBlogpost(formState) {
     return new Promise((resolve, reject) => {
-      const data = this._createBlogpostFormJSON(formState.blog);
+      const data = this._createBlogpostFormJSON(formState.blogpost);
       fetch(`${SERVER}/blogposts`, {
         method: 'POST',
         body: JSON.stringify(data),

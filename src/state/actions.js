@@ -15,95 +15,113 @@ export const NEW_MESSAGE = 'NEW_MESSAGE';
 export const TIP_SENT = 'TIP_SENT';
 export const RESET_MESSAGE = 'RESET_MESSAGE';
 
-const postSuccessful = 'Tietojen lähetys onnistui.'
-const postFailed = 'Tietojen lähetys ei onnistunut';
-const getFailed = 'Tietojen hakeminen ei onnistunut.'
-const deleteFailed = 'Lukuvinkin poistaminen ei onnistunut.'
+export const EDIT_BOOK = 'EDIT_BOOK';
+export const EDIT_VIDEO = 'EDIT_VIDEO';
+export const EDIT_BLOGPOST = 'EDIT_BLOGPOST';
 
-export function clickAction() {
+export const FINISH_BOOK_EDIT = 'FINISH_BOOK_EDIT';
+
+export const UPDATE_BOOK_AUTHOR = 'UPDATE_BOOK_AUTHOR';
+export const UPDATE_BOOK_TITLE = 'UPDATE_BOOK_TITLE';
+export const UPDATE_BOOK_DESCRIPTION = 'UPDATE_BOOK_DESCRIPTION';
+
+const postSuccessful = 'Tip saved'
+const postFailed = 'Couldn\'t save tip';
+const getFailed = 'Couldn\'t get tips.'
+const deleteFailed = 'Couldn\'t delete tip.'
+const updateFailed = 'Couldn\'t update tip.'
+
+export const clickAction = () => {
   return {
     type: CLICK,
   };
 }
 
-export function inputBookWriterChangedAction(input) {
+export const inputBookWriterChangedAction = (input) => {
   return {
-    input: input,
+    input,
     type: INPUT_BOOKWRITER_CHANGED,
   };
 }
 
-export function inputBookTitleChangedAction(input) {
+export const inputBookTitleChangedAction = (input) => {
   return {
-    input: input,
+    input,
     type: INPUT_BOOKTITLE_CHANGED,
   };
 }
 
-export function inputBlogpostTitleChangedAction(input) {
+export const inputBookDescriptionChangedAction = (input) => {
+  return {
+    input,
+    type: INPUT_BOOKDESCRIPTION_CHANGED,
+  };
+}
+
+export const inputBlogpostTitleChangedAction = (input) => {
   return {
     input: input,
     type: INPUT_BLOGPOSTTITLE_CHANGED,
   };
 }
 
-export function inputBlogpostUrlChangedAction(input) {
+export const inputBlogpostUrlChangedAction = (input) => {
   return {
     input: input,
     type: INPUT_BLOGPOSTURL_CHANGED,
   };
 }
 
-export function inputVideoTitleChangedAction(input) {
+export const inputVideoTitleChangedAction = (input) => {
   return {
     input: input,
     type: INPUT_VIDEOTITLE_CHANGED,
   };
 }
 
-export function inputVideoUrlChangedAction(input) {
+export const inputVideoUrlChangedAction = (input) => {
   return {
     input: input,
     type: INPUT_VIDEOURL_CHANGED,
   };
 }
 
-export function newMessageAction(message) {
+export const newMessageAction = (message) => {
   return {
     message,
     type: NEW_MESSAGE,
   }
 }
 
-export function booksReceivedAction(books) {
+export const booksReceivedAction = (books) => {
   return {
     books,
     type: BOOKS_RECEIVED,
   }
 }
 
-export function blogpostsReceivedAction(blogposts) {
+export const blogpostsReceivedAction = (blogposts) => {
   return {
     blogposts,
     type: BLOGPOSTS_RECEIVED,
   }
 }
 
-export function videosReceivedAction(videos) {
+export const videosReceivedAction = (videos) => {
   return {
     videos,
     type: VIDEOS_RECEIVED,
   }
 }
 
-export function resetMessageAction() {
+export const resetMessageAction = () => {
   return {
     type: RESET_MESSAGE,
   }
 }
 
-export function getBooksAction() {
-  return async function getter(dispatch, getState, api) {
+export const getBooksAction = () => {
+  return async (dispatch, getState, api) => {
     api.getBooks()
        .then(
          (response) => {
@@ -115,8 +133,8 @@ export function getBooksAction() {
   };
 }
 
-export function getBlogpostsAction() {
-  return async function getter(dispatch, getState, api) {
+export const getBlogpostsAction = () => {
+  return async (dispatch, getState, api) => {
     api.getBlogposts()
        .then(
          (response) => {
@@ -128,8 +146,8 @@ export function getBlogpostsAction() {
   };
 }
 
-export function getVideosAction() {
-  return async function getter(dispatch, getState, api) {
+export const getVideosAction = () => {
+  return async (dispatch, getState, api) => {
     api.getVideos()
        .then(
          (response) => {
@@ -141,8 +159,8 @@ export function getVideosAction() {
   };
 }
 
-export function postBookAction() {
-  return async function submitter(dispatch, getState, api) {
+export const postBookAction = () => {
+  return async (dispatch, getState, api) => {
     api.postBook(getState().form)
     .then(
       (response) => {
@@ -156,8 +174,8 @@ export function postBookAction() {
   };
 }
 
-export function postBlogpostAction() {
-  return async function submitter(dispatch, getState, api) {
+export const postBlogpostAction = () => {
+  return async (dispatch, getState, api) => {
     api.postBlogpost(getState().form)
     .then(
       (response) => {
@@ -172,8 +190,8 @@ export function postBlogpostAction() {
 }
 
 
-export function postVideoAction() {
-  return async function submitter(dispatch, getState, api) {
+export const postVideoAction = () => {
+  return async (dispatch, getState, api) => {
     api.postVideo(getState().form)
     .then(
       (response) => {
@@ -187,8 +205,8 @@ export function postVideoAction() {
   };
 }
 
-export function deleteBookAction(id) {
-  return async function deleter(dispatch, getState, api) {
+export const deleteBookAction = (id) => {
+  return async (dispatch, getState, api) => {
     api.deleteBook(id)
     .then(
       () => {
@@ -201,8 +219,8 @@ export function deleteBookAction(id) {
   };
 }
 
-export function deleteVideoAction(id) {
-  return async function deleter(dispatch, getState, api) {
+export const deleteVideoAction = (id) => {
+  return async (dispatch, getState, api) => {
     api.deleteVideo(id)
     .then(
       () => {
@@ -216,8 +234,8 @@ export function deleteVideoAction(id) {
 }
 
 
-export function deleteBlogpostAction(id) {
-  return async function deleter(dispatch, getState, api) {
+export const deleteBlogpostAction = (id) => {
+  return async (dispatch, getState, api) => {
     api.deleteBlogpost(id)
     .then(
       () => {

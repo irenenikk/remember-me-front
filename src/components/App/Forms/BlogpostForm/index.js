@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 
 
-class BlogForm extends Component {
+class BlogpostForm extends Component {
 
   render() {
     return (
@@ -26,8 +26,8 @@ class BlogForm extends Component {
               <TextField
                 value={this.props.url}
                 onChange={this.props.onUrlChange}
-                placeholder="Link "
-                name="www.site.com"
+                placeholder="Link"
+                name="Link"
               >
               </TextField>
             </CardText>
@@ -46,14 +46,14 @@ class BlogForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
-    title: state.form.blog.title,
-    url: state.form.blog.url,
+    title: state.form.blogpost.title,
+    url: state.form.blogpost.url,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     onTitleChange(event) {
       dispatch(inputBlogpostTitleChangedAction(event.target.value))
@@ -67,4 +67,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BlogForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogpostForm);

@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { postBookAction, inputBookWriterChangedAction, inputBookTitleChangedAction } from '../../../../state/actions';
+import {
+  postBookAction,
+  inputBookWriterChangedAction,
+  inputBookTitleChangedAction,
+  inputBookDescriptionChangedAction,
+ } from '../../../../state/actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 
 
-class FormAddNewBook extends Component {
+class BookForm extends Component {
 
   render() {
     return (
       <center>
-        <Card className="FormAddNewBook">
+        <Card className="BookForm">
           <CardTitle title="Add new book:"> </CardTitle>
             <CardText>
               <TextField
@@ -21,8 +26,7 @@ class FormAddNewBook extends Component {
                 onChange={this.props.onAuthorChange}
                 placeholder="Author "
                 name="Author"
-              >
-              </TextField>
+              />
               <br/>
               <TextField
                 id="book-title-input"
@@ -30,8 +34,18 @@ class FormAddNewBook extends Component {
                 onChange={this.props.onTitleChange}
                 placeholder="Title "
                 name="Title"
-              >
-              </TextField>
+              />
+              <br/>
+              <TextField
+                id="book-description-input"
+                value={this.props.description}
+                onChange={this.props.onDescriptionChange}
+                placeholder="Description"
+                name="Description"
+                multiLine
+                fullWidth
+                rows={3}
+              />
             </CardText>
             <CardActions>
               <RaisedButton
@@ -49,14 +63,14 @@ class FormAddNewBook extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     author: state.form.book.author,
     title: state.form.book.title,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     onAuthorChange(event) {
       dispatch(inputBookWriterChangedAction(event.target.value))
@@ -64,10 +78,13 @@ function mapDispatchToProps(dispatch) {
     onTitleChange(event) {
       dispatch(inputBookTitleChangedAction(event.target.value))
     },
+    onDescriptionChange(event) {
+      dispatch(inputBookDescriptionChangedAction(event.target.value))
+    },
     handleClick() {
       dispatch(postBookAction());
     },
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormAddNewBook);
+export default connect(mapStateToProps, mapDispatchToProps)(BookForm);

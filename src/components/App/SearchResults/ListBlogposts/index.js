@@ -27,13 +27,13 @@ class ListBlogposts extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     blogposts: state.list.blogposts,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleDelete(id) {
       dispatch(deleteBlogpostAction(id))

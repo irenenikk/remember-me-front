@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { clickAction } from '../../state/actions';
 import BookForm from './Forms/BookForm';
-import BlogForm from './Forms/BlogForm';
+import BlogpostForm from './Forms/BlogpostForm';
 import VideoForm from './Forms/VideoForm';
 
 import ListAllTips from './SearchResults/';
@@ -50,7 +49,7 @@ class App extends Component {
 
           <Tab
             label="Add new blogpost">
-               <BlogForm />
+               <BlogpostForm />
                <ListBlogposts />
          </Tab>
 
@@ -67,7 +66,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     message: state.form.message,
   };

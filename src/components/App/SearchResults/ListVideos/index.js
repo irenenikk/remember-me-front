@@ -27,13 +27,13 @@ class ListVideos extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     videos: state.list.videos,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleDelete(id) {
       dispatch(deleteVideoAction(id))

@@ -17,8 +17,7 @@ const initialState = {
     title: "",
     description: "",
   },
-  blog: {
-    author: "",
+  blogpost: {
     title: "",
     url: "",
   },
@@ -53,11 +52,20 @@ export default createReducer(initialState, {
       }
     };
   },
+  [INPUT_BOOKDESCRIPTION_CHANGED](state, action) {
+    return {
+      ...state,
+      book: {
+        ...state.book,
+        description: action.input,
+      }
+    };
+  },
   [INPUT_BLOGPOSTTITLE_CHANGED](state, action) {
     return {
       ...state,
-      blog: {
-        ...state.blog,
+      blogpost: {
+        ...state.blogpost,
         title: action.input,
       }
     };
@@ -65,8 +73,8 @@ export default createReducer(initialState, {
   [INPUT_BLOGPOSTURL_CHANGED](state, action) {
     return {
       ...state,
-      blog: {
-        ...state.blog,
+      blogpost: {
+        ...state.blogpost,
         url: action.input,
       }
     };
