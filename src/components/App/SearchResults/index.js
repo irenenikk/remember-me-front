@@ -14,13 +14,13 @@ class ListAllTips extends Component {
       <center>
         <Paper className="paper" zDepth={2} >
 
-          <h1>Kirjat</h1>
+          <h1>Books</h1>
           <ListBooks />
 
-          <h1>Blogit</h1>
+          <h1>Blogs</h1>
           <ListBlogposts />
 
-          <h1>Videot</h1>
+          <h1>Videos</h1>
           <ListVideos />
 
         </Paper>

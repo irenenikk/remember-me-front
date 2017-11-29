@@ -6,7 +6,7 @@ Feature: App Smoke Test
     Scenario: Home page should exist
         Given I navigate to the home page
         When I load the page
-        Then Remember me - Lukulista should be displayed in home bar
+        Then Remember me should be displayed in home bar
 
     Scenario: I should be able to add a book
         Given I navigate to the home page

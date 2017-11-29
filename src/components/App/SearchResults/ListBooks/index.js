@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Book from '../Book';
+import Book from './Book';
 import Paper from 'material-ui/Paper'
 import { deleteBookAction } from '../../../../state/actions';
 

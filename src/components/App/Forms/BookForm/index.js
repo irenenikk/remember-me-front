@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { postBookAction, inputBookWriterChangedAction, inputBookTitleChangedAction } from '../../../state/actions';
+import { postBookAction, inputBookWriterChangedAction, inputBookTitleChangedAction } from '../../../../state/actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -13,30 +13,30 @@ class FormAddNewBook extends Component {
     return (
       <center>
         <Card className="FormAddNewBook">
-          <CardTitle title="Lisää kirja:"> </CardTitle>
+          <CardTitle title="Add new book:"> </CardTitle>
             <CardText>
               <TextField
                 id="book-author-input"
-                value={this.props.authorInput}
-                onChange={this.props.inputBookWriterValueHandleOnChange}
-                placeholder="Kirjailijan nimi "
-                name="Kirjailijan nimi "
+                value={this.props.author}
+                onChange={this.props.onAuthorChange}
+                placeholder="Author "
+                name="Author"
               >
               </TextField>
               <br/>
               <TextField
                 id="book-title-input"
-                value={this.props.nameInput}
-                onChange={this.props.inputBookTitleValueHandleOnChange}
-                placeholder="Kirjan nimi "
-                name="Kirjan nimi"
+                value={this.props.title}
+                onChange={this.props.onTitleChange}
+                placeholder="Title "
+                name="Title"
               >
               </TextField>
             </CardText>
             <CardActions>
               <RaisedButton
                 id="submit-book"
-                label="Tallenna lukulistalle"
+                label="Save"
                 onClick={this.props.handleClick}
                 primary={true}
                 type="submit"
@@ -51,17 +51,17 @@ class FormAddNewBook extends Component {
 
 function mapStateToProps(state) {
   return {
-    authorInput: state.bookAuthorInput,
-    nameInput: state.bookNameInput,
+    author: state.form.book.author,
+    title: state.form.book.title,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    inputBookWriterValueHandleOnChange(event) {
+    onAuthorChange(event) {
       dispatch(inputBookWriterChangedAction(event.target.value))
     },
-    inputBookTitleValueHandleOnChange(event) {
+    onTitleChange(event) {
       dispatch(inputBookTitleChangedAction(event.target.value))
     },
     handleClick() {

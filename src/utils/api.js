@@ -65,7 +65,7 @@ export default class Api {
 
   postBook(formState) {
     return new Promise((resolve, reject) => {
-      const data = this._createBookFormJSON(formState);
+      const data = this._createBookFormJSON(formState.book);
       fetch(`${SERVER}/books`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -86,7 +86,7 @@ export default class Api {
 
   postBlogpost(formState) {
     return new Promise((resolve, reject) => {
-      const data = this._createBlogpostFormJSON(formState);
+      const data = this._createBlogpostFormJSON(formState.blog);
       fetch(`${SERVER}/blogposts`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -108,7 +108,7 @@ export default class Api {
 
     postVideo(formState) {
       return new Promise((resolve, reject) => {
-        const data = this._createVideoFormJSON(formState);
+        const data = this._createVideoFormJSON(formState.video);
         fetch(`${SERVER}/videos`, {
           method: 'POST',
           body: JSON.stringify(data),
@@ -188,22 +188,22 @@ export default class Api {
 
   _createBookFormJSON(bookState) {
     return {
-      title: bookState.bookNameInput,
-      author: bookState.bookAuthorInput,
+      title: bookState.title,
+      author: bookState.author,
     }
   }
 
   _createBlogpostFormJSON(blogpostState) {
     return {
-      title: blogpostState.blogpostTitleInput,
-      url: blogpostState.blogpostUrlInput,
+      title: blogpostState.title,
+      url: blogpostState.url,
     }
   }
 
   _createVideoFormJSON(videoState) {
     return {
-      title: videoState.videoTitleInput,
-      url: videoState.videoUrlInput,
+      title: videoState.title,
+      url: videoState.url,
     }
   }
 }

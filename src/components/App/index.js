@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { clickAction } from '../../state/actions';
-import FormAddNewBook from './FormAddNewBook';
-import FormAddNewBlogpost from './FormAddNewBlogpost';
-import FormAddNewVideo from './FormAddNewVideo';
+import BookForm from './Forms/BookForm';
+import BlogForm from './Forms/BlogForm';
+import VideoForm from './Forms/VideoForm';
 
 import ListAllTips from './SearchResults/';
 import ListBooks from './SearchResults/ListBooks';
@@ -31,32 +31,32 @@ class App extends Component {
       <MuiThemeProvider className="app" muiTheme={muiTheme}>
       <div>
         <AppBar
-          title="Remember me - Lukulista"
+          title="Remember me"
           className="app-bar"
         />
         <InfoBar message={this.props.message} />
         <Tabs>
           <Tab
-            label="Kaikki lukuvinkit">
+            label="All reading tips">
                <ListAllTips />
          </Tab>
 
            <Tab
              id="add-new-book-button"
-             label="Lisää kirja">
-                <FormAddNewBook />
+             label="Add new book">
+                <BookForm />
                 <ListBooks />
           </Tab>
 
           <Tab
-            label="Lisää blogikirjoitus">
-               <FormAddNewBlogpost />
+            label="Add new blogpost">
+               <BlogForm />
                <ListBlogposts />
          </Tab>
 
          <Tab
-           label="Lisää video">
-              <FormAddNewVideo />
+           label="Add new video">
+              <VideoForm />
               <ListVideos />
         </Tab>
 
