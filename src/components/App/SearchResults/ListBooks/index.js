@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Book from './Book';
 import Paper from 'material-ui/Paper'
-import { deleteBookAction } from '../../../../state/actions';
+import {
+  deleteBookAction,
+  editBookAction,
+  updateBookAction,
+  updateBookAuthorAction,
+  updateBookTitleAction,
+  updateBookDescriptionAction,
+ } from '../../../../state/actions';
 
 class ListBooks extends Component {
 
@@ -19,6 +26,12 @@ class ListBooks extends Component {
               description={b.description}
               tags={b.tags}
               onDelete={this.props.handleDelete}
+              onEdit={this.props.handleEdit}
+              onFinishEditing={this.props.handleFinishEditing}
+              edit={b.edit}
+              onAuthorChange={this.props.handleAuthorChange}
+              onTitleChange={this.props.handleTitleChange}
+              onDescriptionChange={this.props.handleDescriptionChange}
             />
           )}
         </Paper>
@@ -27,16 +40,31 @@ class ListBooks extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     books: state.list.books,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleDelete(id) {
       dispatch(deleteBookAction(id))
+    },
+    handleEdit(id) {
+      dispatch(editBookAction(id));
+    },
+    handleFinishEditing(id) {
+      dispatch(updateBookAction(id));
+    },
+    handleAuthorChange(input, id) {
+      dispatch(updateBookAuthorAction(input, id));
+    },
+    handleTitleChange(input, id) {
+      dispatch(updateBookTitleAction(input, id));
+    },
+    handleDescriptionChange(input, id) {
+      dispatch(updateBookDescriptionAction(input, id));
     }
   };
 }

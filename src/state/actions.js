@@ -1,6 +1,7 @@
 export const CLICK = 'CLICK';
 
 export const INPUT_BOOKWRITER_CHANGED = 'INPUT_BOOKWRITER_CHANGED';
+export const INPUT_BOOKDESCRIPTION_CHANGED = 'INPUT_BOOKDESCRIPTION_CHANGED';
 export const INPUT_BOOKTITLE_CHANGED = 'INPUT_BOOKTITLE_CHANGED';
 export const INPUT_BLOGPOSTTITLE_CHANGED = 'INPUT_BLOGPOSTTITLE_CHANGED';
 export const INPUT_BLOGPOSTURL_CHANGED = 'INPUT_BLOGPOSTURL_CHANGED';
@@ -245,5 +246,72 @@ export const deleteBlogpostAction = (id) => {
         dispatch(newMessageAction(deleteFailed));
       },
     );
+  };
+}
+
+export const editBookAction = (id) => {
+  return {
+    id,
+    type: EDIT_BOOK,
+  };
+}
+
+export const editVideoAction = (id) => {
+  return {
+    id,
+    type: EDIT_VIDEO,
+  };
+}
+
+export const editBlogpostAction = (id) => {
+  return {
+    id,
+    type: EDIT_BLOGPOST,
+  };
+}
+
+export const finishEditingBookAction = (id) => {
+  return {
+    id,
+    type: FINISH_BOOK_EDIT,
+  }
+}
+
+export const updateBookAction = (id) => {
+  return async (dispatch, getState, api) => {
+    const book = getState().list.books.filter(b => b.id === id)[0];
+    api.putBook(book)
+    .then(
+      () => {
+        dispatch(finishEditingBookAction(id));
+      },
+      (error) => {
+        dispatch(newMessageAction(updateFailed));
+      },
+    );
+  };
+}
+
+export const updateBookAuthorAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_BOOK_AUTHOR,
+  };
+}
+
+export const updateBookTitleAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_BOOK_TITLE,
+  };
+}
+
+export const updateBookDescriptionAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_BOOK_DESCRIPTION,
   };
 }

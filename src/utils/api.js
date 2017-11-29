@@ -182,6 +182,26 @@ export default class Api {
       });
     }
 
+    putBook(book) {
+      return new Promise((resolve, reject) => {
+        const data = this._createBookFormJSON(book)
+        fetch(`${SERVER}/books/${book.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
   syncStore(store) {
     this.store = store;
   }
@@ -190,6 +210,7 @@ export default class Api {
     return {
       title: bookState.title,
       author: bookState.author,
+      description: bookState.description,
     }
   }
 
