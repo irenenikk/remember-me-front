@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Blogpost from '../Blogpost';
+import Blogpost from './Blogpost';
 import Paper from 'material-ui/Paper';
 import { deleteBlogpostAction } from '../../../../state/actions';
 

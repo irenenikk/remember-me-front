@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Card, CardTitle, CardText} from 'material-ui/Card';
-import DeleteButton from '../DeleteButton';
+import DeleteButton from '../../DeleteButton';
 
 export default ({ title, author, description, id, onDelete }) => {
   return (

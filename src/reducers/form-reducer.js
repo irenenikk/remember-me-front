@@ -12,13 +12,21 @@ import {
 } from '../state/actions';
 
 const initialState = {
-  bookAuthorInput: "",
-  bookNameInput: "",
+  book: {
+    author: "",
+    title: "",
+    description: "",
+  },
+  blog: {
+    author: "",
+    title: "",
+    url: "",
+  },
+  video: {
+    title: "",
+    url: "",
+  },
   message: "",
-  blogpostTitleInput: "",
-  blogpostUrlInput: "",
-  videoTitleInput: "",
-  videoUrlInput: "",
 };
 
 export default createReducer(initialState, {
@@ -30,37 +38,55 @@ export default createReducer(initialState, {
   [INPUT_BOOKWRITER_CHANGED](state, action) {
     return {
       ...state,
-      bookAuthorInput: action.input,
+      book: {
+        ...state.book,
+        author: action.input,
+      }
     };
   },
   [INPUT_BOOKTITLE_CHANGED](state, action) {
     return {
       ...state,
-      bookNameInput: action.input,
+      book: {
+        ...state.book,
+        title: action.input,
+      }
     };
   },
   [INPUT_BLOGPOSTTITLE_CHANGED](state, action) {
     return {
       ...state,
-      blogpostTitleInput: action.input,
+      blog: {
+        ...state.blog,
+        title: action.input,
+      }
     };
   },
   [INPUT_BLOGPOSTURL_CHANGED](state, action) {
     return {
       ...state,
-      blogpostUrlInput: action.input,
+      blog: {
+        ...state.blog,
+        url: action.input,
+      }
     };
   },
   [INPUT_VIDEOTITLE_CHANGED](state, action) {
     return {
       ...state,
-      videoTitleInput: action.input,
+      video: {
+        ...state.video,
+        title: action.input,
+      }
     };
   },
   [INPUT_VIDEOURL_CHANGED](state, action) {
     return {
       ...state,
-      videoUrlInput: action.input,
+      video: {
+        ...state.video,
+        url: action.input,
+      }
     };
   },
   [NEW_MESSAGE](state, action) {

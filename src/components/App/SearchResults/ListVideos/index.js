@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Video from '../Video';
+import Video from './Video';
 import Paper from 'material-ui/Paper';
 import { deleteVideoAction } from '../../../../state/actions';
 

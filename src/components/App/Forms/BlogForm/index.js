@@ -1,39 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { postBlogpostAction, inputBlogpostTitleChangedAction, inputBlogpostUrlChangedAction } from '../../../state/actions';
+import { postBlogpostAction, inputBlogpostTitleChangedAction, inputBlogpostUrlChangedAction } from '../../../../state/actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 
 
-class FormAddNewBlogpost extends Component {
+class BlogForm extends Component {
 
   render() {
     return (
       <center>
-        <Card className="FormAddNewBlogpost">
-          <CardTitle title="Lisää Blogilinkki:"> </CardTitle>
+        <Card className="BlogForm">
+          <CardTitle title="Add new blogpost:"> </CardTitle>
             <CardText>
               <TextField
-                value={this.props.blogpostTitleInput}
-                onChange={this.props.inputBlogpostTitleValueHandleOnChange}
-                placeholder="Blogilinkin otsikko "
-                name="Linkin otsikko"
+                value={this.props.title}
+                onChange={this.props.onTitleChange}
+                placeholder="Title "
+                name="Title"
               >
               </TextField>
               <br/>
               <TextField
-                value={this.props.blogpostUrlInput}
-                onChange={this.props.inputBlogpostUrlValueHandleOnChange}
-                placeholder="Linkki "
-                name="www.malli.fi"
+                value={this.props.url}
+                onChange={this.props.onUrlChange}
+                placeholder="Link "
+                name="www.site.com"
               >
               </TextField>
             </CardText>
             <CardActions>
               <RaisedButton
-                label="Tallenna lukulistalle"
+                label="Save"
                 onClick={this.props.handleClick}
                 primary={true}
                 type="submit"
@@ -48,17 +48,17 @@ class FormAddNewBlogpost extends Component {
 
 function mapStateToProps(state) {
   return {
-    blogpostTitleInput: state.blogpostTitleInput,
-    blogpostUrlInput: state.blogpostUrlInput,
+    title: state.form.blog.title,
+    url: state.form.blog.url,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    inputBlogpostTitleValueHandleOnChange(event) {
+    onTitleChange(event) {
       dispatch(inputBlogpostTitleChangedAction(event.target.value))
     },
-    inputBlogpostUrlValueHandleOnChange(event) {
+    onUrlChange(event) {
       dispatch(inputBlogpostUrlChangedAction(event.target.value))
     },
     handleClick() {
@@ -67,4 +67,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormAddNewBlogpost);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogForm);
