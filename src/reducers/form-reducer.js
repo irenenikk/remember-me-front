@@ -76,13 +76,8 @@ export default createReducer(initialState, {
   [INPUT_BLOGPOSTAUTHOR_CHANGED](state, action) {
     return {
       ...state,
-<<<<<<< HEAD
       blogpost: {
         ...state.blogpost,
-=======
-      blog: {
-        ...state.blog,
->>>>>>> e82842f1d2b5e712bc0f107e0677f6abab8840d4
         author: action.input,
       }
     };

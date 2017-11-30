@@ -5,7 +5,6 @@ import DeleteButton from '../../DeleteButton';
 import EditButton from '../../EditButton';
 import TextField from 'material-ui/TextField';
 
-<<<<<<< HEAD
 export default class Blogpost extends Component {
 
   render() {
@@ -54,18 +53,4 @@ export default class Blogpost extends Component {
       </Card>
     );
   }
-=======
-export default ({ title, author, url, id, onDelete }) => {
-  return (
-    <Card>
-      <div className="pilar">
-      <CardTitle title={title} subtitle={author} />
-      <a href={url}>{url}</a>
-      </div>
-        <CardText>
-        <DeleteButton id={id} onDelete={onDelete} />
-      </CardText>
-    </Card>
-  );
->>>>>>> e82842f1d2b5e712bc0f107e0677f6abab8840d4
 }
