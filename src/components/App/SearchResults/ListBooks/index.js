@@ -9,6 +9,7 @@ import {
   updateBookAuthorAction,
   updateBookTitleAction,
   updateBookDescriptionAction,
+  updateBookCommentAction,
  } from '../../../../state/actions';
 
 class ListBooks extends Component {
@@ -24,6 +25,7 @@ class ListBooks extends Component {
               title={b.title}
               author={b.author}
               description={b.description}
+              comment={b.comment}
               tags={b.tags}
               onDelete={this.props.handleDelete}
               onEdit={this.props.handleEdit}
@@ -32,6 +34,7 @@ class ListBooks extends Component {
               onAuthorChange={this.props.handleAuthorChange}
               onTitleChange={this.props.handleTitleChange}
               onDescriptionChange={this.props.handleDescriptionChange}
+              onCommentChange={this.props.handleCommentChange}
             />
           )}
         </Paper>
@@ -65,6 +68,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleDescriptionChange(input, id) {
       dispatch(updateBookDescriptionAction(input, id));
+    },
+    handleCommentChange(input, id) {
+      dispatch(updateBookCommentAction(input, id));
     }
   };
 }

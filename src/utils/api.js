@@ -224,7 +224,7 @@ export default class Api {
 
     putBlogpost(blogpost) {
       return new Promise((resolve, reject) => {
-        const data = this._createBookFormJSON(blogpost)
+        const data = this._createBlogpostFormJSON(blogpost)
         fetch(`${SERVER}/blogposts/${blogpost.id}`, {
           method: 'PUT',
           body: JSON.stringify(data),
@@ -251,6 +251,7 @@ export default class Api {
       title: bookState.title,
       author: bookState.author,
       description: bookState.description,
+      comment: bookState.comment,
     }
   }
 
@@ -259,6 +260,7 @@ export default class Api {
       title: blogpostState.title,
       author: blogpostState.author,
       url: blogpostState.url,
+      comment: blogpostState.comment,
     }
   }
 
@@ -266,6 +268,7 @@ export default class Api {
     return {
       title: videoState.title,
       url: videoState.url,
+      comment: videoState.comment,
     }
   }
 }

@@ -10,11 +10,13 @@ import {
   UPDATE_BOOK_AUTHOR,
   UPDATE_BOOK_TITLE,
   UPDATE_BOOK_DESCRIPTION,
+  UPDATE_BOOK_COMMENT,
   UPDATE_VIDEO_URL,
   UPDATE_VIDEO_TITLE,
   UPDATE_BLOGPOST_URL,
   UPDATE_BLOGPOST_AUTHOR,
-  UPDATE_BLOGPOST_TITLE
+  UPDATE_BLOGPOST_TITLE,
+  UPDATE_BLOGPOST_COMMENT,
 } from '../state/actions';
 
 const initialState = {
@@ -188,6 +190,22 @@ export default createReducer(initialState, {
       books,
     }
   },
+  [UPDATE_BOOK_COMMENT](state, action) {
+    const editable = action.id;
+    const books = state.books.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          comment: action.input,
+        };
+      }
+      return b;
+    });
+    return {
+      ...state,
+      books,
+    }
+  },
   [UPDATE_VIDEO_TITLE](state, action) {
     const editable = action.id;
     const videos = state.videos.map((v) => {
@@ -267,5 +285,21 @@ export default createReducer(initialState, {
       ...state,
       blogposts,
     }
-  }
+  },
+  [UPDATE_BLOGPOST_COMMENT](state, action) {
+    const editable = action.id;
+    const blogposts = state.blogposts.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          comment: action.input,
+        };
+      }
+      return b;
+    });
+    return {
+      ...state,
+      blogposts,
+    }
+  },
 });

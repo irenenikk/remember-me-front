@@ -8,7 +8,8 @@ import {
   updateBlogpostAction,
   updateBlogpostTitleAction,
   updateBlogpostAuthorAction,
-  updateBlogpostUrlAction
+  updateBlogpostUrlAction,
+  updateBlogpostCommentAction,
 } from '../../../../state/actions';
 
 class ListBlogposts extends Component {
@@ -24,6 +25,7 @@ class ListBlogposts extends Component {
               title={b.title}
               author={b.author}
               url={b.url}
+              comment={b.comment}
               tags={b.tags}
               onDelete={this.props.handleDelete}
               onEdit={this.props.handleEdit}
@@ -32,6 +34,7 @@ class ListBlogposts extends Component {
               onTitleChange={this.props.handleTitleChange}
               onAuthorChange={this.props.handleAuthorChange}
               onUrlChange={this.props.handleUrlChange}
+              onCommentChange={this.props.handleCommentChange}
             />
           )}
         </Paper>
@@ -62,6 +65,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleAuthorChange(input, id) {
       dispatch(updateBlogpostAuthorAction(input, id));
+    },
+    handleCommentChange(input, id) {
+      dispatch(updateBlogpostCommentAction(input, id));
     },
     handleUrlChange(input, id) {
       dispatch(updateBlogpostUrlAction(input, id));
