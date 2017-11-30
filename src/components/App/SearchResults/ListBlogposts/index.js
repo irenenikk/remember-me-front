@@ -21,8 +21,8 @@ class ListBlogposts extends Component {
               id={b.id}
               key={b.id}
               title={b.title}
+              author={b.author}
               url={b.url}
-              description={b.description}
               tags={b.tags}
               onDelete={this.props.handleDelete}
               onEdit={this.props.handleEdit}

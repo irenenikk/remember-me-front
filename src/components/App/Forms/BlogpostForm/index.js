@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { postBlogpostAction, inputBlogpostTitleChangedAction, inputBlogpostUrlChangedAction } from '../../../../state/actions';
+import { postBlogpostAction, inputBlogpostTitleChangedAction, 
+  inputBlogpostAuthorChangedAction, inputBlogpostUrlChangedAction } from '../../../../state/actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -20,6 +21,14 @@ class BlogpostForm extends Component {
                 onChange={this.props.onTitleChange}
                 floatingLabelText="Title "
                 name="Title"
+              >
+              </TextField>
+              <br/>
+              <TextField
+                value={this.props.author}
+                onChange={this.props.onAuthorChange}
+                placeholder="Author "
+                name="Author"
               >
               </TextField>
               <br/>
@@ -49,6 +58,7 @@ class BlogpostForm extends Component {
 const mapStateToProps = (state) => {
   return {
     title: state.form.blogpost.title,
+    author: state.form.blogpost.author,
     url: state.form.blogpost.url,
   };
 }
@@ -57,6 +67,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onTitleChange(event) {
       dispatch(inputBlogpostTitleChangedAction(event.target.value))
+    },
+    onAuthorChange(event) {
+      dispatch(inputBlogpostAuthorChangedAction(event.target.value))
     },
     onUrlChange(event) {
       dispatch(inputBlogpostUrlChangedAction(event.target.value))
