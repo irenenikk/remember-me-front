@@ -27,7 +27,11 @@ class BlogpostForm extends Component {
               <TextField
                 value={this.props.author}
                 onChange={this.props.onAuthorChange}
+<<<<<<< HEAD:src/components/App/Forms/BlogpostForm/index.js
                 floatingLabelText="Author"
+=======
+                placeholder="Author "
+>>>>>>> e82842f1d2b5e712bc0f107e0677f6abab8840d4:src/components/App/Forms/BlogForm/index.js
                 name="Author"
               >
               </TextField>
@@ -57,9 +61,15 @@ class BlogpostForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
+<<<<<<< HEAD:src/components/App/Forms/BlogpostForm/index.js
     title: state.form.blogpost.title,
     author: state.form.blogpost.author,
     url: state.form.blogpost.url,
+=======
+    title: state.form.blog.title,
+    author: state.form.blog.author,
+    url: state.form.blog.url,
+>>>>>>> e82842f1d2b5e712bc0f107e0677f6abab8840d4:src/components/App/Forms/BlogForm/index.js
   };
 }
 

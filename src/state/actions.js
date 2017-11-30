@@ -76,14 +76,22 @@ export const inputBlogpostTitleChangedAction = (input) => {
   };
 }
 
+<<<<<<< HEAD
 export const inputBlogpostAuthorChangedAction = (input) => {
+=======
+export function inputBlogpostAuthorChangedAction(input) {
+>>>>>>> e82842f1d2b5e712bc0f107e0677f6abab8840d4
   return {
     input: input,
     type: INPUT_BLOGPOSTAUTHOR_CHANGED,
   };
 }
 
+<<<<<<< HEAD
 export const inputBlogpostUrlChangedAction = (input) => {
+=======
+export function inputBlogpostUrlChangedAction(input) {
+>>>>>>> e82842f1d2b5e712bc0f107e0677f6abab8840d4
   return {
     input: input,
     type: INPUT_BLOGPOSTURL_CHANGED,
