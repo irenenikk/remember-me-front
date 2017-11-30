@@ -204,7 +204,7 @@ export default class Api {
 
     putVideo(video) {
       return new Promise((resolve, reject) => {
-        const data = this._createBookFormJSON(video)
+        const data = this._createVideoFormJSON(video)
         fetch(`${SERVER}/videos/${video.id}`, {
           method: 'PUT',
           body: JSON.stringify(data),

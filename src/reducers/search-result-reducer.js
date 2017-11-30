@@ -15,6 +15,7 @@ import {
   UPDATE_BOOK_COMMENT,
   UPDATE_VIDEO_URL,
   UPDATE_VIDEO_TITLE,
+  UPDATE_VIDEO_COMMENT,
   UPDATE_BLOGPOST_URL,
   UPDATE_BLOGPOST_AUTHOR,
   UPDATE_BLOGPOST_TITLE,
@@ -262,7 +263,7 @@ export default createReducer(initialState, {
       if (v.id === editable) {
         return {
           ...v,
-          title: action.input,
+          url: action.input,
         };
       }
       return v;
@@ -334,6 +335,22 @@ export default createReducer(initialState, {
     return {
       ...state,
       blogposts,
+    }
+  },
+  [UPDATE_VIDEO_COMMENT](state, action) {
+    const editable = action.id;
+    const videos = state.videos.map((v) => {
+      if (v.id === editable) {
+        return {
+          ...v,
+          comment: action.input,
+        };
+      }
+      return v;
+    });
+    return {
+      ...state,
+      videos,
     }
   },
 });
