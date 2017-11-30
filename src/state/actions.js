@@ -10,6 +10,7 @@ export const INPUT_BLOGPOSTURL_CHANGED = 'INPUT_BLOGPOSTURL_CHANGED';
 export const INPUT_BLOGPOSTCOMMENT_CHANGED = 'INPUT_BLOGPOSTCOMMENT_CHANGED';
 export const INPUT_VIDEOTITLE_CHANGED = 'INPUT_VIDEOTITLE_CHANGED';
 export const INPUT_VIDEOURL_CHANGED = 'INPUT_VIDEOURL_CHANGED';
+export const INPUT_VIDEOCOMMENT_CHANGED = 'INPUT_VIDEOCOMMENT_CHANGED';
 
 export const BOOKS_RECEIVED = 'BOOKS_RECEIVED';
 export const BLOGPOSTS_RECEIVED = 'BLOGPOSTS_RECEIVED';
@@ -34,6 +35,7 @@ export const UPDATE_BOOK_COMMENT = 'UPDATE_BOOK_COMMENT';
 
 export const UPDATE_VIDEO_TITLE = 'UPDATE_VIDEO_TITLE';
 export const UPDATE_VIDEO_URL = 'UPDATE_VIDEO_URL';
+export const UPDATE_VIDEO_COMMENT = 'UPDATE_VIDEO_COMMENT';
 
 export const UPDATE_BLOGPOST_TITLE = 'UPDATE_BLOGPOST_TITLE';
 export const UPDATE_BLOGPOST_AUTHOR = 'UPDATE_BLOGPOST_AUTHOR';
@@ -120,6 +122,13 @@ export const inputVideoUrlChangedAction = (input) => {
     input: input,
     type: INPUT_VIDEOURL_CHANGED,
   };
+}
+
+export const inputVideoCommentChangedAction = (input) => {
+  return {
+    input: input,
+    type: INPUT_VIDEOCOMMENT_CHANGED,
+  }
 }
 
 export const newMessageAction = (message) => {
@@ -416,6 +425,14 @@ export const updateVideoUrlAction = (input, id) => {
     input,
     id,
     type: UPDATE_VIDEO_URL,
+  };
+}
+
+export const updateVideoCommentAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_VIDEO_COMMENT,
   };
 }
 

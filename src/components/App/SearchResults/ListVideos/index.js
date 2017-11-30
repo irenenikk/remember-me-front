@@ -6,6 +6,7 @@ import {
   deleteVideoAction,
   updateVideoTitleAction,
   updateVideoUrlAction,
+  updateVideoCommentAction,
   editVideoAction,
   updateVideoAction,
 } from '../../../../state/actions';
@@ -22,13 +23,14 @@ class ListVideos extends Component {
               key={v.id}
               title={v.title}
               url={v.url}
-              description={v.description}
+              comment={v.comment}
               tags={v.tags}
               edit={v.edit}
               onEdit={this.props.handleEdit}
               onDelete={this.props.handleDelete}
               onTitleChange={this.props.handleTitleChange}
               onUrlChange={this.props.handleUrlChange}
+              onCommentChange={this.props.handleCommentChange}
               onFinishEditing={this.props.handleFinishEditing}
             />
           )}
@@ -56,7 +58,10 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(updateVideoTitleAction(input, id))
     },
     handleUrlChange(input, id) {
-      dispatch(updateVideoUrlAction(input, id));
+      dispatch(updateVideoUrlAction(input, id))
+    },
+    handleCommentChange(input, id) {
+      dispatch(updateVideoCommentAction(input, id))
     },
     handleFinishEditing(id) {
       dispatch(updateVideoAction(id));

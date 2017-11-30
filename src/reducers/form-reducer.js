@@ -11,6 +11,7 @@ import {
   INPUT_BLOGPOSTCOMMENT_CHANGED,
   INPUT_VIDEOTITLE_CHANGED,
   INPUT_VIDEOURL_CHANGED,
+  INPUT_VIDEOCOMMENT_CHANGED,
   NEW_MESSAGE,
   RESET_MESSAGE,
 } from '../state/actions';
@@ -129,6 +130,15 @@ export default createReducer(initialState, {
       video: {
         ...state.video,
         url: action.input,
+      }
+    };
+  },
+  [INPUT_VIDEOCOMMENT_CHANGED](state, action) {
+    return {
+      ...state,
+      video: {
+        ...state.video,
+        comment: action.input,
       }
     };
   },

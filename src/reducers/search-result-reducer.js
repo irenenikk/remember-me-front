@@ -7,6 +7,8 @@ import {
   EDIT_VIDEO,
   EDIT_BLOGPOST,
   FINISH_BOOK_EDIT,
+  FINISH_BLOGPOST_EDIT,
+  FINISH_VIDEO_EDIT,
   UPDATE_BOOK_AUTHOR,
   UPDATE_BOOK_TITLE,
   UPDATE_BOOK_DESCRIPTION,
@@ -140,6 +142,38 @@ export default createReducer(initialState, {
     return {
       ...state,
       books,
+    }
+  },
+  [FINISH_BLOGPOST_EDIT](state, action) {
+    const editable = action.id;
+    const blogposts = state.blogposts.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          edit: false,
+        }
+      }
+      return b;
+    });
+    return {
+      ...state,
+      blogposts,
+    }
+  },
+  [FINISH_VIDEO_EDIT](state, action) {
+    const editable = action.id;
+    const videos = state.videos.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          edit: false,
+        }
+      }
+      return b;
+    });
+    return {
+      ...state,
+      videos,
     }
   },
   [UPDATE_BOOK_AUTHOR](state, action) {
