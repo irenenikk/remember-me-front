@@ -196,6 +196,7 @@ export default class Api {
   _createBlogpostFormJSON(blogpostState) {
     return {
       title: blogpostState.title,
+      author: blogpostState.author,
       url: blogpostState.url,
     }
   }

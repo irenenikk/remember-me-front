@@ -4,6 +4,7 @@ import {
   INPUT_BOOKWRITER_CHANGED,
   INPUT_BOOKTITLE_CHANGED,
   INPUT_BLOGPOSTTITLE_CHANGED,
+  INPUT_BLOGPOSTAUTHOR_CHANGED,
   INPUT_BLOGPOSTURL_CHANGED,
   INPUT_VIDEOTITLE_CHANGED,
   INPUT_VIDEOURL_CHANGED,
@@ -59,6 +60,15 @@ export default createReducer(initialState, {
       blog: {
         ...state.blog,
         title: action.input,
+      }
+    };
+  },
+  [INPUT_BLOGPOSTAUTHOR_CHANGED](state, action) {
+    return {
+      ...state,
+      blog: {
+        ...state.blog,
+        author: action.input,
       }
     };
   },

@@ -3,6 +3,7 @@ export const CLICK = 'CLICK';
 export const INPUT_BOOKWRITER_CHANGED = 'INPUT_BOOKWRITER_CHANGED';
 export const INPUT_BOOKTITLE_CHANGED = 'INPUT_BOOKTITLE_CHANGED';
 export const INPUT_BLOGPOSTTITLE_CHANGED = 'INPUT_BLOGPOSTTITLE_CHANGED';
+export const INPUT_BLOGPOSTAUTHOR_CHANGED = 'INPUT_BLOGPOSTAUTHOR_CHANGED';
 export const INPUT_BLOGPOSTURL_CHANGED = 'INPUT_BLOGPOSTURL_CHANGED';
 export const INPUT_VIDEOTITLE_CHANGED = 'INPUT_VIDEOTITLE_CHANGED';
 export const INPUT_VIDEOURL_CHANGED = 'INPUT_VIDEOURL_CHANGED';
@@ -44,6 +45,13 @@ export function inputBlogpostTitleChangedAction(input) {
   return {
     input: input,
     type: INPUT_BLOGPOSTTITLE_CHANGED,
+  };
+}
+
+export function inputBlogpostAuthorChangedAction(input) {
+  return {
+    input: input,
+    type: INPUT_BLOGPOSTAUTHOR_CHANGED,
   };
 }
 
