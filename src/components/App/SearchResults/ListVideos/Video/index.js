@@ -27,7 +27,9 @@ export default class Video extends Component {
                 floatingLabelText	="Link"
                 name="Link"
               />
-              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+              <CardText>
+                <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+              </CardText>
           </Card>
         </center>
       );

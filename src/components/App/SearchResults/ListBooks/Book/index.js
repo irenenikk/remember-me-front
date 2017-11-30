@@ -34,22 +34,28 @@ export default class Book extends Component {
                 onChange={(e) => this.props.onDescriptionChange(e.target.value, this.props.id)}
                 floatingLabelText="Description"
                 name="Description"
-                fullWidth
                 multiLine
+                fullWidth
                 rows={3}
               />
-              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+              <CardText>
+                <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+              </CardText>
           </Card>
         </center>
       );
     }
     return (
-      <Card>
-        <CardTitle className="book" title={this.props.title} subtitle={this.props.author} />
-          <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
-          <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
-          <CardText>{this.props.description}</CardText>
-      </Card>
-    );
+      <center>
+        <Card>
+          <CardTitle className="book" title={this.props.title} subtitle={this.props.author} />
+            <CardText>{this.props.description}</CardText>
+            <CardText>
+              <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
+              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+            </CardText>
+        </Card>
+      </center>
+      );
   }
 }

@@ -27,7 +27,9 @@ export default class Blogpost extends Component {
                 floatingLabelText	="Link"
                 name="Link"
               />
-              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+              <CardText>
+                <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+              </CardText>
           </Card>
         </center>
       );
@@ -35,8 +37,8 @@ export default class Blogpost extends Component {
     return (
       <Card>
         <div className="pilar">
-        <CardTitle title={this.props.title}/>
-        <a href={this.props.url}>{this.props.url}</a>
+          <CardTitle title={this.props.title}/>
+          <a href={this.props.url}>{this.props.url}</a>
         </div>
           <CardText>
           <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
