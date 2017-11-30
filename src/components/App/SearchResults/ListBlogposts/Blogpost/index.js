@@ -21,15 +21,21 @@ export default class Blogpost extends Component {
               />
               <br/>
               <TextField
+                id="blogpost-author-input"
+                value={this.props.author}
+                onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.id)}
+                floatingLabelText	="Author"
+                name="Author"
+              />
+              <br/>
+              <TextField
                 id="blogpost-url-input"
                 value={this.props.url}
                 onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
                 floatingLabelText	="Link"
                 name="Link"
               />
-              <CardText>
-                <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
-              </CardText>
+              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
           </Card>
         </center>
       );
@@ -37,8 +43,8 @@ export default class Blogpost extends Component {
     return (
       <Card>
         <div className="pilar">
-          <CardTitle title={this.props.title}/>
-          <a href={this.props.url}>{this.props.url}</a>
+        <CardTitle title={this.props.title} subtitle={this.props.author}/>
+        <a href={this.props.url}>{this.props.url}</a>
         </div>
           <CardText>
           <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />

@@ -21,19 +21,19 @@ class BookForm extends Component {
           <CardTitle title="Add new book:"> </CardTitle>
             <CardText>
               <TextField
-                id="book-author-input"
-                value={this.props.author}
-                onChange={this.props.onAuthorChange}
-                floatingLabelText="Author "
-                name="Author"
-              />
-              <br/>
-              <TextField
                 id="book-title-input"
                 value={this.props.title}
                 onChange={this.props.onTitleChange}
                 floatingLabelText="Title "
                 name="Title"
+              />
+              <br/>
+              <TextField
+                id="book-author-input"
+                value={this.props.author}
+                onChange={this.props.onAuthorChange}
+                floatingLabelText="Author "
+                name="Author"
               />
               <br/>
               <TextField

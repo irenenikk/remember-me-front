@@ -33,6 +33,7 @@ export const UPDATE_VIDEO_TITLE = 'UPDATE_VIDEO_TITLE';
 export const UPDATE_VIDEO_URL = 'UPDATE_VIDEO_URL';
 
 export const UPDATE_BLOGPOST_TITLE = 'UPDATE_BLOGPOST_TITLE';
+export const UPDATE_BLOGPOST_AUTHOR = 'UPDATE_BLOGPOST_AUTHOR';
 export const UPDATE_BLOGPOST_URL = 'UPDATE_BLOGPOST_URL';
 
 const postSuccessful = 'Tip saved'
@@ -397,6 +398,14 @@ export const updateBlogpostTitleAction = (input, id) => {
     input,
     id,
     type: UPDATE_BLOGPOST_TITLE,
+  };
+}
+
+export const updateBlogpostAuthorAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_BLOGPOST_AUTHOR,
   };
 }
 

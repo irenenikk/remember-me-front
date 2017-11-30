@@ -13,6 +13,7 @@ import {
   UPDATE_VIDEO_URL,
   UPDATE_VIDEO_TITLE,
   UPDATE_BLOGPOST_URL,
+  UPDATE_BLOGPOST_AUTHOR,
   UPDATE_BLOGPOST_TITLE
 } from '../state/actions';
 
@@ -46,6 +47,7 @@ export default createReducer(initialState, {
       return {
         id: b.id,
         title: b.title,
+        author: b.author,
         url: b.url,
         comment: b.comment,
         type: b.type,
@@ -225,6 +227,22 @@ export default createReducer(initialState, {
         return {
           ...b,
           title: action.input,
+        };
+      }
+      return b;
+    });
+    return {
+      ...state,
+      blogposts,
+    }
+  },
+  [UPDATE_BLOGPOST_AUTHOR](state, action) {
+    const editable = action.id;
+    const blogposts = state.blogposts.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          author: action.input,
         };
       }
       return b;

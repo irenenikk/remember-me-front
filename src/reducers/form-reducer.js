@@ -21,6 +21,7 @@ const initialState = {
   },
   blogpost: {
     title: "",
+    author: "",
     url: "",
   },
   video: {
@@ -75,8 +76,8 @@ export default createReducer(initialState, {
   [INPUT_BLOGPOSTAUTHOR_CHANGED](state, action) {
     return {
       ...state,
-      blog: {
-        ...state.blog,
+      blogpost: {
+        ...state.blogpost,
         author: action.input,
       }
     };

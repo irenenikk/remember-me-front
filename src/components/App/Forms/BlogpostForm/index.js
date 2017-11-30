@@ -19,7 +19,7 @@ class BlogpostForm extends Component {
               <TextField
                 value={this.props.title}
                 onChange={this.props.onTitleChange}
-                floatingLabelText="Title "
+                floatingLabelText="Title"
                 name="Title"
               >
               </TextField>
@@ -27,7 +27,7 @@ class BlogpostForm extends Component {
               <TextField
                 value={this.props.author}
                 onChange={this.props.onAuthorChange}
-                placeholder="Author "
+                floatingLabelText="Author"
                 name="Author"
               >
               </TextField>

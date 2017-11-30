@@ -7,6 +7,7 @@ import {
   editBlogpostAction,
   updateBlogpostAction,
   updateBlogpostTitleAction,
+  updateBlogpostAuthorAction,
   updateBlogpostUrlAction
 } from '../../../../state/actions';
 
@@ -29,6 +30,7 @@ class ListBlogposts extends Component {
               onFinishEditing={this.props.handleFinishEditing}
               edit={b.edit}
               onTitleChange={this.props.handleTitleChange}
+              onAuthorChange={this.props.handleAuthorChange}
               onUrlChange={this.props.handleUrlChange}
             />
           )}
@@ -57,6 +59,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleTitleChange(input, id) {
       dispatch(updateBlogpostTitleAction(input, id));
+    },
+    handleAuthorChange(input, id) {
+      dispatch(updateBlogpostAuthorAction(input, id));
     },
     handleUrlChange(input, id) {
       dispatch(updateBlogpostUrlAction(input, id));
