@@ -21,10 +21,18 @@ export const EDIT_VIDEO = 'EDIT_VIDEO';
 export const EDIT_BLOGPOST = 'EDIT_BLOGPOST';
 
 export const FINISH_BOOK_EDIT = 'FINISH_BOOK_EDIT';
+export const FINISH_VIDEO_EDIT = 'FINISH_VIDEO_EDIT';
+export const FINISH_BLOGPOST_EDIT = 'FINISH_BLOGPOST_EDIT';
 
 export const UPDATE_BOOK_AUTHOR = 'UPDATE_BOOK_AUTHOR';
 export const UPDATE_BOOK_TITLE = 'UPDATE_BOOK_TITLE';
 export const UPDATE_BOOK_DESCRIPTION = 'UPDATE_BOOK_DESCRIPTION';
+
+export const UPDATE_VIDEO_TITLE = 'UPDATE_VIDEO_TITLE';
+export const UPDATE_VIDEO_URL = 'UPDATE_VIDEO_URL';
+
+export const UPDATE_BLOGPOST_TITLE = 'UPDATE_BLOGPOST_TITLE';
+export const UPDATE_BLOGPOST_URL = 'UPDATE_BLOGPOST_URL';
 
 const postSuccessful = 'Tip saved'
 const postFailed = 'Couldn\'t save tip';
@@ -277,6 +285,20 @@ export const finishEditingBookAction = (id) => {
   }
 }
 
+export const finishEditingVideoAction = (id) => {
+  return {
+    id,
+    type: FINISH_VIDEO_EDIT,
+  }
+}
+
+export const finishEditingBlogpostAction = (id) => {
+  return {
+    id,
+    type: FINISH_BLOGPOST_EDIT,
+  }
+}
+
 export const updateBookAction = (id) => {
   return async (dispatch, getState, api) => {
     const book = getState().list.books.filter(b => b.id === id)[0];
@@ -284,6 +306,36 @@ export const updateBookAction = (id) => {
     .then(
       () => {
         dispatch(finishEditingBookAction(id));
+      },
+      (error) => {
+        dispatch(newMessageAction(updateFailed));
+      },
+    );
+  };
+}
+
+export const updateVideoAction = (id) => {
+  return async (dispatch, getState, api) => {
+    const video = getState().list.videos.filter(v => v.id === id)[0];
+    api.putVideo(video)
+    .then(
+      () => {
+        dispatch(finishEditingVideoAction(id));
+      },
+      (error) => {
+        dispatch(newMessageAction(updateFailed));
+      },
+    );
+  };
+}
+
+export const updateBlogpostAction = (id) => {
+  return async (dispatch, getState, api) => {
+    const post = getState().list.blogposts.filter(b => b.id === id)[0];
+    api.putBlogpost(post)
+    .then(
+      () => {
+        dispatch(finishEditingBlogpostAction(id));
       },
       (error) => {
         dispatch(newMessageAction(updateFailed));
@@ -313,5 +365,37 @@ export const updateBookDescriptionAction = (input, id) => {
     input,
     id,
     type: UPDATE_BOOK_DESCRIPTION,
+  };
+}
+
+export const updateVideoTitleAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_VIDEO_TITLE,
+  };
+}
+
+export const updateVideoUrlAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_VIDEO_URL,
+  };
+}
+
+export const updateBlogpostTitleAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_BLOGPOST_TITLE,
+  };
+}
+
+export const updateBlogpostUrlAction = (input, id) => {
+  return {
+    input,
+    id,
+    type: UPDATE_BLOGPOST_URL,
   };
 }

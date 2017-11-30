@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Video from './Video';
 import Paper from 'material-ui/Paper';
-import { deleteVideoAction } from '../../../../state/actions';
+import {
+  deleteVideoAction,
+  updateVideoTitleAction,
+  updateVideoUrlAction,
+  editVideoAction,
+  updateVideoAction,
+} from '../../../../state/actions';
 
 class ListVideos extends Component {
 
@@ -18,7 +24,12 @@ class ListVideos extends Component {
               url={v.url}
               description={v.description}
               tags={v.tags}
+              edit={v.edit}
+              onEdit={this.props.handleEdit}
               onDelete={this.props.handleDelete}
+              onTitleChange={this.props.handleTitleChange}
+              onUrlChange={this.props.handleUrlChange}
+              onFinishEditing={this.props.handleFinishEditing}
             />
           )}
         </Paper>
@@ -37,6 +48,18 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleDelete(id) {
       dispatch(deleteVideoAction(id))
+    },
+    handleEdit(id) {
+      dispatch(editVideoAction(id));
+    },
+    handleTitleChange(input, id) {
+      dispatch(updateVideoTitleAction(input, id))
+    },
+    handleUrlChange(input, id) {
+      dispatch(updateVideoUrlAction(input, id));
+    },
+    handleFinishEditing(id) {
+      dispatch(updateVideoAction(id));
     }
   };
 }

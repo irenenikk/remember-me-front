@@ -24,7 +24,7 @@ class BookForm extends Component {
                 id="book-author-input"
                 value={this.props.author}
                 onChange={this.props.onAuthorChange}
-                placeholder="Author "
+                floatingLabelText="Author "
                 name="Author"
               />
               <br/>
@@ -32,7 +32,7 @@ class BookForm extends Component {
                 id="book-title-input"
                 value={this.props.title}
                 onChange={this.props.onTitleChange}
-                placeholder="Title "
+                floatingLabelText="Title "
                 name="Title"
               />
               <br/>
@@ -40,7 +40,7 @@ class BookForm extends Component {
                 id="book-description-input"
                 value={this.props.description}
                 onChange={this.props.onDescriptionChange}
-                placeholder="Description"
+                floatingLabelText="Description"
                 name="Description"
                 multiLine
                 fullWidth

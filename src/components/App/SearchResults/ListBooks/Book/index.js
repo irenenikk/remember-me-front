@@ -16,15 +16,15 @@ export default class Book extends Component {
                 id="book-author-input"
                 value={this.props.author}
                 onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.id)}
-                placeholder="Title "
-                name="Title"
+                floatingLabelText	="Author "
+                name="Author"
               />
               <br/>
               <TextField
                 id="book-author-input"
                 value={this.props.title}
                 onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
-                placeholder="Title"
+                floatingLabelText	="Title"
                 name="Title"
               />
               <br/>
@@ -32,7 +32,7 @@ export default class Book extends Component {
                 id="book-author-input"
                 value={this.props.description}
                 onChange={(e) => this.props.onDescriptionChange(e.target.value, this.props.id)}
-                placeholder="Description"
+                floatingLabelText="Description"
                 name="Description"
                 fullWidth
                 multiLine

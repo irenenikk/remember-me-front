@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Blogpost from './Blogpost';
 import Paper from 'material-ui/Paper';
-import { deleteBlogpostAction } from '../../../../state/actions';
+import {
+  deleteBlogpostAction,
+  editBlogpostAction,
+  updateBlogpostAction,
+  updateBlogpostTitleAction,
+  updateBlogpostUrlAction
+} from '../../../../state/actions';
 
 class ListBlogposts extends Component {
 
@@ -19,6 +25,11 @@ class ListBlogposts extends Component {
               description={b.description}
               tags={b.tags}
               onDelete={this.props.handleDelete}
+              onEdit={this.props.handleEdit}
+              onFinishEditing={this.props.handleFinishEditing}
+              edit={b.edit}
+              onTitleChange={this.props.handleTitleChange}
+              onUrlChange={this.props.handleUrlChange}
             />
           )}
         </Paper>
@@ -37,6 +48,18 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleDelete(id) {
       dispatch(deleteBlogpostAction(id))
+    },
+    handleEdit(id) {
+      dispatch(editBlogpostAction(id));
+    },
+    handleFinishEditing(id) {
+      dispatch(updateBlogpostAction(id));
+    },
+    handleTitleChange(input, id) {
+      dispatch(updateBlogpostTitleAction(input, id));
+    },
+    handleUrlChange(input, id) {
+      dispatch(updateBlogpostUrlAction(input, id));
     }
   };
 }

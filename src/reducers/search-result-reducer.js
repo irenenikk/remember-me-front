@@ -10,6 +10,10 @@ import {
   UPDATE_BOOK_AUTHOR,
   UPDATE_BOOK_TITLE,
   UPDATE_BOOK_DESCRIPTION,
+  UPDATE_VIDEO_URL,
+  UPDATE_VIDEO_TITLE,
+  UPDATE_BLOGPOST_URL,
+  UPDATE_BLOGPOST_TITLE
 } from '../state/actions';
 
 const initialState = {
@@ -86,6 +90,38 @@ export default createReducer(initialState, {
       books,
     }
   },
+  [EDIT_BLOGPOST](state, action) {
+    const editable = action.id;
+    const blogposts = state.blogposts.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          edit: true,
+        }
+      }
+      return b;
+    });
+    return {
+      ...state,
+      blogposts,
+    }
+  },
+  [EDIT_VIDEO](state, action) {
+    const editable = action.id;
+    const videos = state.videos.map((v) => {
+      if (v.id === editable) {
+        return {
+          ...v,
+          edit: true,
+        }
+      }
+      return v;
+    });
+    return {
+      ...state,
+      videos,
+    }
+  },
   [FINISH_BOOK_EDIT](state, action) {
     const editable = action.id;
     const books = state.books.map((b) => {
@@ -148,6 +184,70 @@ export default createReducer(initialState, {
     return {
       ...state,
       books,
+    }
+  },
+  [UPDATE_VIDEO_TITLE](state, action) {
+    const editable = action.id;
+    const videos = state.videos.map((v) => {
+      if (v.id === editable) {
+        return {
+          ...v,
+          title: action.input,
+        };
+      }
+      return v;
+    });
+    return {
+      ...state,
+      videos,
+    }
+  },
+  [UPDATE_VIDEO_URL](state, action) {
+    const editable = action.id;
+    const videos = state.videos.map((v) => {
+      if (v.id === editable) {
+        return {
+          ...v,
+          title: action.input,
+        };
+      }
+      return v;
+    });
+    return {
+      ...state,
+      videos,
+    }
+  },
+  [UPDATE_BLOGPOST_TITLE](state, action) {
+    const editable = action.id;
+    const blogposts = state.blogposts.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          title: action.input,
+        };
+      }
+      return b;
+    });
+    return {
+      ...state,
+      blogposts,
+    }
+  },
+  [UPDATE_BLOGPOST_URL](state, action) {
+    const editable = action.id;
+    const blogposts = state.blogposts.map((b) => {
+      if (b.id === editable) {
+        return {
+          ...b,
+          url: action.input,
+        };
+      }
+      return b;
+    });
+    return {
+      ...state,
+      blogposts,
     }
   }
 });

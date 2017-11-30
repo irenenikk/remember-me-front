@@ -14,12 +14,12 @@ The planned features include creating, listing, editing and deleting tips.
 This project was initialized using [create-react-app](https://github.com/facebookincubator/create-react-app)
 * `yarn install` after cloning the repo
 * `yarn start` to start the server locally (`localhost://3000`)
-* `yarn test` to run tests
+* `yarn test` to run integration tests with cucumber
 * `yarn add` to add a depepency
 
 In development, you'll also have to start the [server](https://github.com/rovaniemi/remember-me-back).
 
-Both development and production server addresses must be configured in a local `.env` file. The example file can be found [here](.env.example). Just copy the example file, rename it to `.env`, and insert the appropriate addresses.
+Both development and production server addresses must be configured in a local `.env` file. The example file can be found [here](.env.example). Just copy the example file, rename it to `.env`, and insert the appropriate addresses. Remember to add `/api/v01` to the end of both addresses.
 
 ## Prerequisites
 * Node 6 or higher on your machine to run locally

@@ -202,6 +202,46 @@ export default class Api {
       });
     }
 
+    putVideo(video) {
+      return new Promise((resolve, reject) => {
+        const data = this._createBookFormJSON(video)
+        fetch(`${SERVER}/videos/${video.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
+    putBlogpost(blogpost) {
+      return new Promise((resolve, reject) => {
+        const data = this._createBookFormJSON(blogpost)
+        fetch(`${SERVER}/blogposts/${blogpost.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
   syncStore(store) {
     this.store = store;
   }

@@ -18,7 +18,7 @@ class BlogpostForm extends Component {
               <TextField
                 value={this.props.title}
                 onChange={this.props.onTitleChange}
-                placeholder="Title "
+                floatingLabelText="Title "
                 name="Title"
               >
               </TextField>
@@ -26,7 +26,7 @@ class BlogpostForm extends Component {
               <TextField
                 value={this.props.url}
                 onChange={this.props.onUrlChange}
-                placeholder="Link"
+                floatingLabelText="Link"
                 name="Link"
               >
               </TextField>
