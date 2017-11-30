@@ -9,7 +9,7 @@ function MinimalistConstructor() {
             const server = new StaticServer({
                 rootPath: 'build',
                 host: 'localhost',
-                port: 3000
+                port: 3001
             });
 
             server.start(() => {
