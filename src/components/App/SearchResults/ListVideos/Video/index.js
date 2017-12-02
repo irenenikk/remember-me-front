@@ -52,7 +52,7 @@ export default class Video extends Component {
           <a href={this.props.url}>
             {this.props.url}
           </a>
-          <CardText>{this.props.comment}</CardText>
+          {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
         </div>
         <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
         <CardText>

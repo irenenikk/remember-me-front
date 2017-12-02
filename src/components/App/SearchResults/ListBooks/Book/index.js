@@ -60,8 +60,8 @@ export default class Book extends Component {
       <center>
         <Card>
           <CardTitle className="book" title={this.props.title} subtitle={this.props.author} />
-          <CardText>{this.props.description}</CardText>
-          <CardText>{this.props.comment}</CardText>
+          {this.props.description.trim().length > 0 && <CardText>{this.props.description}</CardText>}
+          {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
             <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
             <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />

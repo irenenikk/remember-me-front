@@ -55,7 +55,7 @@ export default class Blogpost extends Component {
         <div className="pilar">
           <CardTitle title={this.props.title} subtitle={this.props.author} />
           <a href={this.props.url}>{this.props.url}</a>
-          <CardText>{this.props.comment}</CardText>
+          {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
         </div>
         <CardText>
           <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
