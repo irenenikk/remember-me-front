@@ -1,7 +1,7 @@
 @smoke
 Feature: App Smoke Test
 
-    Ensure the application will load and render
+    Ensure form functionality
 
     Scenario: Home page should exist
         Given I navigate to the home page

@@ -3,28 +3,36 @@ import {
   CLICK,
   INPUT_BOOKWRITER_CHANGED,
   INPUT_BOOKTITLE_CHANGED,
+  INPUT_BOOKDESCRIPTION_CHANGED,
+  INPUT_BOOKCOMMENT_CHANGED,
   INPUT_BLOGPOSTTITLE_CHANGED,
+  INPUT_BLOGPOSTAUTHOR_CHANGED,
   INPUT_BLOGPOSTURL_CHANGED,
+  INPUT_BLOGPOSTCOMMENT_CHANGED,
   INPUT_VIDEOTITLE_CHANGED,
   INPUT_VIDEOURL_CHANGED,
+  INPUT_VIDEOCOMMENT_CHANGED,
   NEW_MESSAGE,
   RESET_MESSAGE,
 } from '../state/actions';
 
 const initialState = {
   book: {
-    author: "",
     title: "",
+    author: "",
     description: "",
+    comment: "",
   },
-  blog: {
-    author: "",
+  blogpost: {
     title: "",
+    author: "",
     url: "",
+    comment: "",
   },
   video: {
     title: "",
     url: "",
+    comment: "",
   },
   message: "",
 };
@@ -53,21 +61,57 @@ export default createReducer(initialState, {
       }
     };
   },
+  [INPUT_BOOKDESCRIPTION_CHANGED](state, action) {
+    return {
+      ...state,
+      book: {
+        ...state.book,
+        description: action.input,
+      }
+    };
+  },
+  [INPUT_BOOKCOMMENT_CHANGED](state, action) {
+    return {
+      ...state,
+      book: {
+        ...state.book,
+        comment: action.input,
+      }
+    };
+  },
   [INPUT_BLOGPOSTTITLE_CHANGED](state, action) {
     return {
       ...state,
-      blog: {
-        ...state.blog,
+      blogpost: {
+        ...state.blogpost,
         title: action.input,
+      }
+    };
+  },
+  [INPUT_BLOGPOSTAUTHOR_CHANGED](state, action) {
+    return {
+      ...state,
+      blogpost: {
+        ...state.blogpost,
+        author: action.input,
       }
     };
   },
   [INPUT_BLOGPOSTURL_CHANGED](state, action) {
     return {
       ...state,
-      blog: {
-        ...state.blog,
+      blogpost: {
+        ...state.blogpost,
         url: action.input,
+      }
+    };
+  },
+  [INPUT_BLOGPOSTCOMMENT_CHANGED](state, action) {
+    return {
+      ...state,
+      blogpost: {
+        ...state.blogpost,
+        comment: action.input,
       }
     };
   },
@@ -86,6 +130,15 @@ export default createReducer(initialState, {
       video: {
         ...state.video,
         url: action.input,
+      }
+    };
+  },
+  [INPUT_VIDEOCOMMENT_CHANGED](state, action) {
+    return {
+      ...state,
+      video: {
+        ...state.video,
+        comment: action.input,
       }
     };
   },

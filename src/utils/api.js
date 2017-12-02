@@ -86,7 +86,7 @@ export default class Api {
 
   postBlogpost(formState) {
     return new Promise((resolve, reject) => {
-      const data = this._createBlogpostFormJSON(formState.blog);
+      const data = this._createBlogpostFormJSON(formState.blogpost);
       fetch(`${SERVER}/blogposts`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -182,6 +182,66 @@ export default class Api {
       });
     }
 
+    putBook(book) {
+      return new Promise((resolve, reject) => {
+        const data = this._createBookFormJSON(book)
+        fetch(`${SERVER}/books/${book.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
+    putVideo(video) {
+      return new Promise((resolve, reject) => {
+        const data = this._createBookFormJSON(video)
+        fetch(`${SERVER}/videos/${video.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
+    putBlogpost(blogpost) {
+      return new Promise((resolve, reject) => {
+        const data = this._createBlogpostFormJSON(blogpost)
+        fetch(`${SERVER}/blogposts/${blogpost.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return reject(resp);
+          }
+          return resp.json();
+        })
+        .then(resolve, reject);
+      });
+    }
+
   syncStore(store) {
     this.store = store;
   }
@@ -190,13 +250,17 @@ export default class Api {
     return {
       title: bookState.title,
       author: bookState.author,
+      description: bookState.description,
+      comment: bookState.comment,
     }
   }
 
   _createBlogpostFormJSON(blogpostState) {
     return {
       title: blogpostState.title,
+      author: blogpostState.author,
       url: blogpostState.url,
+      comment: blogpostState.comment,
     }
   }
 
@@ -204,6 +268,7 @@ export default class Api {
     return {
       title: videoState.title,
       url: videoState.url,
+      comment: videoState.comment,
     }
   }
 }

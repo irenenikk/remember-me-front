@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Video from './Video';
 import Paper from 'material-ui/Paper';
-import { deleteVideoAction } from '../../../../state/actions';
+import {
+  deleteVideoAction,
+  updateVideoTitleAction,
+  updateVideoUrlAction,
+  updateVideoCommentAction,
+  editVideoAction,
+  updateVideoAction,
+} from '../../../../state/actions';
 
 class ListVideos extends Component {
 
@@ -16,9 +23,15 @@ class ListVideos extends Component {
               key={v.id}
               title={v.title}
               url={v.url}
-              description={v.description}
+              comment={v.comment}
               tags={v.tags}
+              edit={v.edit}
+              onEdit={this.props.handleEdit}
               onDelete={this.props.handleDelete}
+              onTitleChange={this.props.handleTitleChange}
+              onUrlChange={this.props.handleUrlChange}
+              onCommentChange={this.props.handleCommentChange}
+              onFinishEditing={this.props.handleFinishEditing}
             />
           )}
         </Paper>
@@ -27,16 +40,31 @@ class ListVideos extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     videos: state.list.videos,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleDelete(id) {
       dispatch(deleteVideoAction(id))
+    },
+    handleEdit(id) {
+      dispatch(editVideoAction(id));
+    },
+    handleTitleChange(input, id) {
+      dispatch(updateVideoTitleAction(input, id))
+    },
+    handleUrlChange(input, id) {
+      dispatch(updateVideoUrlAction(input, id))
+    },
+    handleCommentChange(input, id) {
+      dispatch(updateVideoCommentAction(input, id))
+    },
+    handleFinishEditing(id) {
+      dispatch(updateVideoAction(id));
     }
   };
 }

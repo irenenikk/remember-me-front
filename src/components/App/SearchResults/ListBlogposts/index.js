@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Blogpost from './Blogpost';
 import Paper from 'material-ui/Paper';
-import { deleteBlogpostAction } from '../../../../state/actions';
+import {
+  deleteBlogpostAction,
+  editBlogpostAction,
+  updateBlogpostAction,
+  updateBlogpostTitleAction,
+  updateBlogpostAuthorAction,
+  updateBlogpostUrlAction,
+  updateBlogpostCommentAction,
+} from '../../../../state/actions';
 
 class ListBlogposts extends Component {
 
@@ -15,10 +23,18 @@ class ListBlogposts extends Component {
               id={b.id}
               key={b.id}
               title={b.title}
+              author={b.author}
               url={b.url}
-              description={b.description}
+              comment={b.comment}
               tags={b.tags}
               onDelete={this.props.handleDelete}
+              onEdit={this.props.handleEdit}
+              onFinishEditing={this.props.handleFinishEditing}
+              edit={b.edit}
+              onTitleChange={this.props.handleTitleChange}
+              onAuthorChange={this.props.handleAuthorChange}
+              onUrlChange={this.props.handleUrlChange}
+              onCommentChange={this.props.handleCommentChange}
             />
           )}
         </Paper>
@@ -27,16 +43,34 @@ class ListBlogposts extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     blogposts: state.list.blogposts,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleDelete(id) {
       dispatch(deleteBlogpostAction(id))
+    },
+    handleEdit(id) {
+      dispatch(editBlogpostAction(id));
+    },
+    handleFinishEditing(id) {
+      dispatch(updateBlogpostAction(id));
+    },
+    handleTitleChange(input, id) {
+      dispatch(updateBlogpostTitleAction(input, id));
+    },
+    handleAuthorChange(input, id) {
+      dispatch(updateBlogpostAuthorAction(input, id));
+    },
+    handleCommentChange(input, id) {
+      dispatch(updateBlogpostCommentAction(input, id));
+    },
+    handleUrlChange(input, id) {
+      dispatch(updateBlogpostUrlAction(input, id));
     }
   };
 }

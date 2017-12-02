@@ -29,7 +29,7 @@ class ListAllTips extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     books: state.list.books,
     blogposts: state.list.blogposts,
