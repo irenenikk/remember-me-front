@@ -1,4 +1,4 @@
-// pased on the example of github/matthewjberger
+// based on the example of github/matthewjberger
 
 const MESSAGE_SELECTOR = '.app-bar';
 const ADD_BOOK_BUTTON_ID = '#add-new-book-button';
@@ -46,8 +46,10 @@ class HelloWorldPage {
     getBooks() {
         return this.nightmare.evaluate((selector) => {
             const elements = Array.from(document.querySelectorAll(selector));
+            const content = elements.reduce((a, e) => "" + a + e.innerHTML);
+            console.log(content);
             return {
-                content: elements[elements.length-1].innerHTML
+                content,
             };
         }, BOOK_CLASS);
     }

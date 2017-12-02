@@ -22,7 +22,7 @@ export default class Video extends Component {
             <br />
             <TextField
               id="video-url-input"
-              value={this.props.title}
+              value={this.props.url}
               onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
               floatingLabelText="Link"
               name="Link"
