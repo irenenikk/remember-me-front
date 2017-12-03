@@ -22,7 +22,7 @@ export default class Video extends Component {
             <br />
             <TextField
               id="video-url-input"
-              value={this.props.title}
+              value={this.props.url}
               onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
               floatingLabelText="Link"
               name="Link"
@@ -54,8 +54,9 @@ export default class Video extends Component {
           </a>
           {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
         </div>
-        <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
-        <CardText>
+          <CardText>
+          <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
+          <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
         </CardText>
       </Card>
     );
