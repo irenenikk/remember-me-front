@@ -20,6 +20,7 @@ class BlogpostForm extends Component {
           <CardTitle title="Add new blogpost:"> </CardTitle>
           <CardText>
             <TextField
+              id="blogpost-title-input"
               value={this.props.title}
               onChange={this.props.onTitleChange}
               floatingLabelText="Title"
@@ -27,6 +28,7 @@ class BlogpostForm extends Component {
             />
             <br />
             <TextField
+              id="blogpost-author-input"
               value={this.props.author}
               onChange={this.props.onAuthorChange}
               floatingLabelText="Author"
@@ -34,6 +36,7 @@ class BlogpostForm extends Component {
             />
             <br />
             <TextField
+              id="blogpost-link-input"
               value={this.props.url}
               onChange={this.props.onUrlChange}
               floatingLabelText="Link"
@@ -53,6 +56,7 @@ class BlogpostForm extends Component {
           </CardText>
           <CardActions>
             <RaisedButton
+              id="submit-blogpost"
               label="Save"
               onClick={this.props.handleClick}
               primary={true}

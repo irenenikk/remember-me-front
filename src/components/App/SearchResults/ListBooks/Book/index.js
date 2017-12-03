@@ -58,8 +58,8 @@ export default class Book extends Component {
     }
     return (
       <center>
-        <Card>
-          <CardTitle className="book" title={this.props.title} subtitle={this.props.author} />
+        <Card className="book" >
+          <CardTitle title={this.props.title} subtitle={this.props.author} />
           {this.props.description.trim().length > 0 && <CardText>{this.props.description}</CardText>}
           {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
