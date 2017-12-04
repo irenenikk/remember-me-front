@@ -101,7 +101,7 @@ export default class Api {
   }
 
 
-    postVideo(formState) {
+  postVideo(formState) {
       return new Promise((resolve, reject) => {
         const data = this._createVideoFormJSON(formState.video);
         fetch(`${SERVER}/videos`, {
@@ -119,7 +119,7 @@ export default class Api {
         return resp.json().then(r => resolve(r));
         });
       });
-    }
+  }
 
     deleteBook(id) {
       return new Promise((resolve, reject) => {
@@ -240,6 +240,7 @@ export default class Api {
       author: bookState.author,
       description: bookState.description,
       comment: bookState.comment,
+      read: bookState.read
     }
   }
 
@@ -249,6 +250,7 @@ export default class Api {
       author: blogpostState.author,
       url: blogpostState.url,
       comment: blogpostState.comment,
+      read: blogpostState.read
     }
   }
 
@@ -257,6 +259,7 @@ export default class Api {
       title: videoState.title,
       url: videoState.url,
       comment: videoState.comment,
+      read: videoState.read
     }
   }
 }

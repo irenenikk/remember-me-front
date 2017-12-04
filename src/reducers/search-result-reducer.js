@@ -39,6 +39,7 @@ export default createReducer(initialState, {
         comment: b.comment,
         type: b.type,
         edit: false,
+        read: b.read
       }
     });
     return {
@@ -57,6 +58,7 @@ export default createReducer(initialState, {
         comment: b.comment,
         type: b.type,
         edit: false,
+        read: b.read
       }
     });
     return {
@@ -74,6 +76,7 @@ export default createReducer(initialState, {
         comment: v.comment,
         type: v.type,
         edit: false,
+        read: v.read
       }
     });
     return {

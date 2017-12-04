@@ -9,6 +9,7 @@ import {
   updateVideoCommentAction,
   editVideoAction,
   updateVideoAction,
+  doneVideoAction
 } from '../../../../state/actions';
 
 class ListVideos extends Component {
@@ -26,6 +27,8 @@ class ListVideos extends Component {
               comment={v.comment}
               tags={v.tags}
               edit={v.edit}
+              done={v.read}
+              onDone={this.props.handleDone}
               onEdit={this.props.handleEdit}
               onDelete={this.props.handleDelete}
               onTitleChange={this.props.handleTitleChange}
@@ -48,6 +51,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    handleDone(id) {
+      dispatch(doneVideoAction(id))
+    },
     handleDelete(id) {
       dispatch(deleteVideoAction(id))
     },

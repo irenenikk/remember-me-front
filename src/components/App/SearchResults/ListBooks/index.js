@@ -10,6 +10,7 @@ import {
   updateBookTitleAction,
   updateBookDescriptionAction,
   updateBookCommentAction,
+  doneBookAction
  } from '../../../../state/actions';
 
 class ListBooks extends Component {
@@ -27,6 +28,8 @@ class ListBooks extends Component {
               description={b.description}
               comment={b.comment}
               tags={b.tags}
+              done={b.read}
+              onDone={this.props.handleDone}
               onDelete={this.props.handleDelete}
               onEdit={this.props.handleEdit}
               onFinishEditing={this.props.handleFinishEditing}
@@ -51,6 +54,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    handleDone(id) {
+      dispatch(doneBookAction(id))
+    },
     handleDelete(id) {
       dispatch(deleteBookAction(id))
     },
