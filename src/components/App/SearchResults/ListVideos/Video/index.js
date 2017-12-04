@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 import DeleteButton from '../../DeleteButton';
 import EditButton from '../../EditButton';
-import DoneButton from '../../DoneButton';
+import DoneToggle from '../../DoneToggle';
 import TextField from 'material-ui/TextField';
 
 export default class Video extends Component {

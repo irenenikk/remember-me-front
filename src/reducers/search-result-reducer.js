@@ -3,6 +3,8 @@ import {
   BOOKS_RECEIVED,
   BLOGPOSTS_RECEIVED,
   VIDEOS_RECEIVED,
+} from '../state/actions/list-actions';
+import {
   EDIT_BOOK,
   EDIT_VIDEO,
   EDIT_BLOGPOST,
@@ -20,12 +22,14 @@ import {
   UPDATE_BLOGPOST_AUTHOR,
   UPDATE_BLOGPOST_TITLE,
   UPDATE_BLOGPOST_COMMENT,
-} from '../state/actions';
+} from '../state/actions/edit-actions';
 
 const initialState = {
   books: [],
   blogposts: [],
   videos: [],
+  showAll: true,
+  showRead: true,
 };
 
 export default createReducer(initialState, {

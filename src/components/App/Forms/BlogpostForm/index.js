@@ -4,7 +4,7 @@ import {
   postBlogpostAction, inputBlogpostTitleChangedAction,
   inputBlogpostAuthorChangedAction, inputBlogpostUrlChangedAction,
   inputBlogpostCommentChangedAction
-} from '../../../../state/actions';
+} from '../../../../state/actions/form-actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';

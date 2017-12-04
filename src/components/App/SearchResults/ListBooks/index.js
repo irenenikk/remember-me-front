@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import Book from './Book';
 import Paper from 'material-ui/Paper'
 import {
-  deleteBookAction,
   editBookAction,
   updateBookAction,
   updateBookAuthorAction,
   updateBookTitleAction,
   updateBookDescriptionAction,
   updateBookCommentAction,
+ } from '../../../../state/actions/edit-actions';
+ import {
+  deleteBookAction,
   doneBookAction
- } from '../../../../state/actions';
+ } from '../../../../state/actions/list-actions';
 
 class ListBooks extends Component {
 

@@ -1,6 +1,5 @@
 import { createReducer } from 'redux-create-reducer';
 import {
-  CLICK,
   INPUT_BOOKWRITER_CHANGED,
   INPUT_BOOKTITLE_CHANGED,
   INPUT_BOOKDESCRIPTION_CHANGED,
@@ -12,9 +11,11 @@ import {
   INPUT_VIDEOTITLE_CHANGED,
   INPUT_VIDEOURL_CHANGED,
   INPUT_VIDEOCOMMENT_CHANGED,
+} from '../state/actions/form-actions';
+import {
   NEW_MESSAGE,
   RESET_MESSAGE,
-} from '../state/actions';
+} from '../state/actions/message-actions';
 
 const initialState = {
   book: {
@@ -22,30 +23,25 @@ const initialState = {
     author: "",
     description: "",
     comment: "",
-    read:""
+    read: false,
   },
   blogpost: {
     title: "",
     author: "",
     url: "",
     comment: "",
-    read:""
+    read: false,
   },
   video: {
     title: "",
     url: "",
     comment: "",
-    read:""
+    read: false,
   },
   message: "",
 };
 
 export default createReducer(initialState, {
-  [CLICK](state, action) {
-    return {
-      ...state,
-    };
-  },
   [INPUT_BOOKWRITER_CHANGED](state, action) {
     return {
       ...state,

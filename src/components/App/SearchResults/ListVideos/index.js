@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import Video from './Video';
 import Paper from 'material-ui/Paper';
 import {
-  deleteVideoAction,
   updateVideoTitleAction,
   updateVideoUrlAction,
   updateVideoCommentAction,
   editVideoAction,
   updateVideoAction,
+} from '../../../../state/actions/edit-actions';
+import {
+  deleteVideoAction,
   doneVideoAction
-} from '../../../../state/actions';
+} from '../../../../state/actions/list-actions';
 
 class ListVideos extends Component {
 

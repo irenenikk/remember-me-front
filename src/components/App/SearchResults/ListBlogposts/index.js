@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import Blogpost from './Blogpost';
 import Paper from 'material-ui/Paper';
 import {
-  deleteBlogpostAction,
   editBlogpostAction,
   updateBlogpostAction,
   updateBlogpostTitleAction,
   updateBlogpostAuthorAction,
   updateBlogpostUrlAction,
   updateBlogpostCommentAction,
+} from '../../../../state/actions/edit-actions';
+import {
+  deleteBlogpostAction,
   doneBlogpostAction
-} from '../../../../state/actions';
+} from '../../../../state/actions/list-actions';
 
 class ListBlogposts extends Component {
 
