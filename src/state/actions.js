@@ -334,7 +334,7 @@ export const doneBookAction = (id) => {
         dispatch(getBooksAction());
       },
       (error) => {
-        dispatch(newMessageAction(updateFailed));
+        dispatch(newMessageAction(getFailed));
       },
     );
   };
@@ -351,7 +351,7 @@ export const doneVideoAction = (id) => {
         dispatch(getVideosAction());
       },
       (error) => {
-        dispatch(newMessageAction(updateFailed));
+        dispatch(newMessageAction(getFailed));
       },
     );
   };
@@ -368,7 +368,7 @@ export const doneBlogpostAction = (id) => {
         dispatch(getBlogpostsAction());
       },
       (error) => {
-        dispatch(newMessageAction(updateFailed));
+        dispatch(newMessageAction(getFailed));
       },
     );
   };
