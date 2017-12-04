@@ -17,11 +17,10 @@ export default class Api {
       })
       .then((resp) => {
         if (!resp.ok) {
-          return reject(resp);
+          return resp.json().then(r => reject(r));
         }
-        return resp.json();
-      })
-      .then(resolve, reject);
+        return resp.json().then(r => resolve(r));
+      });
     });
   }
 
@@ -35,11 +34,10 @@ export default class Api {
       })
       .then((resp) => {
         if (!resp.ok) {
-          return reject(resp);
+          return resp.json().then(r => reject(r));
         }
-        return resp.json();
-      })
-      .then(resolve, reject);
+        return resp.json().then(r => resolve(r));
+      });
     });
   }
 
@@ -54,11 +52,10 @@ export default class Api {
       })
       .then((resp) => {
         if (!resp.ok) {
-          return reject(resp);
+          return resp.json().then(r => reject(r));
         }
-        return resp.json();
-      })
-      .then(resolve, reject);
+        return resp.json().then(r => resolve(r));
+      });
     });
   }
 
@@ -76,11 +73,10 @@ export default class Api {
       })
       .then((resp) => {
         if (!resp.ok) {
-          return reject(resp);
+          return resp.json().then(r => reject(r));
         }
-        return resp.json();
-      })
-      .then(resolve, reject);
+        return resp.json().then(r => resolve(r));
+      });
     });
   }
 
@@ -97,11 +93,10 @@ export default class Api {
       })
       .then((resp) => {
         if (!resp.ok) {
-          return reject(resp);
+          return resp.json().then(r => reject(r));
         }
-        return resp.json();
-      })
-      .then(resolve, reject);
+        return resp.json().then(r => resolve(r));
+      });
     });
   }
 
@@ -117,13 +112,12 @@ export default class Api {
           },
           credentials: 'omit',
         })
-        .then((resp) => {
-          if (!resp.ok) {
-            return reject(resp);
-          }
-          return resp.json();
-        })
-        .then(resolve, reject);
+      .then((resp) => {
+        if (!resp.ok) {
+          return resp.json().then(r => reject(r));
+        }
+        return resp.json().then(r => resolve(r));
+        });
       });
     }
 
@@ -136,13 +130,12 @@ export default class Api {
           },
           credentials: 'omit',
         })
-        .then((resp) => {
-          if (!resp.ok) {
-            return reject(resp);
-          }
-          return resp.json();
-        })
-        .then(resolve, reject);
+      .then((resp) => {
+        if (!resp.ok) {
+          return resp.json().then(r => reject(r));
+        }
+        return resp.json().then(r => resolve(r));
+        });
       });
     }
 
@@ -154,13 +147,12 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-        .then((resp) => {
-          if (!resp.ok) {
-            return reject(resp);
-          }
-          return resp.json();
-        })
-        .then(resolve, reject);
+      .then((resp) => {
+        if (!resp.ok) {
+          return resp.json().then(r => reject(r));
+        }
+        return resp.json().then(r => resolve(r));
+        });
       });
     }
 
@@ -172,13 +164,12 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-        .then((resp) => {
-          if (!resp.ok) {
-            return reject(resp);
-          }
-          return resp.json();
-        })
-        .then(resolve, reject);
+      .then((resp) => {
+        if (!resp.ok) {
+          return resp.json().then(r => reject(r));
+        }
+        return resp.json().then(r => resolve(r));
+        });
       });
     }
 
@@ -192,13 +183,12 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-        .then((resp) => {
-          if (!resp.ok) {
-            return reject(resp);
-          }
-          return resp.json();
-        })
-        .then(resolve, reject);
+      .then((resp) => {
+        if (!resp.ok) {
+          return resp.json().then(r => reject(r));
+        }
+        return resp.json().then(r => resolve(r));
+        });
       });
     }
 
@@ -212,13 +202,12 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-        .then((resp) => {
-          if (!resp.ok) {
-            return reject(resp);
-          }
-          return resp.json();
-        })
-        .then(resolve, reject);
+      .then((resp) => {
+        if (!resp.ok) {
+          return resp.json().then(r => reject(r));
+        }
+        return resp.json().then(r => resolve(r));
+        });
       });
     }
 
@@ -232,13 +221,12 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-        .then((resp) => {
-          if (!resp.ok) {
-            return reject(resp);
-          }
-          return resp.json();
-        })
-        .then(resolve, reject);
+      .then((resp) => {
+        if (!resp.ok) {
+          return resp.json().then(r => reject(r));
+        }
+        return resp.json().then(r => resolve(r));
+        });
       });
     }
 
