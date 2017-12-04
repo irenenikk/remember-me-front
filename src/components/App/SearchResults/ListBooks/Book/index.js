@@ -59,14 +59,14 @@ export default class Book extends Component {
     }
     return (
       <center>
-        <Card>
-          <CardTitle className="book" title={this.props.title} subtitle={this.props.author} />
+        <Card className="book" >
+          <CardTitle title={this.props.title} subtitle={this.props.author} />
           {this.props.description.trim().length > 0 && <CardText>{this.props.description}</CardText>}
           {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
             <DoneToggle id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
-            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
             <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
+            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
           </CardText>
         </Card>
       </center>

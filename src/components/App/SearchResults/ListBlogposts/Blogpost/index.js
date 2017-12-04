@@ -55,12 +55,12 @@ export default class Blogpost extends Component {
     }
     return (
       <center>
-        <Card>
-          <div className="pilar">
-            <CardTitle title={this.props.title} subtitle={this.props.author} />
+        <Card className="blogpost">
+          <CardTitle title={this.props.title} subtitle={this.props.author} />
+          <CardText>
             <a href={this.props.url}>{this.props.url}</a>
+          </CardText>
             {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
-          </div>
           <CardText>
             <DoneToggle id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
             <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />

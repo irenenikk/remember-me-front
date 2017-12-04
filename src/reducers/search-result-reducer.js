@@ -31,8 +31,8 @@ const initialState = {
   books: [],
   blogposts: [],
   videos: [],
-  showAll: false,
-  showRead: true,
+  showAll: true,
+  showRead: false,
   showUnRead: false,
 };
 

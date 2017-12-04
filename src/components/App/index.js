@@ -50,12 +50,14 @@ class App extends Component {
           </Tab>
 
           <Tab
+            id="add-new-blogpost-button"
             label="Add new blogpost">
                <BlogpostForm />
                <ListBlogposts />
          </Tab>
 
          <Tab
+           id="add-new-video-button"
            label="Add new video">
               <VideoForm />
               <ListVideos />
