@@ -5,7 +5,7 @@ import {
   inputVideoTitleChangedAction,
   inputVideoUrlChangedAction,
   inputVideoCommentChangedAction
-} from '../../../../state/actions';
+} from '../../../../state/actions/form-actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';

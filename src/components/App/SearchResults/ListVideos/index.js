@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import Video from './Video';
 import Paper from 'material-ui/Paper';
 import {
-  deleteVideoAction,
   updateVideoTitleAction,
   updateVideoUrlAction,
   updateVideoCommentAction,
   editVideoAction,
   updateVideoAction,
+} from '../../../../state/actions/edit-actions';
+import {
+  deleteVideoAction,
   doneVideoAction
-} from '../../../../state/actions';
+} from '../../../../state/actions/list-actions';
 
 class ListVideos extends Component {
 
@@ -18,7 +20,16 @@ class ListVideos extends Component {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-          {this.props.videos.map(v =>
+          {this.props.videos.filter(b => {
+            if (this.props.showRead) {
+              return b.read;
+            }
+            if (this.props.showUnread) {
+              return !b.read;
+            }
+            return true;
+          })
+          .map(v =>
             <Video
               id={v.id}
               key={v.id}
@@ -46,6 +57,9 @@ class ListVideos extends Component {
 const mapStateToProps = (state) => {
   return {
     videos: state.list.videos,
+    showAll: state.list.showAll,
+    showRead: state.list.showRead,
+    showUnread: state.list.showUnread,
   };
 }
 

@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import Book from './Book';
 import Paper from 'material-ui/Paper'
 import {
-  deleteBookAction,
   editBookAction,
   updateBookAction,
   updateBookAuthorAction,
   updateBookTitleAction,
   updateBookDescriptionAction,
   updateBookCommentAction,
+ } from '../../../../state/actions/edit-actions';
+ import {
+  deleteBookAction,
   doneBookAction
- } from '../../../../state/actions';
+ } from '../../../../state/actions/list-actions';
 
 class ListBooks extends Component {
 
@@ -19,7 +21,16 @@ class ListBooks extends Component {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-          {this.props.books.map(b =>
+          {this.props.books.filter(b => {
+            if (this.props.showRead) {
+              return b.read;
+            }
+            if (this.props.showUnread) {
+              return !b.read;
+            }
+            return true;
+          })
+          .map(b =>
             <Book
               key={b.id}
               id={b.id}
@@ -49,6 +60,9 @@ class ListBooks extends Component {
 const mapStateToProps = (state) => {
   return {
     books: state.list.books,
+    showAll: state.list.showAll,
+    showRead: state.list.showRead,
+    showUnread: state.list.showUnread,
   };
 }
 

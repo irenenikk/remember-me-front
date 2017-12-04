@@ -59,7 +59,6 @@ export default class Api {
     });
   }
 
-
   postBook(formState) {
     return new Promise((resolve, reject) => {
       const data = this._createBookFormJSON(formState.book);
