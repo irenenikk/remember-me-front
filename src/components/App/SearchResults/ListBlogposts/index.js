@@ -10,6 +10,7 @@ import {
   updateBlogpostAuthorAction,
   updateBlogpostUrlAction,
   updateBlogpostCommentAction,
+  doneBlogpostAction
 } from '../../../../state/actions';
 
 class ListBlogposts extends Component {
@@ -27,6 +28,8 @@ class ListBlogposts extends Component {
               url={b.url}
               comment={b.comment}
               tags={b.tags}
+              done={b.read}
+              onDone={this.props.handleDone}
               onDelete={this.props.handleDelete}
               onEdit={this.props.handleEdit}
               onFinishEditing={this.props.handleFinishEditing}
@@ -51,6 +54,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    handleDone(id) {
+      dispatch(doneBlogpostAction(id))
+    },
     handleDelete(id) {
       dispatch(deleteBlogpostAction(id))
     },

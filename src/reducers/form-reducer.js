@@ -22,17 +22,20 @@ const initialState = {
     author: "",
     description: "",
     comment: "",
+    read:""
   },
   blogpost: {
     title: "",
     author: "",
     url: "",
     comment: "",
+    read:""
   },
   video: {
     title: "",
     url: "",
     comment: "",
+    read:""
   },
   message: "",
 };
