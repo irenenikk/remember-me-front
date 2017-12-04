@@ -58,8 +58,8 @@ export default class Blogpost extends Component {
           {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
         </div>
         <CardText>
-          <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
           <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+          <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
         </CardText>
       </Card>
     );
