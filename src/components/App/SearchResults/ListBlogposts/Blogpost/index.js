@@ -45,23 +45,27 @@ export default class Blogpost extends Component {
               fullWidth
               rows={3}
             />
-            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            <CardText>
+              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            </CardText>
           </Card>
         </center>
       );
     }
     return (
-      <Card>
-        <div className="pilar">
-          <CardTitle title={this.props.title} subtitle={this.props.author} />
-          <a href={this.props.url}>{this.props.url}</a>
-          {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
-        </div>
-        <CardText>
-          <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
-          <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
-        </CardText>
-      </Card>
+      <center>
+        <Card>
+          <div className="pilar">
+            <CardTitle title={this.props.title} subtitle={this.props.author} />
+            <a href={this.props.url}>{this.props.url}</a>
+            {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
+          </div>
+          <CardText>
+            <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
+            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+          </CardText>
+        </Card>
+      </center>
     );
   }
 }

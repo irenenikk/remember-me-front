@@ -46,7 +46,6 @@ const postSuccessful = 'Tip saved'
 const postFailed = 'Couldn\'t save tip';
 const getFailed = 'Couldn\'t get tips.'
 const deleteFailed = 'Couldn\'t delete tip.'
-const updateFailed = 'Couldn\'t update tip.'
 
 export const clickAction = () => {
   return {
@@ -212,8 +211,17 @@ export const postBookAction = () => {
         dispatch(getBooksAction());
         dispatch(newMessageAction(postSuccessful));
       },
-      (error) => {
-        dispatch(newMessageAction(postFailed));
+      (errors) => {
+        let message = postFailed;
+        if (errors instanceof Array && errors[0].message) {
+          message = errors[0].message;
+          errors.forEach((e, i) => {
+            if (i > 0) {
+              message += '\n' + e.message
+            }
+          });
+        }
+        dispatch(newMessageAction(message));
       },
     );
   };
@@ -227,8 +235,17 @@ export const postBlogpostAction = () => {
         dispatch(getBlogpostsAction());
         dispatch(newMessageAction(postSuccessful));
       },
-      (error) => {
-        dispatch(newMessageAction(postFailed));
+      (errors) => {
+        let message = postFailed;
+        if (errors instanceof Array && errors[0].message) {
+          message = errors[0].message;
+          errors.forEach((e, i) => {
+            if (i > 0) {
+              message += '\n' + e.message
+            }
+          });
+        }
+        dispatch(newMessageAction(message));
       },
     );
   };
@@ -243,8 +260,17 @@ export const postVideoAction = () => {
         dispatch(getVideosAction());
         dispatch(newMessageAction(postSuccessful));
       },
-      (error) => {
-        dispatch(newMessageAction(postFailed));
+      (errors) => {
+        let message = postFailed;
+        if (errors instanceof Array && errors[0].message) {
+          message = errors[0].message;
+          errors.forEach((e, i) => {
+            if (i > 0) {
+              message += '\n' + e.message
+            }
+          });
+        }
+        dispatch(newMessageAction(message));
       },
     );
   };
@@ -343,8 +369,17 @@ export const updateBookAction = (id) => {
       () => {
         dispatch(finishEditingBookAction(id));
       },
-      (error) => {
-        dispatch(newMessageAction(updateFailed));
+      (errors) => {
+        let message = postFailed;
+        if (errors instanceof Array && errors[0].message) {
+          message = errors[0].message;
+          errors.forEach((e, i) => {
+            if (i > 0) {
+              message += '\n' + e.message
+            }
+          });
+        }
+        dispatch(newMessageAction(message));
       },
     );
   };
@@ -358,8 +393,17 @@ export const updateVideoAction = (id) => {
       () => {
         dispatch(finishEditingVideoAction(id));
       },
-      (error) => {
-        dispatch(newMessageAction(updateFailed));
+      (errors) => {
+        let message = postFailed;
+        if (errors instanceof Array && errors[0].message) {
+          message = errors[0].message;
+          errors.forEach((e, i) => {
+            if (i > 0) {
+              message += '\n' + e.message
+            }
+          });
+        }
+        dispatch(newMessageAction(message));
       },
     );
   };
@@ -373,8 +417,17 @@ export const updateBlogpostAction = (id) => {
       () => {
         dispatch(finishEditingBlogpostAction(id));
       },
-      (error) => {
-        dispatch(newMessageAction(updateFailed));
+      (errors) => {
+        let message = postFailed;
+        if (errors instanceof Array && errors[0].message) {
+          message = errors[0].message;
+          errors.forEach((e, i) => {
+            if (i > 0) {
+              message += '\n' + e.message
+            }
+          });
+        }
+        dispatch(newMessageAction(message));
       },
     );
   };
