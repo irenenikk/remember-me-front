@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 import DeleteButton from '../../DeleteButton';
 import EditButton from '../../EditButton';
+import DoneButton from '../../DoneButton';
 import TextField from 'material-ui/TextField';
 
 export default class Video extends Component {
@@ -55,6 +56,7 @@ export default class Video extends Component {
               </CardText>
               {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
               <CardText>
+                <DoneButton id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
                 <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
                 <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
               </CardText>

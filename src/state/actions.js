@@ -24,6 +24,10 @@ export const EDIT_BOOK = 'EDIT_BOOK';
 export const EDIT_VIDEO = 'EDIT_VIDEO';
 export const EDIT_BLOGPOST = 'EDIT_BLOGPOST';
 
+export const DONE_BOOK = 'DONE_BOOK';
+export const DONE_VIDEO = 'DONE_VIDEO';
+export const DONE_BLOGPOST = 'DONE_BLOGPOST';
+
 export const FINISH_BOOK_EDIT = 'FINISH_BOOK_EDIT';
 export const FINISH_VIDEO_EDIT = 'FINISH_VIDEO_EDIT';
 export const FINISH_BLOGPOST_EDIT = 'FINISH_BLOGPOST_EDIT';
@@ -314,6 +318,57 @@ export const deleteBlogpostAction = (id) => {
       },
       (error) => {
         dispatch(newMessageAction(deleteFailed));
+      },
+    );
+  };
+}
+
+export const doneBookAction = (id) => {
+  return async (dispatch, getState, api) => {
+    const book = getState().list.books.filter(b => b.id === id)[0];
+    if(book.read) book.read = false;
+    else book.read = true;
+    api.putBook(book)
+      .then(
+      () => {
+        dispatch(getBooksAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(getFailed));
+      },
+    );
+  };
+}
+
+export const doneVideoAction = (id) => {
+  return async (dispatch, getState, api) => {
+    const video = getState().list.videos.filter(v => v.id === id)[0];
+    if(video.read) video.read = false;
+    else video.read = true;
+    api.putVideo(video)
+      .then(
+      () => {
+        dispatch(getVideosAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(getFailed));
+      },
+    );
+  };
+}
+
+export const doneBlogpostAction = (id) => {
+  return async (dispatch, getState, api) => {
+    const post = getState().list.blogposts.filter(b => b.id === id)[0];
+    if(post.read) post.read = false;
+    else post.read = true;
+    api.putBlogpost(post)
+      .then(
+      () => {
+        dispatch(getBlogpostsAction());
+      },
+      (error) => {
+        dispatch(newMessageAction(getFailed));
       },
     );
   };
