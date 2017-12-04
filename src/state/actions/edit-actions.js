@@ -45,7 +45,7 @@ export const editBlogpostAction = (id) => {
 
 export const updateBookAction = (id) => {
   return async (dispatch, getState, api) => {
-    const book = getState().list.books.filter(b => b.id === id)[0];
+    const book = getState().list.filteredBooks.filter(b => b.id === id)[0];
     api.putBook(book)
       .then(
       () => {
@@ -69,7 +69,7 @@ export const updateBookAction = (id) => {
 
 export const updateVideoAction = (id) => {
   return async (dispatch, getState, api) => {
-    const video = getState().list.videos.filter(v => v.id === id)[0];
+    const video = getState().list.filteredVideos.filter(v => v.id === id)[0];
     api.putVideo(video)
       .then(
       () => {
@@ -93,7 +93,7 @@ export const updateVideoAction = (id) => {
 
 export const updateBlogpostAction = (id) => {
   return async (dispatch, getState, api) => {
-    const post = getState().list.blogposts.filter(b => b.id === id)[0];
+    const post = getState().list.filteredBlogposts.filter(b => b.id === id)[0];
     api.putBlogpost(post)
       .then(
       () => {

@@ -21,7 +21,16 @@ class ListBooks extends Component {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-          {this.props.books.map(b =>
+          {this.props.books.filter(b => {
+            if (this.props.showRead) {
+              return b.read;
+            }
+            if (this.props.showUnread) {
+              return !b.read;
+            }
+            return true;
+          })
+          .map(b =>
             <Book
               key={b.id}
               id={b.id}
@@ -51,6 +60,9 @@ class ListBooks extends Component {
 const mapStateToProps = (state) => {
   return {
     books: state.list.books,
+    showAll: state.list.showAll,
+    showRead: state.list.showRead,
+    showUnread: state.list.showUnread,
   };
 }
 

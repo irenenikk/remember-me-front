@@ -18,7 +18,6 @@ export default function makeStore() {
   store.dispatch(getBooksAction());
   store.dispatch(getBlogpostsAction());
   store.dispatch(getVideosAction());
-
   api.syncStore(store);
   return store;
 }

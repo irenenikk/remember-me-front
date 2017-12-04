@@ -3,6 +3,9 @@ import {
   BOOKS_RECEIVED,
   BLOGPOSTS_RECEIVED,
   VIDEOS_RECEIVED,
+  FILTER_SHOW_ALL,
+  FILTER_READ,
+  FILTER_UNREAD,
 } from '../state/actions/list-actions';
 import {
   EDIT_BOOK,
@@ -28,8 +31,9 @@ const initialState = {
   books: [],
   blogposts: [],
   videos: [],
-  showAll: true,
+  showAll: false,
   showRead: true,
+  showUnRead: false,
 };
 
 export default createReducer(initialState, {
@@ -358,6 +362,30 @@ export default createReducer(initialState, {
     return {
       ...state,
       videos,
+    }
+  },
+  [FILTER_SHOW_ALL](state, action) {
+    return {
+      ...state,
+      showAll: !state.showAll,
+      showRead: false,
+      showUnread: false,
+    }
+  },
+  [FILTER_READ](state, action) {
+    return {
+      ...state,
+      showRead: true,
+      showUnread: false,
+      showAll: false,
+    }
+  },
+  [FILTER_UNREAD](state, action) {
+    return {
+      ...state,
+      showRead: false,
+      showUnread: true,
+      showAll: false,
     }
   },
 });

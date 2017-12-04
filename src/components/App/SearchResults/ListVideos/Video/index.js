@@ -57,6 +57,7 @@ export default class Video extends Component {
             {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           </div>
             <CardText>
+            <DoneToggle id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
             <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
             <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
           </CardText>

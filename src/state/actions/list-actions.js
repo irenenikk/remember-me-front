@@ -9,6 +9,10 @@ export const DONE_BOOK = 'DONE_BOOK';
 export const DONE_VIDEO = 'DONE_VIDEO';
 export const DONE_BLOGPOST = 'DONE_BLOGPOST';
 
+export const FILTER_SHOW_ALL = 'FILTER_SHOW_ALL';
+export const FILTER_READ = 'FILTER_READ';
+export const FILTER_UNREAD = 'FILTER_UNREAD';
+
 export const getBooksAction = () => {
   return async (dispatch, getState, api) => {
     api.getBooks()
@@ -164,3 +168,20 @@ export const videosReceivedAction = (videos) => {
   }
 }
 
+export const filterShowAllAction = () => {
+  return {
+    type: FILTER_SHOW_ALL,
+  }
+}
+
+export const filterReadAction = () => {
+  return {
+    type: FILTER_READ,
+  }
+}
+
+export const filterUnreadAction = () => {
+  return {
+    type: FILTER_UNREAD,
+  }
+}
