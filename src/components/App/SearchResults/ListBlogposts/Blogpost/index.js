@@ -46,24 +46,26 @@ export default class Blogpost extends Component {
               fullWidth
               rows={3}
             />
-            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            <CardText>
+              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            </CardText>
           </Card>
         </center>
       );
     }
     return (
-      <Card>
-        <div className="pilar">
-          <CardTitle title={this.props.title} subtitle={this.props.author} />
-          <a href={this.props.url}>{this.props.url}</a>
-          {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
-        </div>
-        <CardText>
-          <DoneButton id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
-          <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
-          <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
-        </CardText>
-      </Card>
+      <center>
+        <Card className="blogpost">
+            <CardTitle title={this.props.title} subtitle={this.props.author} />
+            <CardText><a href={this.props.url}>{this.props.url}</a></CardText>
+            {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
+          <CardText>
+            <DoneButton id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
+            <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
+            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+          </CardText>
+        </Card>
+      </center>
     );
   }
 }

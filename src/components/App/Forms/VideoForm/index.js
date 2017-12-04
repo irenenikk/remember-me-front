@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   postVideoAction,
   inputVideoTitleChangedAction,
-  inputVideoUrlChangedAction, 
+  inputVideoUrlChangedAction,
   inputVideoCommentChangedAction
 } from '../../../../state/actions';
 
@@ -21,6 +21,7 @@ class VideoForm extends Component {
           <CardTitle title="Add new video:"> </CardTitle>
           <CardText>
             <TextField
+              id="video-title-input"
               value={this.props.title}
               onChange={this.props.onTitleChange}
               floatingLabelText="Title "
@@ -28,6 +29,7 @@ class VideoForm extends Component {
             />
             <br />
             <TextField
+              id="video-link-input"
               value={this.props.url}
               onChange={this.props.onUrlChange}
               floatingLabelText="Link "
@@ -46,6 +48,7 @@ class VideoForm extends Component {
           </CardText>
           <CardActions>
             <RaisedButton
+              id="submit-video"
               label="Save"
               onClick={this.props.handleClick}
               primary={true}
