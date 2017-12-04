@@ -45,7 +45,9 @@ export default class Blogpost extends Component {
               fullWidth
               rows={3}
             />
-            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            <CardText>
+              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            </CardText>
           </Card>
         </center>
       );

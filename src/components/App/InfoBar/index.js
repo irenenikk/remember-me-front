@@ -11,6 +11,7 @@ class InfoBar extends Component {
         message={this.props.message}
         autoHideDuration={4000}
         onRequestClose={this.props.handelHide}
+        bodyStyle={{ height: 'auto', lineHeight: '28px', padding: 24, whiteSpace: 'pre-line' }}
       />
     )
   }

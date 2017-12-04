@@ -47,7 +47,6 @@ export default class Video extends Component {
     }
     return (
       <center>
-          <Card className="video">
               <CardTitle title={this.props.title} />
               <CardText>  <a href={this.props.url}>
                   {this.props.url}
@@ -60,6 +59,3 @@ export default class Video extends Component {
               </CardText>
           </Card>
       </center>
-    );
-  }
-}
