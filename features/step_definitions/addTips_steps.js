@@ -33,7 +33,6 @@ defineSupportCode(function ({Given, When, Then}) {
               expect(result.content).to.contain(author);
               expect(result.content).to.contain(title);
               expect(result.content).to.contain(comment);
-
           });
   });
 
@@ -72,7 +71,6 @@ defineSupportCode(function ({Given, When, Then}) {
             expect(result.content).to.contain(title);
             expect(result.content).to.contain(link);
             expect(result.content).to.contain(comment);
-
         });
     });
 

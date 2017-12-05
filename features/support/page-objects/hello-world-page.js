@@ -6,8 +6,6 @@ const ADD_BOOK_BUTTON_ID = '#add-new-book-button';
 const ADD_BLOGPOST_BUTTON_ID = '#add-new-blogpost-button';
 const ADD_VIDEO_BUTTON_ID = '#add-new-video-button';
 
-const REMOVE_BOOK_BUTTON_ID = '#remove-book-button';
-
 const BOOK_CLASS = '.book';
 const BLOGPOST_CLASS = '.blogpost';
 const VIDEO_CLASS = '.video';
@@ -44,10 +42,6 @@ class HelloWorldPage {
         return this.nightmare.click(ADD_BOOK_BUTTON_ID).wait('#book-title-input');
     }
 
-    clickRemoveBookButton() {
-        return this.nightmare.click(REMOVE_BOOK_BUTTON_ID).wait('#book-title-input');
-    }
-
     writeToBookAuthorInput(author) {
         return this.nightmare.type('#book-author-input', author)
     }
@@ -71,8 +65,24 @@ class HelloWorldPage {
     }
 
     submitBookForm() {
-        return this.nightmare.click('#submit-book').wait(BOOK_CLASS);
+        return this.nightmare.click('#submit-book').wait(5000);
     }
+
+    clickDeleteBookButton(author, title) {
+      const searchString =  '#' + title.replace(/\s/g,'') + author.replace(/\s/g,'') +  ' .deleteButton' ;
+      console.log(searchString);
+        const bookID = this.nightmare.evaluate((searchString) => {
+            const bookID = document.querySelector(searchString)+'.id';
+            console.log(bookID);
+            return {
+                bookID,
+            };
+        }, searchString );
+          console.log(bookID);
+        return this.nightmare.click('#'+bookID).wait('.paper');
+    }
+
+
 
 // BLOGPOST
     clickAddBlogpostButton() {
