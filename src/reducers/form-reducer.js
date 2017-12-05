@@ -1,16 +1,16 @@
 import { createReducer } from 'redux-create-reducer';
 import {
-  INPUT_BOOKWRITER_CHANGED,
-  INPUT_BOOKTITLE_CHANGED,
-  INPUT_BOOKDESCRIPTION_CHANGED,
-  INPUT_BOOKCOMMENT_CHANGED,
-  INPUT_BLOGPOSTTITLE_CHANGED,
-  INPUT_BLOGPOSTAUTHOR_CHANGED,
-  INPUT_BLOGPOSTURL_CHANGED,
-  INPUT_BLOGPOSTCOMMENT_CHANGED,
-  INPUT_VIDEOTITLE_CHANGED,
-  INPUT_VIDEOURL_CHANGED,
-  INPUT_VIDEOCOMMENT_CHANGED,
+  BOOK_WRITER_CHANGED,
+  BOOK_TITLE_CHANGED,
+  BOOK_DESCRIPTION_CHANGED,
+  BOOK_COMMENT_CHANGED,
+  BLOGPOST_TITLE_CHANGED,
+  BLOGPOST_AUTHOR_CHANGED,
+  BLOGPOST_URL_CHANGED,
+  BLOGPOST_COMMENT_CHANGED,
+  VIDEO_TITLE_CHANGED,
+  VIDEO_URL_CHANGED,
+  VIDEO_COMMENT_CHANGED,
 } from '../state/actions/form-actions';
 import {
   NEW_MESSAGE,
@@ -42,7 +42,7 @@ const initialState = {
 };
 
 export default createReducer(initialState, {
-  [INPUT_BOOKWRITER_CHANGED](state, action) {
+  [BOOK_WRITER_CHANGED](state, action) {
     return {
       ...state,
       book: {
@@ -51,7 +51,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_BOOKTITLE_CHANGED](state, action) {
+  [BOOK_TITLE_CHANGED](state, action) {
     return {
       ...state,
       book: {
@@ -60,7 +60,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_BOOKDESCRIPTION_CHANGED](state, action) {
+  [BOOK_DESCRIPTION_CHANGED](state, action) {
     return {
       ...state,
       book: {
@@ -69,7 +69,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_BOOKCOMMENT_CHANGED](state, action) {
+  [BOOK_COMMENT_CHANGED](state, action) {
     return {
       ...state,
       book: {
@@ -78,7 +78,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_BLOGPOSTTITLE_CHANGED](state, action) {
+  [BLOGPOST_TITLE_CHANGED](state, action) {
     return {
       ...state,
       blogpost: {
@@ -87,7 +87,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_BLOGPOSTAUTHOR_CHANGED](state, action) {
+  [BLOGPOST_AUTHOR_CHANGED](state, action) {
     return {
       ...state,
       blogpost: {
@@ -96,7 +96,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_BLOGPOSTURL_CHANGED](state, action) {
+  [BLOGPOST_URL_CHANGED](state, action) {
     return {
       ...state,
       blogpost: {
@@ -105,7 +105,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_BLOGPOSTCOMMENT_CHANGED](state, action) {
+  [BLOGPOST_COMMENT_CHANGED](state, action) {
     return {
       ...state,
       blogpost: {
@@ -114,7 +114,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_VIDEOTITLE_CHANGED](state, action) {
+  [VIDEO_TITLE_CHANGED](state, action) {
     return {
       ...state,
       video: {
@@ -123,7 +123,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_VIDEOURL_CHANGED](state, action) {
+  [VIDEO_URL_CHANGED](state, action) {
     return {
       ...state,
       video: {
@@ -132,7 +132,7 @@ export default createReducer(initialState, {
       }
     };
   },
-  [INPUT_VIDEOCOMMENT_CHANGED](state, action) {
+  [VIDEO_COMMENT_CHANGED](state, action) {
     return {
       ...state,
       video: {
