@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import {filterReadAction, filterShowAllAction, filterUnreadAction} from '../../../state/actions/list-actions';
+import {filterReadAction, filterShowAllAction, filterUnreadAction} from '../state/actions/list-actions';
 
 class FilterButtons extends Component {
   render() {

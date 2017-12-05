@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import { Card, CardTitle, CardText } from 'material-ui/Card';
-import DeleteButton from '../../DeleteButton';
-import EditButton from '../../EditButton';
-import DoneToggle from '../../DoneToggle';
+import DeleteButton from '../delete-button';
+import EditButton from '../edit-button';
+import DoneToggle from '../done-toggle';
 import TextField from 'material-ui/TextField';
 
 export default class Video extends Component {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 import { Card, CardTitle, CardText } from 'material-ui/Card';
-import DeleteButton from '../../DeleteButton';
-import EditButton from '../../EditButton';
-import DoneToggle from '../../DoneToggle';
+import DeleteButton from '../delete-button';
+import EditButton from '../edit-button';
+import DoneToggle from '../done-toggle';
 import TextField from 'material-ui/TextField';
 
-export default class Blogpost extends Component {
+export default class Book extends Component {
 
   render() {
     if (this.props.edit) {
@@ -14,7 +14,7 @@ export default class Blogpost extends Component {
         <center>
           <Card>
             <TextField
-              id="blogpost-title-input"
+              id="book-title-input"
               value={this.props.title}
               onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
               floatingLabelText="Title"
@@ -22,22 +22,26 @@ export default class Blogpost extends Component {
             />
             <br />
             <TextField
-              id="blogpost-author-input"
+              id="book-author-input"
               value={this.props.author}
               onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.id)}
-              floatingLabelText="Author"
+              floatingLabelText="Author "
               name="Author"
             />
             <br />
             <TextField
-              id="blogpost-url-input"
-              value={this.props.url}
-              onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
-              floatingLabelText="Link"
-              name="Link"
+              id="book-description-input"
+              value={this.props.description}
+              onChange={(e) => this.props.onDescriptionChange(e.target.value, this.props.id)}
+              floatingLabelText="Description"
+              name="Description"
+              multiLine
+              fullWidth
+              rows={3}
             />
+            <br />
             <TextField
-              id="blogpost-comment-input"
+              id="book-comment-input"
               value={this.props.comment}
               onChange={(e) => this.props.onCommentChange(e.target.value, this.props.id)}
               floatingLabelText="Comment"
@@ -55,12 +59,10 @@ export default class Blogpost extends Component {
     }
     return (
       <center>
-        <Card className="blogpost">
+        <Card className="book" >
           <CardTitle title={this.props.title} subtitle={this.props.author} />
-          <CardText>
-            <a href={this.props.url}>{this.props.url}</a>
-          </CardText>
-            {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
+          {this.props.description.trim().length > 0 && <CardText>{this.props.description}</CardText>}
+          {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
             <DoneToggle id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
             <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />

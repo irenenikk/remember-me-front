@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import BookForm from './Forms/BookForm';
-import BlogpostForm from './Forms/BlogpostForm';
-import VideoForm from './Forms/VideoForm';
+import BookForm from './Forms/book-form';
+import BlogpostForm from './Forms/blogpost-form';
+import VideoForm from './Forms/video-form';
 
 import ListAllTips from './SearchResults/';
 import ListBooks from './SearchResults/ListBooks';
@@ -13,9 +13,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import AppBar from 'material-ui/AppBar';
-import InfoBar from './InfoBar'
-import FilterButtons from './FilterButtons';
-import './index.css';
+import InfoBar from './info-bar'
+import FilterButtons from './filter-buttons';
+import './app.css';
 
 
 const muiTheme = getMuiTheme({

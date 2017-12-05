@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Blogpost from './Blogpost';
-import Paper from 'material-ui/Paper';
+import Book from './book';
+import Paper from 'material-ui/Paper'
 import {
-  editBlogpostAction,
-  updateBlogpostAction,
-  updateBlogpostTitleAction,
-  updateBlogpostAuthorAction,
-  updateBlogpostUrlAction,
-  updateBlogpostCommentAction,
-} from '../../../../state/actions/edit-actions';
-import {
-  deleteBlogpostAction,
-  doneBlogpostAction
-} from '../../../../state/actions/list-actions';
+  editBookAction,
+  updateBookAction,
+  updateBookAuthorAction,
+  updateBookTitleAction,
+  updateBookDescriptionAction,
+  updateBookCommentAction,
+ } from '../../../state/actions/edit-actions';
+ import {
+  deleteBookAction,
+  doneBookAction
+ } from '../../../state/actions/list-actions';
 
-class ListBlogposts extends Component {
+class ListBooks extends Component {
 
   render() {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-          {this.props.blogposts.filter(b => {
+          {this.props.books.filter(b => {
             if (this.props.showRead) {
               return b.read;
             }
@@ -30,13 +30,13 @@ class ListBlogposts extends Component {
             }
             return true;
           })
-           .map(b =>
-            <Blogpost
-              id={b.id}
+          .map(b =>
+            <Book
               key={b.id}
+              id={b.id}
               title={b.title}
               author={b.author}
-              url={b.url}
+              description={b.description}
               comment={b.comment}
               tags={b.tags}
               done={b.read}
@@ -45,9 +45,9 @@ class ListBlogposts extends Component {
               onEdit={this.props.handleEdit}
               onFinishEditing={this.props.handleFinishEditing}
               edit={b.edit}
-              onTitleChange={this.props.handleTitleChange}
               onAuthorChange={this.props.handleAuthorChange}
-              onUrlChange={this.props.handleUrlChange}
+              onTitleChange={this.props.handleTitleChange}
+              onDescriptionChange={this.props.handleDescriptionChange}
               onCommentChange={this.props.handleCommentChange}
             />
           )}
@@ -59,7 +59,7 @@ class ListBlogposts extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    blogposts: state.list.blogposts,
+    books: state.list.books,
     showAll: state.list.showAll,
     showRead: state.list.showRead,
     showUnread: state.list.showUnread,
@@ -69,30 +69,30 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleDone(id) {
-      dispatch(doneBlogpostAction(id))
+      dispatch(doneBookAction(id))
     },
     handleDelete(id) {
-      dispatch(deleteBlogpostAction(id))
+      dispatch(deleteBookAction(id))
     },
     handleEdit(id) {
-      dispatch(editBlogpostAction(id));
+      dispatch(editBookAction(id));
     },
     handleFinishEditing(id) {
-      dispatch(updateBlogpostAction(id));
-    },
-    handleTitleChange(input, id) {
-      dispatch(updateBlogpostTitleAction(input, id));
+      dispatch(updateBookAction(id));
     },
     handleAuthorChange(input, id) {
-      dispatch(updateBlogpostAuthorAction(input, id));
+      dispatch(updateBookAuthorAction(input, id));
+    },
+    handleTitleChange(input, id) {
+      dispatch(updateBookTitleAction(input, id));
+    },
+    handleDescriptionChange(input, id) {
+      dispatch(updateBookDescriptionAction(input, id));
     },
     handleCommentChange(input, id) {
-      dispatch(updateBlogpostCommentAction(input, id));
-    },
-    handleUrlChange(input, id) {
-      dispatch(updateBlogpostUrlAction(input, id));
+      dispatch(updateBookCommentAction(input, id));
     }
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListBlogposts);
+export default connect(mapStateToProps, mapDispatchToProps)(ListBooks);

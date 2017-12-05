@@ -1,42 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  postVideoAction,
-  inputVideoTitleChangedAction,
-  inputVideoUrlChangedAction,
-  inputVideoCommentChangedAction
-} from '../../../../state/actions/form-actions';
+  postBlogpostAction, inputBlogpostTitleChangedAction,
+  inputBlogpostAuthorChangedAction, inputBlogpostUrlChangedAction,
+  inputBlogpostCommentChangedAction
+} from '../../state/actions/form-actions';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
 
 
-class VideoForm extends Component {
+class BlogpostForm extends Component {
 
   render() {
     return (
       <center>
-        <Card className="VideoForm">
-          <CardTitle title="Add new video:"> </CardTitle>
+        <Card className="BlogForm">
+          <CardTitle title="Add new blogpost:"> </CardTitle>
           <CardText>
             <TextField
-              id="video-title-input"
+              id="blogpost-title-input"
               value={this.props.title}
               onChange={this.props.onTitleChange}
-              floatingLabelText="Title "
+              floatingLabelText="Title"
               name="Title"
             />
             <br />
             <TextField
-              id="video-link-input"
+              id="blogpost-author-input"
+              value={this.props.author}
+              onChange={this.props.onAuthorChange}
+              floatingLabelText="Author"
+              name="Author"
+            />
+            <br />
+            <TextField
+              id="blogpost-link-input"
               value={this.props.url}
               onChange={this.props.onUrlChange}
-              floatingLabelText="Link "
-              name="www.video.com"
+              floatingLabelText="Link"
+              name="Link"
             />
+            <br />
             <TextField
-              id="video-comment-input"
+              id="blogpost-comment-input"
               value={this.props.comment}
               onChange={this.props.onCommentChange}
               floatingLabelText="Comment"
@@ -48,7 +56,7 @@ class VideoForm extends Component {
           </CardText>
           <CardActions>
             <RaisedButton
-              id="submit-video"
+              id="submit-blogpost"
               label="Save"
               onClick={this.props.handleClick}
               primary={true}
@@ -64,27 +72,31 @@ class VideoForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    title: state.form.video.title,
-    url: state.form.video.url,
-    comment: state.form.video.comment,
+    title: state.form.blogpost.title,
+    author: state.form.blogpost.author,
+    url: state.form.blogpost.url,
+    comment: state.form.blogpost.comment,
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onTitleChange(event) {
-      dispatch(inputVideoTitleChangedAction(event.target.value))
+      dispatch(inputBlogpostTitleChangedAction(event.target.value))
+    },
+    onAuthorChange(event) {
+      dispatch(inputBlogpostAuthorChangedAction(event.target.value))
     },
     onUrlChange(event) {
-      dispatch(inputVideoUrlChangedAction(event.target.value))
+      dispatch(inputBlogpostUrlChangedAction(event.target.value))
     },
     onCommentChange(event) {
-      dispatch(inputVideoCommentChangedAction(event.target.value))
+      dispatch(inputBlogpostCommentChangedAction(event.target.value))
     },
     handleClick() {
-      dispatch(postVideoAction());
+      dispatch(postBlogpostAction());
     },
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VideoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogpostForm);

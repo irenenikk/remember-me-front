@@ -2,8 +2,7 @@
   text-align: center;
 }
 
-.pilar {
+.card {
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
 }
