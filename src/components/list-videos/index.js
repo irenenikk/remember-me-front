@@ -8,11 +8,11 @@ import {
   updateVideoCommentAction,
   editVideoAction,
   updateVideoAction,
-} from '../../../state/actions/edit-actions';
+} from '../../state/actions/edit-actions';
 import {
   deleteVideoAction,
   doneVideoAction
-} from '../../../state/actions/list-actions';
+} from '../../state/actions/list-actions';
 
 class ListVideos extends Component {
 

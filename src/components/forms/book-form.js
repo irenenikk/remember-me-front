@@ -8,10 +8,11 @@ import {
   inputBookCommentChangedAction,
 } from '../../state/actions/form-actions';
 
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
 
+import LargeInput from '../inputs/large-input';
+import SmallInput from '../inputs/small-input';
+import SaveButton from '../tip-edit-buttons/save-button';
 
 class BookForm extends Component {
 
@@ -21,53 +22,39 @@ class BookForm extends Component {
         <Card className="BookForm">
           <CardTitle title="Add new book:"> </CardTitle>
           <CardText>
-            <TextField
+            <SmallInput
               id="book-title-input"
               value={this.props.title}
               onChange={this.props.onTitleChange}
-              floatingLabelText="Title "
               name="Title"
             />
             <br />
-            <TextField
+            <SmallInput
               id="book-author-input"
               value={this.props.author}
               onChange={this.props.onAuthorChange}
-              floatingLabelText="Author "
               name="Author"
             />
             <br />
-            <TextField
+            <LargeInput
               id="book-description-input"
               value={this.props.description}
               onChange={this.props.onDescriptionChange}
-              floatingLabelText="Description"
               name="Description"
-              multiLine
-              fullWidth
-              rows={3}
             />
             <br />
-            <TextField
+            <LargeInput
               id="book-comment-input"
               value={this.props.comment}
               onChange={this.props.onCommentChange}
-              floatingLabelText="Comment"
               name="Comment"
-              multiLine
-              fullWidth
-              rows={3}
             />
           </CardText>
           <CardActions>
-            <RaisedButton
+            <SaveButton
               id="submit-book"
-              label="Save"
               onClick={this.props.handleClick}
-              primary={true}
-              type="submit"
-            >
-            </RaisedButton>
+            />
           </CardActions>
         </Card>
       </center>

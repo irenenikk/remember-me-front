@@ -1,50 +1,46 @@
 import React, { Component } from 'react';
 
 import { Card, CardTitle, CardText } from 'material-ui/Card';
-import DeleteButton from '../delete-button';
-import EditButton from '../edit-button';
-import DoneToggle from '../done-toggle';
-import TextField from 'material-ui/TextField';
+import DeleteButton from '../tip-edit-buttons/delete-button';
+import EditButton from '../tip-edit-buttons/edit-button';
+import DoneToggle from '../tip-edit-buttons/done-toggle';
 
-export default class Blogpost extends Component {
+import LargeInput from '../inputs/large-input';
+import SmallInput from '../inputs/small-input';
+
+export default class Book extends Component {
 
   render() {
     if (this.props.edit) {
       return (
         <center>
           <Card>
-            <TextField
-              id="blogpost-title-input"
+            <SmallInput
+              id="book-title-input"
               value={this.props.title}
               onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
-              floatingLabelText="Title"
               name="Title"
             />
             <br />
-            <TextField
-              id="blogpost-author-input"
+            <SmallInput
+              id="book-author-input"
               value={this.props.author}
               onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.id)}
-              floatingLabelText="Author"
               name="Author"
             />
             <br />
-            <TextField
-              id="blogpost-url-input"
-              value={this.props.url}
-              onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
-              floatingLabelText="Link"
-              name="Link"
+            <LargeInput
+              id="book-description-input"
+              value={this.props.description}
+              onChange={(e) => this.props.onDescriptionChange(e.target.value, this.props.id)}
+              name="Description"
             />
-            <TextField
-              id="blogpost-comment-input"
+            <br />
+            <LargeInput
+              id="book-comment-input"
               value={this.props.comment}
               onChange={(e) => this.props.onCommentChange(e.target.value, this.props.id)}
-              floatingLabelText="Comment"
               name="Comment"
-              multiLine
-              fullWidth
-              rows={3}
             />
             <CardText>
               <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
@@ -55,12 +51,10 @@ export default class Blogpost extends Component {
     }
     return (
       <center>
-        <Card className="blogpost">
+        <Card className="book" >
           <CardTitle title={this.props.title} subtitle={this.props.author} />
-          <CardText>
-            <a href={this.props.url}>{this.props.url}</a>
-          </CardText>
-            {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
+          {this.props.description.trim().length > 0 && <CardText>{this.props.description}</CardText>}
+          {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
             <DoneToggle id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
             <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
