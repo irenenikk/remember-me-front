@@ -64,7 +64,6 @@ class HelloWorldPage {
         return this.nightmare.evaluate((selector) => {
             const elements = Array.from(document.querySelectorAll(selector));
             const content = elements.reduce((a, e) => "" + a + e.innerHTML);
-            console.log(content);
             return {
                 content,
             };
@@ -100,7 +99,6 @@ class HelloWorldPage {
         return this.nightmare.evaluate((selector) => {
             const elements = Array.from(document.querySelectorAll(selector));
             const content = elements.reduce((a, e) => "" + a + e.innerHTML);
-            console.log(content);
             return {
                 content,
             };
@@ -133,7 +131,6 @@ class HelloWorldPage {
             return this.nightmare.evaluate((selector) => {
                 const elements = Array.from(document.querySelectorAll(selector));
                 const content = elements.reduce((a, e) => "" + a + e.innerHTML);
-                console.log(content);
                 return {
                     content,
                 };

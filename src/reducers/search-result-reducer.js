@@ -31,7 +31,6 @@ const initialState = {
   books: [],
   blogposts: [],
   videos: [],
-  showAll: true,
   showRead: false,
   showUnRead: false,
 };
@@ -367,7 +366,6 @@ export default createReducer(initialState, {
   [FILTER_SHOW_ALL](state, action) {
     return {
       ...state,
-      showAll: !state.showAll,
       showRead: false,
       showUnread: false,
     }
@@ -377,7 +375,6 @@ export default createReducer(initialState, {
       ...state,
       showRead: true,
       showUnread: false,
-      showAll: false,
     }
   },
   [FILTER_UNREAD](state, action) {
@@ -385,7 +382,6 @@ export default createReducer(initialState, {
       ...state,
       showRead: false,
       showUnread: true,
-      showAll: false,
     }
   },
 });
