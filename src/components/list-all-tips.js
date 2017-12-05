@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ListBooks from './ListBooks';
-import ListBlogposts from './ListBlogposts';
-import ListVideos from './ListVideos';
+import ListBooks from './list-books';
+import ListBlogposts from './list-blogposts';
+import ListVideos from './list-videos';
 
 import Paper from 'material-ui/Paper';
 

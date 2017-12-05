@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import {filterReadAction, filterShowAllAction, filterUnreadAction} from '../../../state/actions/list-actions';
+import {filterReadAction, filterShowAllAction, filterUnreadAction} from '../state/actions/list-actions';
 
 class FilterButtons extends Component {
   render() {
@@ -10,7 +10,7 @@ class FilterButtons extends Component {
         <FlatButton
           label="Show all"
           onClick={this.props.handleShowAll}
-          backgroundColor={this.props.showAll? "#ffa86b" : ""}
+          backgroundColor={!this.props.showUnread && !this.props.showRead? "#ffa86b" : ""}
         />
         <FlatButton
           label="Show done"
@@ -29,7 +29,6 @@ class FilterButtons extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    showAll: state.list.showAll,
     showRead: state.list.showRead,
     showUnread: state.list.showUnread,
   };

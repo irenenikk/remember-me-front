@@ -5,12 +5,13 @@ import {
   inputVideoTitleChangedAction,
   inputVideoUrlChangedAction,
   inputVideoCommentChangedAction
-} from '../../../../state/actions/form-actions';
+} from '../../state/actions/form-actions';
 
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
 
+import LargeInput from '../inputs/large-input';
+import SmallInput from '../inputs/small-input';
+import SaveButton from '../tip-edit-buttons/save-button';
 
 class VideoForm extends Component {
 
@@ -20,41 +21,31 @@ class VideoForm extends Component {
         <Card className="VideoForm">
           <CardTitle title="Add new video:"> </CardTitle>
           <CardText>
-            <TextField
+            <SmallInput
               id="video-title-input"
               value={this.props.title}
               onChange={this.props.onTitleChange}
-              floatingLabelText="Title "
               name="Title"
             />
             <br />
-            <TextField
+            <SmallInput
               id="video-link-input"
               value={this.props.url}
               onChange={this.props.onUrlChange}
-              floatingLabelText="Link "
-              name="www.video.com"
+              name="Link"
             />
-            <TextField
+            <LargeInput
               id="video-comment-input"
               value={this.props.comment}
               onChange={this.props.onCommentChange}
-              floatingLabelText="Comment"
               name="Comment"
-              multiLine
-              fullWidth
-              rows={3}
             />
           </CardText>
           <CardActions>
-            <RaisedButton
+            <SaveButton
               id="submit-video"
-              label="Save"
               onClick={this.props.handleClick}
-              primary={true}
-              type="submit"
-            >
-            </RaisedButton>
+            />
           </CardActions>
         </Card>
       </center>

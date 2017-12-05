@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Blogpost from './Blogpost';
+import Blogpost from './blogpost';
 import Paper from 'material-ui/Paper';
 import {
   editBlogpostAction,
@@ -9,11 +9,11 @@ import {
   updateBlogpostAuthorAction,
   updateBlogpostUrlAction,
   updateBlogpostCommentAction,
-} from '../../../../state/actions/edit-actions';
+} from '../../state/actions/edit-actions';
 import {
   deleteBlogpostAction,
   doneBlogpostAction
-} from '../../../../state/actions/list-actions';
+} from '../../state/actions/list-actions';
 
 class ListBlogposts extends Component {
 

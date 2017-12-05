@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 import { Card, CardTitle, CardText } from 'material-ui/Card';
-import DeleteButton from '../../DeleteButton';
-import EditButton from '../../EditButton';
-import DoneToggle from '../../DoneToggle';
-import TextField from 'material-ui/TextField';
+import DeleteButton from '../tip-edit-buttons/delete-button';
+import EditButton from '../tip-edit-buttons/edit-button';
+import DoneToggle from '../tip-edit-buttons/done-toggle';
+
+import LargeInput from '../inputs/large-input';
+import SmallInput from '../inputs/small-input';
 
 export default class Video extends Component {
 
@@ -13,31 +15,25 @@ export default class Video extends Component {
       return (
         <center>
           <Card>
-            <TextField
+            <SmallInput
               id="video-title-input"
               value={this.props.title}
               onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
-              floatingLabelText="Title"
               name="Author"
             />
             <br />
-            <TextField
+            <SmallInput
               id="video-url-input"
               value={this.props.url}
               onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
-              floatingLabelText="Link"
               name="Link"
             />
             <br />
-            <TextField
+            <LargeInput
               id="video-comment-input"
               value={this.props.comment}
               onChange={(e) => this.props.onCommentChange(e.target.value, this.props.id)}
-              floatingLabelText="Comment"
               name="Comment"
-              multiLine
-              fullWidth
-              rows={3}
             />
             <CardText>
               <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />

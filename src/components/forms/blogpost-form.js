@@ -4,12 +4,13 @@ import {
   postBlogpostAction, inputBlogpostTitleChangedAction,
   inputBlogpostAuthorChangedAction, inputBlogpostUrlChangedAction,
   inputBlogpostCommentChangedAction
-} from '../../../../state/actions/form-actions';
+} from '../../state/actions/form-actions';
 
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
 
+import LargeInput from '../inputs/large-input';
+import SmallInput from '../inputs/small-input';
+import SaveButton from '../tip-edit-buttons/save-button';
 
 class BlogpostForm extends Component {
 
@@ -19,50 +20,39 @@ class BlogpostForm extends Component {
         <Card className="BlogForm">
           <CardTitle title="Add new blogpost:"> </CardTitle>
           <CardText>
-            <TextField
+            <SmallInput
               id="blogpost-title-input"
               value={this.props.title}
               onChange={this.props.onTitleChange}
-              floatingLabelText="Title"
               name="Title"
             />
             <br />
-            <TextField
+            <SmallInput
               id="blogpost-author-input"
               value={this.props.author}
               onChange={this.props.onAuthorChange}
-              floatingLabelText="Author"
               name="Author"
             />
             <br />
-            <TextField
+            <SmallInput
               id="blogpost-link-input"
               value={this.props.url}
               onChange={this.props.onUrlChange}
-              floatingLabelText="Link"
               name="Link"
             />
             <br />
-            <TextField
+            <LargeInput
               id="blogpost-comment-input"
               value={this.props.comment}
               onChange={this.props.onCommentChange}
-              floatingLabelText="Comment"
               name="Comment"
-              multiLine
-              fullWidth
-              rows={3}
             />
           </CardText>
           <CardActions>
-            <RaisedButton
+            <SaveButton
               id="submit-blogpost"
-              label="Save"
               onClick={this.props.handleClick}
-              primary={true}
-              type="submit"
-            >
-            </RaisedButton>
+            />
           </CardActions>
         </Card>
       </center>

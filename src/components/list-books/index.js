@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Book from './Book';
+import Book from './book';
 import Paper from 'material-ui/Paper'
 import {
   editBookAction,
@@ -9,11 +9,11 @@ import {
   updateBookTitleAction,
   updateBookDescriptionAction,
   updateBookCommentAction,
- } from '../../../../state/actions/edit-actions';
+ } from '../../state/actions/edit-actions';
  import {
   deleteBookAction,
   doneBookAction
- } from '../../../../state/actions/list-actions';
+ } from '../../state/actions/list-actions';
 
 class ListBooks extends Component {
 

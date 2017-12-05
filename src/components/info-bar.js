@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Snackbar from 'material-ui/Snackbar';
 import { connect } from 'react-redux';
-import { resetMessageAction } from '../../../state/actions/message-actions';
+import { resetMessageAction } from '../state/actions/message-actions';
 
 class InfoBar extends Component {
   render() {

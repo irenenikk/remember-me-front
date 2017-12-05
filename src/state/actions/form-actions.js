@@ -1,92 +1,94 @@
 import {newMessageAction, postFailed, postSuccessful} from './message-actions';
 import {getBlogpostsAction, getBooksAction, getVideosAction} from './list-actions';
 
-export const INPUT_BOOKWRITER_CHANGED = 'INPUT_BOOKWRITER_CHANGED';
-export const INPUT_BOOKDESCRIPTION_CHANGED = 'INPUT_BOOKDESCRIPTION_CHANGED';
-export const INPUT_BOOKTITLE_CHANGED = 'INPUT_BOOKTITLE_CHANGED';
-export const INPUT_BOOKCOMMENT_CHANGED = 'INPUT_BOOKCOMMENT_CHANGED';
-export const INPUT_BLOGPOSTTITLE_CHANGED = 'INPUT_BLOGPOSTTITLE_CHANGED';
-export const INPUT_BLOGPOSTAUTHOR_CHANGED = 'INPUT_BLOGPOSTAUTHOR_CHANGED';
-export const INPUT_BLOGPOSTURL_CHANGED = 'INPUT_BLOGPOSTURL_CHANGED';
-export const INPUT_BLOGPOSTCOMMENT_CHANGED = 'INPUT_BLOGPOSTCOMMENT_CHANGED';
-export const INPUT_VIDEOTITLE_CHANGED = 'INPUT_VIDEOTITLE_CHANGED';
-export const INPUT_VIDEOURL_CHANGED = 'INPUT_VIDEOURL_CHANGED';
-export const INPUT_VIDEOCOMMENT_CHANGED = 'INPUT_VIDEOCOMMENT_CHANGED';
+export const BOOK_WRITER_CHANGED = 'BOOKWRITER_CHANGED';
+export const BOOK_DESCRIPTION_CHANGED = 'BOOKDESCRIPTION_CHANGED';
+export const BOOK_TITLE_CHANGED = 'BOOKTITLE_CHANGED';
+export const BOOK_COMMENT_CHANGED = 'BOOKCOMMENT_CHANGED';
+
+export const BLOGPOST_TITLE_CHANGED = 'BLOGPOSTTITLE_CHANGED';
+export const BLOGPOST_AUTHOR_CHANGED = 'BLOGPOSTAUTHOR_CHANGED';
+export const BLOGPOST_URL_CHANGED = 'BLOGPOSTURL_CHANGED';
+export const BLOGPOST_COMMENT_CHANGED = 'BLOGPOSTCOMMENT_CHANGED';
+
+export const VIDEO_TITLE_CHANGED = 'VIDEOTITLE_CHANGED';
+export const VIDEO_URL_CHANGED = 'VIDEOURL_CHANGED';
+export const VIDEO_COMMENT_CHANGED = 'VIDEOCOMMENT_CHANGED';
 
 export const inputBookWriterChangedAction = (input) => {
   return {
     input,
-    type: INPUT_BOOKWRITER_CHANGED,
+    type: BOOK_WRITER_CHANGED,
   };
 }
 
 export const inputBookTitleChangedAction = (input) => {
   return {
     input,
-    type: INPUT_BOOKTITLE_CHANGED,
+    type: BOOK_TITLE_CHANGED,
   };
 }
 
 export const inputBookDescriptionChangedAction = (input) => {
   return {
     input,
-    type: INPUT_BOOKDESCRIPTION_CHANGED,
+    type: BOOK_DESCRIPTION_CHANGED,
   };
 }
 
 export const inputBookCommentChangedAction = (input) => {
   return {
     input,
-    type: INPUT_BOOKCOMMENT_CHANGED,
+    type: BOOK_COMMENT_CHANGED,
   };
 }
 
 export const inputBlogpostTitleChangedAction = (input) => {
   return {
     input: input,
-    type: INPUT_BLOGPOSTTITLE_CHANGED,
+    type: BLOGPOST_TITLE_CHANGED,
   };
 }
 
 export const inputBlogpostAuthorChangedAction = (input) => {
   return {
     input: input,
-    type: INPUT_BLOGPOSTAUTHOR_CHANGED,
+    type: BLOGPOST_AUTHOR_CHANGED,
   };
 }
 
 export const inputBlogpostUrlChangedAction = (input) => {
   return {
     input: input,
-    type: INPUT_BLOGPOSTURL_CHANGED,
+    type: BLOGPOST_URL_CHANGED,
   };
 }
 
 export const inputBlogpostCommentChangedAction = (input) => {
   return {
     input: input,
-    type: INPUT_BLOGPOSTCOMMENT_CHANGED,
+    type: BLOGPOST_COMMENT_CHANGED,
   }
 }
 
 export const inputVideoTitleChangedAction = (input) => {
   return {
     input: input,
-    type: INPUT_VIDEOTITLE_CHANGED,
+    type: VIDEO_TITLE_CHANGED,
   };
 }
 
 export const inputVideoUrlChangedAction = (input) => {
   return {
     input: input,
-    type: INPUT_VIDEOURL_CHANGED,
+    type: VIDEO_URL_CHANGED,
   };
 }
 
 export const inputVideoCommentChangedAction = (input) => {
   return {
     input: input,
-    type: INPUT_VIDEOCOMMENT_CHANGED,
+    type: VIDEO_COMMENT_CHANGED,
   }
 }
 
