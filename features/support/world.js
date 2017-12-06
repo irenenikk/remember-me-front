@@ -33,7 +33,7 @@ function MinimalistConstructor() {
 
 function getNightmareOptions(withDevTools) {
     const baseOptions = {
-        show: false
+        show: true
     };
 
     if (withDevTools) {
@@ -50,7 +50,7 @@ defineSupportCode(function ({setWorldConstructor, Before, After}) {
 
     Before(function () {
         this.nightmare = new Nightmare(
-            getNightmareOptions(false)
+            getNightmareOptions(true)
         );
         this.helloWorldPage = new HelloWorldPage(this.nightmare);
 

@@ -21,8 +21,8 @@ defineSupportCode(function ({Given, When, Then}) {
       return this.helloWorldPage.writeToBookCommentInput(comment);
     });
 
-    When('I submit the book form', function () {
-      return this.helloWorldPage.submitBookForm();
+    When('I submit the book form {string} as author and {string} as title', function (author, title) {
+      return this.helloWorldPage.submitBookForm(author, title);
     });
 
 

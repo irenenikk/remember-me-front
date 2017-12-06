@@ -64,22 +64,28 @@ class HelloWorldPage {
         }, BOOK_CLASS);
     }
 
-    submitBookForm() {
-        return this.nightmare.click('#submit-book').wait(5000);
+    submitBookForm(author, title) {
+        const bookKey =  '#' + title.replace(/\s/g,'') + author.replace(/\s/g,'')  ;
+        return this.nightmare.click('#submit-book').wait(bookKey);
     }
 
     clickDeleteBookButton(author, title) {
-      const searchString =  '#' + title.replace(/\s/g,'') + author.replace(/\s/g,'') +  ' .deleteButton' ;
-      console.log(searchString);
-        const bookID = this.nightmare.evaluate((searchString) => {
-            const bookID = document.querySelector(searchString)+'.id';
-            console.log(bookID);
-            return {
-                bookID,
-            };
-        }, searchString );
-          console.log(bookID);
-        return this.nightmare.click('#'+bookID).wait('.paper');
+        const searchString =  '#' + title.replace(/\s/g,'') + author.replace(/\s/g,'') +  ' .deleteButton' ;
+        console.log(searchString);
+
+// goto frontpage and make sure the right delete button is there
+        return this.nightmare
+           .click('list-all-reading-tips')
+           .wait(searchString)
+// try to extract the id value
+            .evaluate((selector) => {
+                    document.querySelector(selector).id;
+                  }, searchString )
+// and finally push the delete button
+            .then((bookID) => {
+              console.log('#'+bookID);
+              return this.nightmare.click('#'+bookID).wait(BOOK_CLASS);
+            });
     }
 
 
