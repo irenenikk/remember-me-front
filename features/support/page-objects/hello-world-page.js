@@ -70,22 +70,26 @@ class HelloWorldPage {
     }
 
     clickDeleteBookButton(author, title) {
-        const searchString =  '#' + title.replace(/\s/g,'') + author.replace(/\s/g,'') +  ' .deleteButton' ;
+        const searchString =  '#'+ title.replace(/\s/g,'') + author.replace(/\s/g,'') ;
         console.log(searchString);
 
-// goto frontpage and make sure the right delete button is there
-        return this.nightmare
-           .click('list-all-reading-tips')
+// goto frontpage and make sure the right book is there
+        this.nightmare
+           .click('#list-all-reading-tips')
            .wait(searchString)
-// try to extract the id value
-            .evaluate((selector) => {
-                    document.querySelector(selector).id;
-                  }, searchString )
-// and finally push the delete button
-            .then((bookID) => {
-              console.log('#'+bookID);
-              return this.nightmare.click('#'+bookID).wait(BOOK_CLASS);
-            });
+           .end();
+           console.log('found the book');
+
+           this.nightmare
+              .click('#list-all-reading-tips')
+              .wait(searchString + ' .deleteButton')
+              .end();
+              console.log('found the delete button');
+
+          return  this.nightmare
+            .click('#RikinkeltainentaivasKjellWesto .deleteButton')
+            .wait('.app-bar');
+
     }
 
 

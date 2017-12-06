@@ -9,18 +9,14 @@ defineSupportCode(function ({Given, When, Then}) {
      this.helloWorldPage.writeToBookTitleInput(title);
      this.helloWorldPage.submitBookForm(author, title);
 
-     this.helloWorldPage.getBooks()
+     return this.helloWorldPage.getBooks()
       .end()
       .then((result) => {
           console.log(result);
           expect(result.content).to.contain(author);
           expect(result.content).to.contain(title);
       })
-      .catch(function (error) {
-        error.should.include('inserting book failed');
-      });
 
-      return this;
   });
 
   When('I click delete a book with {string} as author and {string} as title', function (author, title) {
@@ -28,21 +24,15 @@ defineSupportCode(function ({Given, When, Then}) {
   });
 
   Then('a book with {string} as author and {string} as title should not be on the page', function (author, title) {
-      this.helloWorldPage.getBooks()
+      return this.helloWorldPage.getBooks()
         .end()
         .then((result) => {
           console.log(result);
-          if(result==null){
-              done();
-          }else {
+          if(result!=null) {
             expect(result.content).not.to.contain(author);
             expect(result.content).not.to.contain(title);
           }
         })
-        .catch(function (error) {
-          error.should.include('checking book existence failed');
-        });
 
-        return this;
     });
 });
