@@ -4,7 +4,7 @@ import getYoutubeId from 'get-youtube-id';
 import { CardText } from 'material-ui/Card';
 
 export default ({ url }) => {
-    const regex = new RegExp("^https?://(www.)?youtube.");
+    const regex = new RegExp("^https?://(www.)?youtube.*/(watch|embed)");
     if (regex.test(url)) {
         const id = getYoutubeId(url);
         return (
