@@ -25,6 +25,7 @@ class App extends Component {
         <AppBar
           title="Remember me"
           className="app-bar"
+          showMenuIconButton={false}
           iconElementRight={<FilterButtons />}
         />
         <InfoBar message={this.props.message} />

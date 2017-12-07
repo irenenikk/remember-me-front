@@ -8,6 +8,8 @@ import DoneToggle from '../tip-edit-buttons/done-toggle';
 import LargeInput from '../inputs/large-input';
 import SmallInput from '../inputs/small-input';
 
+import Type from '../type-icon';
+
 export default class Blogpost extends Component {
 
   render() {
@@ -51,7 +53,9 @@ export default class Blogpost extends Component {
     return (
       <center>
         <Card className="blogpost">
-          <CardTitle title={this.props.title} subtitle={this.props.author} />
+          <CardTitle title={this.props.title} subtitle={this.props.author}>
+            <Type type={this.props.type}/>
+          </CardTitle>
           <CardText>
             <a href={this.props.url}>{this.props.url}</a>
           </CardText>

@@ -13,16 +13,9 @@ class ListAllTips extends Component {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-
-          <h1>Books</h1>
           <ListBooks />
-
-          <h1>Blogs</h1>
           <ListBlogposts />
-
-          <h1>Videos</h1>
           <ListVideos />
-
         </Paper>
       </center>
     );
