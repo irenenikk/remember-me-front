@@ -8,6 +8,8 @@ import DoneToggle from '../tip-edit-buttons/done-toggle';
 import LargeInput from '../inputs/large-input';
 import SmallInput from '../inputs/small-input';
 
+import EmbeddedVideo from './embedded-video';
+
 export default class Video extends Component {
 
   render() {
@@ -46,11 +48,7 @@ export default class Video extends Component {
       <center>
         <Card className="video">
           <CardTitle title={this.props.title} />
-          <CardText>
-            <a href={this.props.url}>
-              {this.props.url}
-            </a>
-          </CardText>
+          <EmbeddedVideo url={this.props.url}/>
             {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
             <DoneToggle id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
