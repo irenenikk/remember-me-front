@@ -38,8 +38,8 @@ class ListBlogposts extends Component {
               author={b.author}
               url={b.url}
               comment={b.comment}
-              tags={b.tags}
               done={b.read}
+              type={b.type}
               onDone={this.props.handleDone}
               onDelete={this.props.handleDelete}
               onEdit={this.props.handleEdit}

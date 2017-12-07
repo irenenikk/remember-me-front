@@ -38,13 +38,13 @@ class ListBooks extends Component {
               author={b.author}
               description={b.description}
               comment={b.comment}
-              tags={b.tags}
               done={b.read}
+              edit={b.edit}
+              type={b.type}
               onDone={this.props.handleDone}
               onDelete={this.props.handleDelete}
               onEdit={this.props.handleEdit}
               onFinishEditing={this.props.handleFinishEditing}
-              edit={b.edit}
               onAuthorChange={this.props.handleAuthorChange}
               onTitleChange={this.props.handleTitleChange}
               onDescriptionChange={this.props.handleDescriptionChange}

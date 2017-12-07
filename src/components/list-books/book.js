@@ -8,6 +8,8 @@ import DoneToggle from '../tip-edit-buttons/done-toggle';
 import LargeInput from '../inputs/large-input';
 import SmallInput from '../inputs/small-input';
 
+import Type from '../type-icon';
+
 export default class Book extends Component {
 
   render() {
@@ -52,7 +54,11 @@ export default class Book extends Component {
     return (
       <center>
         <Card className="book" >
-          <CardTitle title={this.props.title} subtitle={this.props.author} />
+          <CardTitle title={this.props.title} subtitle={this.props.author}>
+            <Type
+              type={this.props.type}
+            />
+          </CardTitle>
           {this.props.description.trim().length > 0 && <CardText>{this.props.description}</CardText>}
           {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
