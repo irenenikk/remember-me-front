@@ -1,6 +1,6 @@
 const {defineSupportCode} = require('cucumber');
 const Nightmare = require('nightmare');
-const {HelloWorldPage} = require('./page-objects/hello-world-page');
+const {App} = require('./page-objects/app');
 const StaticServer = require('static-server');
 
 function MinimalistConstructor() {
@@ -52,7 +52,7 @@ defineSupportCode(function ({setWorldConstructor, Before, After}) {
         this.nightmare = new Nightmare(
             getNightmareOptions(true)
         );
-        this.helloWorldPage = new HelloWorldPage(this.nightmare);
+        this.app = new App(this.nightmare);
 
         return this.start();
     });
@@ -63,7 +63,7 @@ defineSupportCode(function ({setWorldConstructor, Before, After}) {
                 .then(resolve);
         })
             .then(() => {
-                this.helloWorldPage = null;
+                this.app = null;
                 this.nightmare = null;
 
                 return this.stop();

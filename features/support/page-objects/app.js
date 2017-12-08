@@ -10,7 +10,7 @@ const BOOK_CLASS = '.book';
 const BLOGPOST_CLASS = '.blogpost';
 const VIDEO_CLASS = '.video';
 
-class HelloWorldPage {
+class App {
     constructor(nightmare) {
         this.nightmare = nightmare;
     }
@@ -57,7 +57,7 @@ class HelloWorldPage {
     getBooks() {
         return this.nightmare.evaluate((selector) => {
             const elements = Array.from(document.querySelectorAll(selector));
-            const content = elements.reduce((a, e) => "" + a + e.innerHTML);
+            const content = elements.reduce((a, e) => "" + a + e.innerHTML, "");
             return {
                 content,
             };
@@ -71,24 +71,15 @@ class HelloWorldPage {
 
     clickDeleteBookButton(author, title) {
         const searchString =  '#'+ title.replace(/\s/g,'') + author.replace(/\s/g,'') ;
-        console.log(searchString);
 
-// goto frontpage and make sure the right book is there
         this.nightmare
-           .click('#list-all-reading-tips')
-           .wait(searchString)
-           .end();
-           console.log('found the book');
-
-           this.nightmare
-              .click('#list-all-reading-tips')
-              .wait(searchString + ' .deleteButton')
-              .end();
-              console.log('found the delete button');
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .deleteButton')
 
           return  this.nightmare
-            .click('#RikinkeltainentaivasKjellWesto .deleteButton')
-            .wait('.app-bar');
+            .click(searchString + ' .deleteButton')
+            // this is not the best way of doing this but the api call takes time
+            .wait(500);
 
     }
 
@@ -150,7 +141,7 @@ class HelloWorldPage {
         getVideos() {
             return this.nightmare.evaluate((selector) => {
                 const elements = Array.from(document.querySelectorAll(selector));
-                const content = elements.reduce((a, e) => "" + a + e.innerHTML);
+                const content = elements.reduce((a, e) => "" + a + e.innerHTML, "");
                 return {
                     content,
                 };
@@ -164,5 +155,5 @@ class HelloWorldPage {
 }
 
 module.exports = {
-    HelloWorldPage
+    App
 };
