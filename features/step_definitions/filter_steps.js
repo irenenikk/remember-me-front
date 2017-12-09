@@ -4,8 +4,8 @@ const { expect } = require('code');
 defineSupportCode(function ({Given, When, Then}) {
 
   When('I add some done and an undone tips on the site', function () {
-    const author = "Introduction to the Theory of Computation";
-    const title = "Sipser";
+    const title = "Introduction to the Theory of Computation";
+    const author = "Sipser";
 
     const author2 = "Everyone";
     const title2 = "Hacker News"
