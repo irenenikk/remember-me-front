@@ -58,8 +58,8 @@ defineSupportCode(function ({Given, When, Then}) {
   });
 
 
-  When('I submit the blogpost form', function () {
-    return this.app.submitBlogpostForm();
+  When('I submit the blogpost form {string} as author and {string} as title', function (author, title) {
+    return this.app.submitBlogpostForm(author, title);
   });
 
 
@@ -93,8 +93,8 @@ defineSupportCode(function ({Given, When, Then}) {
         return this.app.writeToVideoCommentInput(comment);
       });
 
-      When('I submit the video form', function () {
-        return this.app.submitVideoForm();
+      When('I submit the video form {string} as title and {string} as link', function (title, url) {
+        return this.app.submitVideoForm(title, url);
       });
 
 
@@ -107,7 +107,4 @@ defineSupportCode(function ({Given, When, Then}) {
                 expect(result.content).to.contain(comment);
             });
         });
-
-
-
 });

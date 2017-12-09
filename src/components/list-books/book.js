@@ -9,14 +9,16 @@ import LargeInput from '../inputs/large-input';
 import SmallInput from '../inputs/small-input';
 
 import Type from '../type-icon';
+import selectorNormalizer from '../../utils/selector-normalizer';
 
 export default class Book extends Component {
 
   render() {
+    const CSSId = selectorNormalizer(this.props.title, this.props.author);
     if (this.props.edit) {
       return (
         <center>
-          <Card>
+          <Card id={CSSId}>
             <SmallInput
               id="book-title-input"
               value={this.props.title}
@@ -51,7 +53,6 @@ export default class Book extends Component {
         </center>
       );
     }
-    const CSSId = this.props.title.replace(/\s/g,'') + this.props.author.replace(/\s/g,'');
     return (
       <center>
         <Card className="book" id={CSSId}>
@@ -63,7 +64,7 @@ export default class Book extends Component {
           {this.props.description.trim().length > 0 && <CardText>{this.props.description}</CardText>}
           {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
-            <DoneToggle id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
+            <DoneToggle parentId={CSSId} id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
             <DeleteButton parentId={CSSId} id={this.props.id} onDelete={this.props.onDelete} />
             <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
           </CardText>

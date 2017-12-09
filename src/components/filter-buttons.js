@@ -8,16 +8,19 @@ class FilterButtons extends Component {
     return (
       <div>
         <FlatButton
+          id="show-all-button"
           label="Show all"
           onClick={this.props.handleShowAll}
           backgroundColor={!this.props.showUnread && !this.props.showRead? "#ffa86b" : ""}
         />
         <FlatButton
+          id="show-done-button"
           label="Show done"
           onClick={this.props.handleShowRead}
           backgroundColor={this.props.showRead? "#ffa86b" : ""}
         />
         <FlatButton
+          id="show-undone-button"
           label="Show undone"
           onClick={this.props.handleShowUnread}
           backgroundColor={this.props.showUnread? "#ffa86b" : ""}

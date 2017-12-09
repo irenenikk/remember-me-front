@@ -15,41 +15,37 @@ import {
   doneBlogpostAction
 } from '../../state/actions/list-actions';
 
+import filterer from '../../utils/tip-filterer';
+
 class ListBlogposts extends Component {
 
   render() {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-          {this.props.blogposts.filter(b => {
-            if (this.props.showRead) {
-              return b.read;
-            }
-            if (this.props.showUnread) {
-              return !b.read;
-            }
-            return true;
-          })
-           .map(b =>
-            <Blogpost
-              id={b.id}
-              key={b.id}
-              title={b.title}
-              author={b.author}
-              url={b.url}
-              comment={b.comment}
-              done={b.read}
-              type={b.type}
-              onDone={this.props.handleDone}
-              onDelete={this.props.handleDelete}
-              onEdit={this.props.handleEdit}
-              onFinishEditing={this.props.handleFinishEditing}
-              edit={b.edit}
-              onTitleChange={this.props.handleTitleChange}
-              onAuthorChange={this.props.handleAuthorChange}
-              onUrlChange={this.props.handleUrlChange}
-              onCommentChange={this.props.handleCommentChange}
-            />
+          {this.props.blogposts
+            .filter(b => filterer(b, this.props.showRead, this.props.showUnread))
+            .map(b =>
+              <Blogpost
+                id={b.id}
+                key={b.id}
+                title={b.title}
+                author={b.author}
+                url={b.url}
+                comment={b.comment}
+                tags={b.tags}
+                done={b.read}
+                type={b.type}
+                onDone={this.props.handleDone}
+                onDelete={this.props.handleDelete}
+                onEdit={this.props.handleEdit}
+                onFinishEditing={this.props.handleFinishEditing}
+                edit={b.edit}
+                onTitleChange={this.props.handleTitleChange}
+                onAuthorChange={this.props.handleAuthorChange}
+                onUrlChange={this.props.handleUrlChange}
+                onCommentChange={this.props.handleCommentChange}
+              />
           )}
         </Paper>
       </center>

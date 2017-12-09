@@ -50,7 +50,7 @@ defineSupportCode(function ({setWorldConstructor, Before, After}) {
 
     Before(function () {
         this.nightmare = new Nightmare(
-            getNightmareOptions(true)
+            getNightmareOptions(false)
         );
         this.app = new App(this.nightmare);
 
