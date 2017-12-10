@@ -1,9 +1,11 @@
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
 
-export default ({ id, onDone, done }) => {
+export default ({ id, parentId, onDone, done }) => {
   return (
     <Toggle
+      id={`${parentId}-done`}
+      className="done"
       label="Done"
       toggled={done}
       onToggle={() => onDone(id)}

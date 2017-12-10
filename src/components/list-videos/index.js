@@ -14,39 +14,35 @@ import {
   doneVideoAction
 } from '../../state/actions/list-actions';
 
+import filterer from '../../utils/tip-filterer';
+
 class ListVideos extends Component {
 
   render() {
     return (
       <center>
         <Paper className="paper" zDepth={2} >
-          {this.props.videos.filter(b => {
-            if (this.props.showRead) {
-              return b.read;
-            }
-            if (this.props.showUnread) {
-              return !b.read;
-            }
-            return true;
-          })
-          .map(v =>
-            <Video
-              id={v.id}
-              key={v.id}
-              title={v.title}
-              url={v.url}
-              comment={v.comment}
-              edit={v.edit}
-              done={v.read}
-              type={v.type}
-              onDone={this.props.handleDone}
-              onEdit={this.props.handleEdit}
-              onDelete={this.props.handleDelete}
-              onTitleChange={this.props.handleTitleChange}
-              onUrlChange={this.props.handleUrlChange}
-              onCommentChange={this.props.handleCommentChange}
-              onFinishEditing={this.props.handleFinishEditing}
-            />
+          {this.props.videos
+            .filter(v => filterer(v, this.props.showRead, this.props.showUnread))
+            .map(v =>
+              <Video
+                id={v.id}
+                key={v.id}
+                title={v.title}
+                url={v.url}
+                comment={v.comment}
+                tags={v.tags}
+                edit={v.edit}
+                done={v.read}
+                type={v.type}
+                onDone={this.props.handleDone}
+                onEdit={this.props.handleEdit}
+                onDelete={this.props.handleDelete}
+                onTitleChange={this.props.handleTitleChange}
+                onUrlChange={this.props.handleUrlChange}
+                onCommentChange={this.props.handleCommentChange}
+                onFinishEditing={this.props.handleFinishEditing}
+              />
           )}
         </Paper>
       </center>

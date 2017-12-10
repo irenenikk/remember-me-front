@@ -14,6 +14,7 @@ export default () => {
   return (
     <Tabs>
       <Tab
+      id="list-all-reading-tips"
         label="All reading tips">
             <ListAllTips />
       </Tab>
