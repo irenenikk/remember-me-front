@@ -44,7 +44,7 @@ class App {
     }
 
     clickShowDoneButton() {
-        return this.nightmare.click(SHOW_DONE_ID)
+        return this.nightmare.click(SHOW_DONE_ID);
     }
 
     clickShowUndoneButton() {

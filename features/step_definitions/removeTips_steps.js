@@ -7,7 +7,7 @@ defineSupportCode(function ({Given, When, Then}) {
      this.app.clickAddBookButton();
      this.app.writeToBookAuthorInput(author);
      this.app.writeToBookTitleInput(title);
-     this.app.submitBookForm(author, title).end();
+     this.app.submitBookForm(author, title);
 
      return this.app.getBooks()
       .then((result) => {
@@ -21,7 +21,7 @@ defineSupportCode(function ({Given, When, Then}) {
      this.app.writeToBlogpostAuthorInput(author);
      this.app.writeToBlogpostTitleInput(title);
      this.app.writeToBlogpostLinkInput(link);
-     this.app.submitBlogpostForm(author, title).end();
+     this.app.submitBlogpostForm(author, title);
 
      return this.app.getBlogposts()
       .then((result) => {
@@ -35,7 +35,7 @@ defineSupportCode(function ({Given, When, Then}) {
      this.app.clickAddVideoButton();
      this.app.writeToVideoTitleInput(title);
      this.app.writeToVideoLinkInput(link);
-     this.app.submitVideoForm(title, link).end();
+     this.app.submitVideoForm(title, link);
 
      return this.app.getVideos()
       .then((result) => {
