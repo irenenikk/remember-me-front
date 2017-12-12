@@ -6,7 +6,7 @@ import {filterReadAction, filterShowAllAction, filterUnreadAction} from '../stat
 class FilterButtons extends Component {
   render() {
     return (
-      <div>
+      <div className="filter-buttons">
         <FlatButton
           id="show-all-button"
           label="Show all"

@@ -5,8 +5,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import InfoBar from './info-bar'
-import FilterButtons from './filter-buttons';
 import Tabs from './tabs';
+import AppBarOptions from './app-bar-options';
 import './app.css';
 
 
@@ -26,7 +26,7 @@ class App extends Component {
           title="Remember me"
           className="app-bar"
           showMenuIconButton={false}
-          iconElementRight={<FilterButtons />}
+          iconElementRight={<AppBarOptions />}
         />
         <InfoBar message={this.props.message} />
         <Tabs />

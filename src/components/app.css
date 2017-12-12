@@ -1,3 +1,15 @@
 .App {
   text-align: center;
 }
+
+.app-bar-options {
+  display: flex;
+}
+
+.filter-buttons {
+  padding: 0.5em;
+}
+
+.search-input {
+  padding: o.5em;
+}
