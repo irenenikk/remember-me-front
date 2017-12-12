@@ -44,7 +44,7 @@ class App {
     }
 
     clickShowDoneButton() {
-        return this.nightmare.click(SHOW_DONE_ID);
+        return this.nightmare.click(SHOW_DONE_ID)
     }
 
     clickShowUndoneButton() {
@@ -74,7 +74,12 @@ class App {
         }, DONE_TOGGLE_SELECTOR);
     }
 
-    // BOOK
+// HELPERS
+    _normalizeSelector(attr1, attr2) {
+        return attr1.replace(/[^a-zA-Z0-9]/g,'') + attr2.replace(/[^a-zA-Z0-9]/g,'');
+    }
+
+// BOOK
     clickAddBookButton() {
         return this.nightmare.click(ADD_BOOK_BUTTON_ID).wait('#book-title-input');
     }
@@ -117,9 +122,36 @@ class App {
             .click(searchString + ' .deleteButton')
             // this is not the best way of doing this but the api call takes time
             .wait(500);
-
     }
 
+    clickEditBookButton(author, title, newAuthor, newTitle, newComment) {
+        const searchString =  '#'+  this._normalizeSelector(title, author);
+        const searchString2 =  '#'+  this._normalizeSelector(newTitle, newAuthor);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .editButton')
+
+        this.nightmare
+            .click(searchString + ' .editButton')
+            .wait('#book-author-edit-input')
+
+        this.nightmare
+          .type('#book-author-edit-input', '')
+          .type('#book-title-edit-input', '')
+          .type('#book-comment-edit-input', '')
+
+        this.nightmare
+          .type('#book-author-edit-input', newAuthor)
+          .type('#book-title-edit-input', newTitle)
+          .type('#book-comment-edit-input', newComment)
+          .wait(searchString2 + ' .editButton')
+
+        return  this.nightmare
+          .click(searchString2 + ' .editButton')
+          // this is not the best way of doing this but the api call takes time
+          .wait(500);
+    }
 
 
 // BLOGPOST
@@ -158,6 +190,49 @@ class App {
         return this.nightmare.click('#submit-blogpost').wait(id);
     }
 
+    clickDeleteBlogpostButton(author, title) {
+        const searchString =  '#'+  this._normalizeSelector(title, author);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .deleteButton')
+
+          return  this.nightmare
+            .click(searchString + ' .deleteButton')
+            // this is not the best way of doing this but the api call takes time
+            .wait(500);
+    }
+
+    clickEditBlogpostButton(author, title, newAuthor, newTitle, newLink) {
+        const searchString =  '#'+  this._normalizeSelector(title, author);
+        const searchString2 =  '#'+  this._normalizeSelector(newTitle, newAuthor);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .editButton')
+
+        this.nightmare
+            .click(searchString + ' .editButton')
+            .wait('#blogpost-author-edit-input')
+
+        this.nightmare
+          .type('#blogpost-author-edit-input', '')
+          .type('#blogpost-title-edit-input', '')
+          .type('#blogpost-link-edit-input', '')
+
+        this.nightmare
+          .type('#blogpost-author-edit-input', newAuthor)
+          .type('#blogpost-title-edit-input', newTitle)
+          .type('#blogpost-link-edit-input', newLink)
+          .wait(searchString2 + ' .editButton')
+
+        return  this.nightmare
+          .click(searchString2 + ' .editButton')
+          // this is not the best way of doing this but the api call takes time
+          .wait(500);
+    }
+
+
 // VIDEO
     clickAddVideoButton() {
         return this.nightmare.click(ADD_VIDEO_BUTTON_ID).wait('#video-title-input');
@@ -186,14 +261,52 @@ class App {
         }, VIDEO_CLASS);
     }
 
-    submitVideoForm(title, url) {
-        const id =  '#' + this._normalizeSelector(title, url);
+    submitVideoForm(title, link) {
+        const id =  '#' + this._normalizeSelector(title, link);
         return this.nightmare.click('#submit-video').wait(id);
     }
 
-    _normalizeSelector(attr1, attr2) {
-        return attr1.replace(/[^a-zA-Z0-9]/g,'') + attr2.replace(/[^a-zA-Z0-9]/g,'')
+    clickDeleteVideoButton(title, link) {
+        const searchString =  '#'+  this._normalizeSelector(title, link);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .deleteButton')
+
+          return  this.nightmare
+            .click(searchString + ' .deleteButton')
+            // this is not the best way of doing this but the api call takes time
+            .wait(500);
     }
+
+    clickEditVideoButton(title, link, newTitle, newLink) {
+        const searchString =  '#'+  this._normalizeSelector(title, link);
+        const searchString2 =  '#'+  this._normalizeSelector(newTitle, newLink);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .editButton')
+
+        this.nightmare
+            .click(searchString + ' .editButton')
+            .wait('#video-title-edit-input')
+
+        this.nightmare
+          .type('#video-title-edit-input', '')
+          .type('#video-link-edit-input', '')
+
+        this.nightmare
+          .type('#video-title-edit-input', newTitle)
+          .type('#video-link-edit-input', newLink)
+          .wait(searchString2 + ' .editButton')
+
+        return  this.nightmare
+          .click(searchString2 + ' .editButton')
+          // this is not the best way of doing this but the api call takes time
+          .wait(500);
+    }
+
+
 }
 
 module.exports = {

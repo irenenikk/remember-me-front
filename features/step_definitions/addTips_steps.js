@@ -93,8 +93,8 @@ defineSupportCode(function ({Given, When, Then}) {
         return this.app.writeToVideoCommentInput(comment);
       });
 
-      When('I submit the video form {string} as title and {string} as link', function (title, url) {
-        return this.app.submitVideoForm(title, url);
+      When('I submit the video form {string} as title and {string} as link', function (title, link) {
+        return this.app.submitVideoForm(title, link);
       });
 
 

@@ -1,7 +1,7 @@
 @add
 Feature: add new tips Test
 
-   Ensure form functionality
+   Ensure form functionality in adding tips
 
    Scenario: I should be able to add a new book
        Given I navigate to the home page
@@ -30,7 +30,6 @@ Feature: add new tips Test
        And I click on add new video -button
        And I write Joku youtube as title for video
        And I write http://youtube.com as link for video
-       And I write This really is not a video as comment for video
+       And I write This really is not a one video as comment for video
        And I submit the video form Joku youtube as title and http://youtube.com as link
-       Then a video with Joku youtube as title and http://youtube.com as link and This really is not a video as comment should be on the page
-
+       Then a video with Joku youtube as title and http://youtube.com as link and This really is not a one video as comment should be on the page
