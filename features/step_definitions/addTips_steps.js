@@ -89,6 +89,10 @@ defineSupportCode(function ({Given, When, Then}) {
         return this.app.writeToVideoLinkInput(link);
       });
 
+      When('I write {string} as link for video', function(link) {
+        return this.app.writeToVideoLinkInput(link);
+      });
+
       When('I write {string} as comment for video', function(comment) {
         return this.app.writeToVideoCommentInput(comment);
       });
@@ -107,4 +111,12 @@ defineSupportCode(function ({Given, When, Then}) {
                 expect(result.content).to.contain(comment);
             });
         });
-});
+
+        Then('a video with {string} as title should be on the page', function (title, link, comment) {
+          return this.app.getVideos()
+              .end()
+              .then((result) => {
+                  expect(result.content).to.contain(title);
+              });
+          });
+  });

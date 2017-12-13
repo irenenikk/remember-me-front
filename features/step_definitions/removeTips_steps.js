@@ -31,7 +31,7 @@ defineSupportCode(function ({Given, When, Then}) {
       })
   });
 
-  When('a video with {string} as title and {string} as link is on the page', function (title, link) {
+  When('a video with {string} as title and {string} as valid Youtube video link is on the page', function (title, link) {
      this.app.clickAddVideoButton();
      this.app.writeToVideoTitleInput(title);
      this.app.writeToVideoLinkInput(link);
@@ -39,7 +39,6 @@ defineSupportCode(function ({Given, When, Then}) {
 
      return this.app.getVideos()
       .then((result) => {
-          expect(result.content).to.contain(link);
           expect(result.content).to.contain(title);
       })
   });
@@ -48,7 +47,7 @@ defineSupportCode(function ({Given, When, Then}) {
       return this.app.clickDeleteBookButton(author, title);
   });
 
-  When('I click delete a blogpost with {string} as author and {string} as title', function (author, title, link) {
+  When('I click delete a blogpost with {string} as author and {string} as title', function (author, title) {
       return this.app.clickDeleteBlogpostButton(author, title);
   });
 
@@ -83,6 +82,15 @@ defineSupportCode(function ({Given, When, Then}) {
       .then((result) => {
       if(result!=null) {
         expect(result.content).not.to.contain(link);
+        expect(result.content).not.to.contain(title);
+      }
+    })
+  });
+
+  Then('a video with {string} as title should not be on the page', function (title, link) {
+    return this.app.getVideos()
+      .then((result) => {
+      if(result!=null) {
         expect(result.content).not.to.contain(title);
       }
     })

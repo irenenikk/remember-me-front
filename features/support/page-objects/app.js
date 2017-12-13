@@ -126,26 +126,22 @@ class App {
 
     clickEditBookButton(author, title, newAuthor, newTitle, newComment) {
         const searchString =  '#'+  this._normalizeSelector(title, author);
-        const searchString2 =  '#'+  this._normalizeSelector(newTitle, newAuthor);
+        const searchString2 =  '#'+  this._normalizeSelector(title+newTitle, author+newAuthor);
+        console.log("searchString: " + searchString);
 
         this.nightmare
-            .click('#list-all-reading-tips')
+            .click('#list-all-reading-tips').wait(100)
             .wait(searchString + ' .editButton')
 
         this.nightmare
-            .click(searchString + ' .editButton')
-            .wait('#book-author-edit-input')
+            .click(searchString + ' .editButton').wait(100)
 
         this.nightmare
-          .type('#book-author-edit-input', '')
-          .type('#book-title-edit-input', '')
-          .type('#book-comment-edit-input', '')
-
-        this.nightmare
-          .type('#book-author-edit-input', newAuthor)
-          .type('#book-title-edit-input', newTitle)
-          .type('#book-comment-edit-input', newComment)
+          .type('book-author-edit-input', newAuthor).wait(10000)
+          .type('book-title-edit-input', newTitle).wait(10000)
+          .type('book-comment-edit-input', newComment).wait(10000)
           .wait(searchString2 + ' .editButton')
+          console.log("searchString2: " + searchString2)
 
         return  this.nightmare
           .click(searchString2 + ' .editButton')
@@ -208,7 +204,7 @@ class App {
         const searchString2 =  '#'+  this._normalizeSelector(newTitle, newAuthor);
 
         this.nightmare
-            .click('#list-all-reading-tips')
+            .click('#list-all-reading-tips').wait(100)
             .wait(searchString + ' .editButton')
 
         this.nightmare

@@ -33,7 +33,7 @@ function MinimalistConstructor() {
 
 function getNightmareOptions(withDevTools) {
     const baseOptions = {
-        show: false
+        show: true
     };
 
     if (withDevTools) {
