@@ -389,6 +389,8 @@ export default createReducer(initialState, {
   [CHANGE_SEARCH_STRING](state, action) {
     return {
       ...state,
+      showRead: false,
+      showUnread: false,
       searchString: action.searchString,
     }
   },
