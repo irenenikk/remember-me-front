@@ -7,6 +7,7 @@ class InfoBar extends Component {
   render() {
     return (
       <Snackbar
+        className="info-bar"
         open={this.props.message !== ""}
         message={this.props.message}
         autoHideDuration={4000}

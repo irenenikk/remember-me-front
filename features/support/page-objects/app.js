@@ -1,6 +1,7 @@
 // based on the example of github/matthewjberger
 
 const MESSAGE_SELECTOR = '.app-bar';
+const INFO_BAR = '.info-bar';
 
 const ADD_BOOK_BUTTON_ID = '#add-new-book-button';
 const ADD_BLOGPOST_BUTTON_ID = '#add-new-blogpost-button';
@@ -62,8 +63,8 @@ class App {
 
     getCheckedCheckBoxes() {
         this.nightmare
-        .click('#list-all-reading-tips')
-        .wait(DONE_TOGGLE_SELECTOR);
+            .click('#list-all-reading-tips')
+            .wait(DONE_TOGGLE_SELECTOR);
 
         return this.nightmare.evaluate((selector) => {
             const elements = Array.from(document.querySelectorAll(selector));
@@ -72,6 +73,16 @@ class App {
                 content
             };
         }, DONE_TOGGLE_SELECTOR);
+    }
+
+    getInfoBar() {
+        return this.nightmare.evaluate((selector) => {
+            const element = document.querySelector(selector);
+            
+            return {
+                message: element.innerText,
+            };
+        }, INFO_BAR);
     }
 
     // BOOK
@@ -102,27 +113,25 @@ class App {
     }
 
     submitBookForm(author, title) {
-        const bookKey =  '#' + this._normalizeSelector(title, author);
+        const bookKey = '#' + this._normalizeSelector(title, author);
         return this.nightmare.click('#submit-book').wait(bookKey);
     }
 
     clickDeleteBookButton(author, title) {
-        const searchString =  '#'+  this._normalizeSelector(title, author);
+        const searchString = '#' + this._normalizeSelector(title, author);
 
         this.nightmare
             .click('#list-all-reading-tips')
             .wait(searchString + ' .deleteButton')
 
-          return  this.nightmare
+        return this.nightmare
             .click(searchString + ' .deleteButton')
             // this is not the best way of doing this but the api call takes time
             .wait(500);
 
     }
 
-
-
-// BLOGPOST
+    // BLOGPOST
     clickAddBlogpostButton() {
         return this.nightmare.click(ADD_BLOGPOST_BUTTON_ID).wait('#blogpost-title-input');
     }
@@ -154,11 +163,11 @@ class App {
     }
 
     submitBlogpostForm(author, title) {
-        const id =  '#' + this._normalizeSelector(title, author);
+        const id = '#' + this._normalizeSelector(title, author);
         return this.nightmare.click('#submit-blogpost').wait(id);
     }
 
-// VIDEO
+    // VIDEO
     clickAddVideoButton() {
         return this.nightmare.click(ADD_VIDEO_BUTTON_ID).wait('#video-title-input');
     }
@@ -187,12 +196,12 @@ class App {
     }
 
     submitVideoForm(title, url) {
-        const id =  '#' + this._normalizeSelector(title, url);
+        const id = '#' + this._normalizeSelector(title, url);
         return this.nightmare.click('#submit-video').wait(id);
     }
 
     _normalizeSelector(attr1, attr2) {
-        return attr1.replace(/[^a-zA-Z0-9]/g,'') + attr2.replace(/[^a-zA-Z0-9]/g,'')
+        return attr1.replace(/[^a-zA-Z0-9]/g, '') + attr2.replace(/[^a-zA-Z0-9]/g, '')
     }
 }
 
