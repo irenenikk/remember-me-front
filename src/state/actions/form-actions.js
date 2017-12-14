@@ -92,7 +92,6 @@ export const inputVideoCommentChangedAction = (input) => {
   }
 }
 
-
 export const postBookAction = () => {
   return async (dispatch, getState, api) => {
     api.postBook(getState().form)
@@ -144,13 +143,28 @@ export const postBlogpostAction = () => {
 
 export const postVideoAction = () => {
   return async (dispatch, getState, api) => {
+    if(getState().form.video.title == '') {
+      api.getYoutubeTitle(getState().form.video.url).then(
+        (response) => {
+          if(response === 'error'){
+            normalPost(dispatch, getState, api)
+          } else {
+            dispatch(inputVideoTitleChangedAction(response));
+          }
+        })
+    } else {
+      normalPost(dispatch, getState, api);
+    }
+  };
+
+  function normalPost(dispatch, getState, api) {
     api.postVideo(getState().form)
       .then(
-      (response) => {
-        dispatch(getVideosAction());
-        dispatch(newMessageAction(postSuccessful));
-      },
-      (errors) => {
+        (response) => {
+          dispatch(getVideosAction());
+          dispatch(newMessageAction(postSuccessful));
+        },
+        (errors) => {
         let message = postFailed;
         if (errors instanceof Array && errors[0].message) {
           message = errors[0].message;
@@ -160,8 +174,7 @@ export const postVideoAction = () => {
             }
           });
         }
-        dispatch(newMessageAction(message));
-      },
-    );
-  };
+          dispatch(newMessageAction(message));
+        });
+  }
 }
