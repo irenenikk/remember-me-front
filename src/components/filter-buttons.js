@@ -6,7 +6,7 @@ import {filterReadAction, filterShowAllAction, filterUnreadAction} from '../stat
 class FilterButtons extends Component {
   render() {
     return (
-      <div>
+      <div className="filter-buttons">
         <FlatButton
           id="show-all-button"
           label="Show all"
@@ -16,12 +16,14 @@ class FilterButtons extends Component {
         <FlatButton
           id="show-done-button"
           label="Show done"
+          disabled={this.props.searchString !== ""}
           onClick={this.props.handleShowRead}
           backgroundColor={this.props.showRead? "#ffa86b" : ""}
         />
         <FlatButton
           id="show-undone-button"
           label="Show undone"
+          disabled={this.props.searchString !== ""}
           onClick={this.props.handleShowUnread}
           backgroundColor={this.props.showUnread? "#ffa86b" : ""}
         />
@@ -34,6 +36,7 @@ const mapStateToProps = (state) => {
   return {
     showRead: state.list.showRead,
     showUnread: state.list.showUnread,
+    searchString: state.list.searchString,
   };
 }
 
