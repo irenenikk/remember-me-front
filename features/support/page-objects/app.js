@@ -1,6 +1,7 @@
 // based on the example of github/matthewjberger
 
 const MESSAGE_SELECTOR = '.app-bar';
+const INFO_BAR = '.info-bar';
 
 const ADD_BOOK_BUTTON_ID = '#add-new-book-button';
 const ADD_BLOGPOST_BUTTON_ID = '#add-new-blogpost-button';
@@ -62,8 +63,8 @@ class App {
 
     getCheckedCheckBoxes() {
         this.nightmare
-        .click('#list-all-reading-tips')
-        .wait(DONE_TOGGLE_SELECTOR);
+            .click('#list-all-reading-tips')
+            .wait(DONE_TOGGLE_SELECTOR);
 
         return this.nightmare.evaluate((selector) => {
             const elements = Array.from(document.querySelectorAll(selector));
@@ -77,6 +78,17 @@ class App {
 // HELPERS
     _normalizeSelector(attr1, attr2) {
         return attr1.replace(/[^a-zA-Z0-9]/g,'') + attr2.replace(/[^a-zA-Z0-9]/g,'');
+    }
+
+    getInfoBar() {
+        return this.nightmare.evaluate((selector) => {
+            const element = document.querySelector(selector);
+            const content = element.innerHTML;
+
+            return {
+                content,
+            };
+        }, INFO_BAR);
     }
 
 // BOOK
@@ -107,18 +119,22 @@ class App {
     }
 
     submitBookForm(author, title) {
-        const bookKey =  '#' + this._normalizeSelector(title, author);
+        const bookKey = '#' + this._normalizeSelector(title, author);
         return this.nightmare.click('#submit-book').wait(bookKey);
     }
 
+    submitBookFormWitErrorValues() {
+        return this.nightmare.click('#submit-book').wait(500);
+    }
+
     clickDeleteBookButton(author, title) {
-        const searchString =  '#'+  this._normalizeSelector(title, author);
+        const searchString = '#' + this._normalizeSelector(title, author);
 
         this.nightmare
             .click('#list-all-reading-tips')
             .wait(searchString + ' .deleteButton')
 
-          return  this.nightmare
+        return this.nightmare
             .click(searchString + ' .deleteButton')
             // this is not the best way of doing this but the api call takes time
             .wait(500);
@@ -134,14 +150,14 @@ class App {
             .wait(searchString + ' .editButton')
 
         this.nightmare
-            .click(searchString + ' .editButton').wait(100)
+            .click(searchString + ' .editButton').wait('#book-author-edit-input').end()
 
         this.nightmare
           .type('book-author-edit-input', newAuthor).wait(10000)
           .type('book-title-edit-input', newTitle).wait(10000)
           .type('book-comment-edit-input', newComment).wait(10000)
           .wait(searchString2 + ' .editButton')
-          console.log("searchString2: " + searchString2)
+          console.log("searchString2: " + searchString2);
 
         return  this.nightmare
           .click(searchString2 + ' .editButton')
@@ -182,7 +198,7 @@ class App {
     }
 
     submitBlogpostForm(author, title) {
-        const id =  '#' + this._normalizeSelector(title, author);
+        const id = '#' + this._normalizeSelector(title, author);
         return this.nightmare.click('#submit-blogpost').wait(id);
     }
 

@@ -1,7 +1,7 @@
-# @remove
-# Feature: remove tips Test
+ @remove
+ Feature: remove tips Test
 
-#   Ensure tips can be removed
+   Ensure tips can be removed
 
 #   Scenario: I should be able to remove a book
 #       Given I navigate to the home page
