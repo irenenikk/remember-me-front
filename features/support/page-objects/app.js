@@ -123,7 +123,7 @@ class App {
         return this.nightmare.click('#submit-book').wait(bookKey);
     }
 
-    submitBookFormWitErrorValues() {
+    submitBookFormWithErrorValues() {
         return this.nightmare.click('#submit-book').wait(500);
     }
 
@@ -200,6 +200,10 @@ class App {
     submitBlogpostForm(author, title) {
         const id = '#' + this._normalizeSelector(title, author);
         return this.nightmare.click('#submit-blogpost').wait(id);
+    }
+
+    submitBlogpostFormWithErrorValues() {
+        return this.nightmare.click('#submit-blogpost').wait(500);
     }
 
     clickDeleteBlogpostButton(author, title) {
