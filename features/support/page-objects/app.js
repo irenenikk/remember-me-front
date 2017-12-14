@@ -153,9 +153,9 @@ class App {
             .click(searchString + ' .editButton').wait('#book-author-edit-input').end()
 
         this.nightmare
-          .type('book-author-edit-input', newAuthor).wait(10000)
-          .type('book-title-edit-input', newTitle).wait(10000)
-          .type('book-comment-edit-input', newComment).wait(10000)
+          .type('book-author-edit-input', newAuthor).end()
+          .type('book-title-edit-input', newTitle).end()
+          .type('book-comment-edit-input', newComment).end()
           .wait(searchString2 + ' .editButton')
           console.log("searchString2: " + searchString2);
 

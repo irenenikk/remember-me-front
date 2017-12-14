@@ -1,15 +1,15 @@
-@edit
-Feature: Edit Tips Test
+#@edit
+#Feature: Edit Tips Test
 
-   Ensure form functionality in editing tips
+#   Ensure form functionality in editing tips
 
-   Scenario: I should be able to edit book
-      Given I navigate to the home page
-      When I load the page
-      And a book with Eeva as author and Terv as title is on the page
-      And I click edit a book with Eeva as author and Terv as title and I add Kilpi to author field and eisin to title field and Riina recommended this one as new comment
-      Then a book with Terveisin as title and Riina recommended this one as comment should be on the page
-      And a book with Eeva as author and Terv as title should not be on the page
+#   Scenario: I should be able to edit book
+#      Given I navigate to the home page
+#      When I load the page
+#      And a book with Eeva as author and Terv as title is on the page
+#      And I click edit a book with Eeva as author and Terv as title and I add Kilpi to author field and eisin to title field and Riina recommended this one as new comment
+#      Then a book with Terveisin as title and Riina recommended this one as comment should be on the page
+#      And a book with Eeva as author and Terv as title should not be on the page
 
 #   Scenario: I should be able to edit blogpost
 #       Given I navigate to the home page

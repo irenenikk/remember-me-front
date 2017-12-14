@@ -89,10 +89,6 @@ defineSupportCode(function ({Given, When, Then}) {
         return this.app.writeToVideoLinkInput(link);
       });
 
-      When('I write {string} as link for video', function(link) {
-        return this.app.writeToVideoLinkInput(link);
-      });
-
       When('I write {string} as comment for video', function(comment) {
         return this.app.writeToVideoCommentInput(comment);
       });

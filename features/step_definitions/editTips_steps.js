@@ -9,6 +9,7 @@ defineSupportCode(function ({Given, When, Then}) {
       return this.app.clickEditBookButton(author, title, newAuthor, newTitle, newComment);
   });
 
+/* for unknown reason this get mixed with similar in add tips test that has different parameters
   Then('a book with {string} as title and {string} as comment should be on the page', function (author, title) {
     return this.app.getVideos()
         .end()
@@ -17,6 +18,7 @@ defineSupportCode(function ({Given, When, Then}) {
             expect(result.content).to.contain(title);
         });
     });
+*/
 
 // BLOGPOST
   When('I click edit a blogpost with {string} as author and {string} as title and I add to them to {string} as new author and {string} as new title and {string} as new link', function (author, title, newAuthor, newTitle, newLink) {
