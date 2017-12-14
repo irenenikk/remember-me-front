@@ -41,12 +41,8 @@ export default class Api {
           'Content-Type': 'application/json',
         },
       })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-      });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
     });
   }
 
@@ -58,12 +54,8 @@ export default class Api {
           'Content-Type': 'application/json',
         },
       })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-      });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
     });
   }
 
@@ -76,12 +68,8 @@ export default class Api {
           'Content-Type': 'application/json',
         },
       })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-      });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
     });
   }
 
@@ -96,12 +84,8 @@ export default class Api {
         },
         credentials: 'omit',
       })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-      });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
     });
   }
 
@@ -116,12 +100,8 @@ export default class Api {
         },
         credentials: 'omit',
       })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-      });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
     });
   }
 
@@ -137,12 +117,8 @@ export default class Api {
           },
           credentials: 'omit',
         })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-        });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
       });
   }
 
@@ -155,12 +131,8 @@ export default class Api {
           },
           credentials: 'omit',
         })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-        });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
       });
     }
 
@@ -172,12 +144,8 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-        });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
       });
     }
 
@@ -189,12 +157,8 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-        });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
       });
     }
 
@@ -208,12 +172,8 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-        });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
       });
     }
 
@@ -227,12 +187,8 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-        });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
       });
     }
 
@@ -246,12 +202,8 @@ export default class Api {
             'Content-Type': 'application/json',
           },
         })
-      .then((resp) => {
-        if (!resp.ok) {
-          return resp.json().then(r => reject(r));
-        }
-        return resp.json().then(r => resolve(r));
-        });
+      .then(resp => this._handleResp(resp, resolve, reject))
+      .catch(error => reject(error));
       });
     }
 
@@ -286,5 +238,12 @@ export default class Api {
       comment: videoState.comment,
       read: videoState.read
     }
+  }
+
+  _handleResp(resp, resolve, reject) {
+      if (!resp.ok) {
+        return resp.json().then(r => reject(r));
+      }
+      return resp.json().then(r => resolve(r));
   }
 }

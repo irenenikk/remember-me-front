@@ -13,6 +13,8 @@ export const FILTER_SHOW_ALL = 'FILTER_SHOW_ALL';
 export const FILTER_READ = 'FILTER_READ';
 export const FILTER_UNREAD = 'FILTER_UNREAD';
 
+export const CHANGE_SEARCH_STRING = 'CHANGE_SEARCH_STRING';
+
 export const getBooksAction = () => {
   return async (dispatch, getState, api) => {
     api.getBooks()
@@ -183,5 +185,12 @@ export const filterReadAction = () => {
 export const filterUnreadAction = () => {
   return {
     type: FILTER_UNREAD,
+  }
+}
+
+export const changeSearchStringAction =(input) => {
+  return {
+    searchString: input,
+    type: CHANGE_SEARCH_STRING,
   }
 }

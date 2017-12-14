@@ -24,7 +24,7 @@ class ListBlogposts extends Component {
       <center>
         <Paper className="paper" zDepth={2} >
           {this.props.blogposts
-            .filter(b => filterer(b, this.props.showRead, this.props.showUnread))
+            .filter(b => filterer(b, this.props.showRead, this.props.showUnread, this.props.searchString))
             .map(b =>
               <Blogpost
                 id={b.id}
@@ -59,6 +59,7 @@ const mapStateToProps = (state) => {
     showAll: state.list.showAll,
     showRead: state.list.showRead,
     showUnread: state.list.showUnread,
+    searchString: state.list.searchString,
   };
 }
 
