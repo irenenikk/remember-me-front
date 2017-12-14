@@ -20,28 +20,28 @@ export default class Book extends Component {
         <center>
           <Card id={CSSId}>
             <SmallInput
-              id="book-title-input"
+              id="book-title-edit-input"
               value={this.props.title}
               onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
               name="Title"
             />
             <br />
             <SmallInput
-              id="book-author-input"
+              id="book-author-edit-input"
               value={this.props.author}
               onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.id)}
               name="Author"
             />
             <br />
             <LargeInput
-              id="book-description-input"
+              id="book-description-edit-input"
               value={this.props.description}
               onChange={(e) => this.props.onDescriptionChange(e.target.value, this.props.id)}
               name="Description"
             />
             <br />
             <LargeInput
-              id="book-comment-input"
+              id="book-comment-edit-input"
               value={this.props.comment}
               onChange={(e) => this.props.onCommentChange(e.target.value, this.props.id)}
               name="Comment"
@@ -66,7 +66,7 @@ export default class Book extends Component {
           <CardText>
             <DoneToggle parentId={CSSId} id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
             <DeleteButton parentId={CSSId} id={this.props.id} onDelete={this.props.onDelete} />
-            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            <EditButton parentId={CSSId} id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
           </CardText>
         </Card>
       </center>

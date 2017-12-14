@@ -1,6 +1,7 @@
 // based on the example of github/matthewjberger
 
 const MESSAGE_SELECTOR = '.app-bar';
+const INFO_BAR = '.info-bar';
 
 const ADD_BOOK_BUTTON_ID = '#add-new-book-button';
 const ADD_BLOGPOST_BUTTON_ID = '#add-new-blogpost-button';
@@ -62,8 +63,8 @@ class App {
 
     getCheckedCheckBoxes() {
         this.nightmare
-        .click('#list-all-reading-tips')
-        .wait(DONE_TOGGLE_SELECTOR);
+            .click('#list-all-reading-tips')
+            .wait(DONE_TOGGLE_SELECTOR);
 
         return this.nightmare.evaluate((selector) => {
             const elements = Array.from(document.querySelectorAll(selector));
@@ -74,7 +75,23 @@ class App {
         }, DONE_TOGGLE_SELECTOR);
     }
 
-    // BOOK
+// HELPERS
+    _normalizeSelector(attr1, attr2) {
+        return attr1.replace(/[^a-zA-Z0-9]/g,'') + attr2.replace(/[^a-zA-Z0-9]/g,'');
+    }
+
+    getInfoBar() {
+        return this.nightmare.evaluate((selector) => {
+            const element = document.querySelector(selector);
+            const content = element.innerHTML;
+
+            return {
+                content,
+            };
+        }, INFO_BAR);
+    }
+
+// BOOK
     clickAddBookButton() {
         return this.nightmare.click(ADD_BOOK_BUTTON_ID).wait('#book-title-input');
     }
@@ -102,24 +119,51 @@ class App {
     }
 
     submitBookForm(author, title) {
-        const bookKey =  '#' + this._normalizeSelector(title, author);
+        const bookKey = '#' + this._normalizeSelector(title, author);
         return this.nightmare.click('#submit-book').wait(bookKey);
     }
 
+    submitBookFormWitErrorValues() {
+        return this.nightmare.click('#submit-book').wait(500);
+    }
+
     clickDeleteBookButton(author, title) {
-        const searchString =  '#'+  this._normalizeSelector(title, author);
+        const searchString = '#' + this._normalizeSelector(title, author);
 
         this.nightmare
             .click('#list-all-reading-tips')
             .wait(searchString + ' .deleteButton')
 
-          return  this.nightmare
+        return this.nightmare
             .click(searchString + ' .deleteButton')
             // this is not the best way of doing this but the api call takes time
             .wait(500);
-
     }
 
+    clickEditBookButton(author, title, newAuthor, newTitle, newComment) {
+        const searchString =  '#'+  this._normalizeSelector(title, author);
+        const searchString2 =  '#'+  this._normalizeSelector(title+newTitle, author+newAuthor);
+        console.log("searchString: " + searchString);
+
+        this.nightmare
+            .click('#list-all-reading-tips').wait(100)
+            .wait(searchString + ' .editButton')
+
+        this.nightmare
+            .click(searchString + ' .editButton').wait('#book-author-edit-input').end()
+
+        this.nightmare
+          .type('book-author-edit-input', newAuthor).end()
+          .type('book-title-edit-input', newTitle).end()
+          .type('book-comment-edit-input', newComment).end()
+          .wait(searchString2 + ' .editButton')
+          console.log("searchString2: " + searchString2);
+
+        return  this.nightmare
+          .click(searchString2 + ' .editButton')
+          // this is not the best way of doing this but the api call takes time
+          .wait(500);
+    }
 
 
 // BLOGPOST
@@ -154,9 +198,52 @@ class App {
     }
 
     submitBlogpostForm(author, title) {
-        const id =  '#' + this._normalizeSelector(title, author);
+        const id = '#' + this._normalizeSelector(title, author);
         return this.nightmare.click('#submit-blogpost').wait(id);
     }
+
+    clickDeleteBlogpostButton(author, title) {
+        const searchString =  '#'+  this._normalizeSelector(title, author);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .deleteButton')
+
+          return  this.nightmare
+            .click(searchString + ' .deleteButton')
+            // this is not the best way of doing this but the api call takes time
+            .wait(500);
+    }
+
+    clickEditBlogpostButton(author, title, newAuthor, newTitle, newLink) {
+        const searchString =  '#'+  this._normalizeSelector(title, author);
+        const searchString2 =  '#'+  this._normalizeSelector(newTitle, newAuthor);
+
+        this.nightmare
+            .click('#list-all-reading-tips').wait(100)
+            .wait(searchString + ' .editButton')
+
+        this.nightmare
+            .click(searchString + ' .editButton')
+            .wait('#blogpost-author-edit-input')
+
+        this.nightmare
+          .type('#blogpost-author-edit-input', '')
+          .type('#blogpost-title-edit-input', '')
+          .type('#blogpost-link-edit-input', '')
+
+        this.nightmare
+          .type('#blogpost-author-edit-input', newAuthor)
+          .type('#blogpost-title-edit-input', newTitle)
+          .type('#blogpost-link-edit-input', newLink)
+          .wait(searchString2 + ' .editButton')
+
+        return  this.nightmare
+          .click(searchString2 + ' .editButton')
+          // this is not the best way of doing this but the api call takes time
+          .wait(500);
+    }
+
 
 // VIDEO
     clickAddVideoButton() {
@@ -186,14 +273,52 @@ class App {
         }, VIDEO_CLASS);
     }
 
-    submitVideoForm(title, url) {
-        const id =  '#' + this._normalizeSelector(title, url);
+    submitVideoForm(title, link) {
+        const id =  '#' + this._normalizeSelector(title, link);
         return this.nightmare.click('#submit-video').wait(id);
     }
 
-    _normalizeSelector(attr1, attr2) {
-        return attr1.replace(/[^a-zA-Z0-9]/g,'') + attr2.replace(/[^a-zA-Z0-9]/g,'')
+    clickDeleteVideoButton(title, link) {
+        const searchString =  '#'+  this._normalizeSelector(title, link);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .deleteButton')
+
+          return  this.nightmare
+            .click(searchString + ' .deleteButton')
+            // this is not the best way of doing this but the api call takes time
+            .wait(500);
     }
+
+    clickEditVideoButton(title, link, newTitle, newLink) {
+        const searchString =  '#'+  this._normalizeSelector(title, link);
+        const searchString2 =  '#'+  this._normalizeSelector(newTitle, newLink);
+
+        this.nightmare
+            .click('#list-all-reading-tips')
+            .wait(searchString + ' .editButton')
+
+        this.nightmare
+            .click(searchString + ' .editButton')
+            .wait('#video-title-edit-input')
+
+        this.nightmare
+          .type('#video-title-edit-input', '')
+          .type('#video-link-edit-input', '')
+
+        this.nightmare
+          .type('#video-title-edit-input', newTitle)
+          .type('#video-link-edit-input', newLink)
+          .wait(searchString2 + ' .editButton')
+
+        return  this.nightmare
+          .click(searchString2 + ' .editButton')
+          // this is not the best way of doing this but the api call takes time
+          .wait(500);
+    }
+
+
 }
 
 module.exports = {

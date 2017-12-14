@@ -1,7 +1,7 @@
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 
-export default ({ id, parentId, onDelete }) => {
+export default ({ id, onDelete }) => {
   return (
     <FlatButton
       className="deleteButton"

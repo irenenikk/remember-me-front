@@ -20,27 +20,27 @@ export default class Blogpost extends Component {
         <center>
           <Card id={CSSId}>
             <SmallInput
-              id="blogpost-title-input"
+              id="blogpost-title-edit-input"
               value={this.props.title}
               onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
               name="Title"
             />
             <br />
             <SmallInput
-              id="blogpost-author-input"
+              id="blogpost-author-edit-input"
               value={this.props.author}
               onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.id)}
               name="Author"
             />
             <br />
             <SmallInput
-              id="blogpost-url-input"
+              id="blogpost-url-edit-input"
               value={this.props.url}
               onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
               name="Link"
             />
             <LargeInput
-              id="blogpost-comment-input"
+              id="blogpost-comment-edit-input"
               value={this.props.comment}
               onChange={(e) => this.props.onCommentChange(e.target.value, this.props.id)}
               name="Comment"
@@ -64,8 +64,8 @@ export default class Blogpost extends Component {
             {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
           <CardText>
             <DoneToggle parentId={CSSId} id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
-            <DeleteButton id={this.props.id} onDelete={this.props.onDelete} />
-            <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            <DeleteButton parentId={CSSId} id={this.props.id} onDelete={this.props.onDelete} />
+            <EditButton parentId={CSSId} id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
           </CardText>
         </Card>
       </center>
