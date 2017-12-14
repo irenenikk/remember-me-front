@@ -25,7 +25,7 @@ export default class Video extends Component {
               id="video-title-edit-input"
               value={this.props.title}
               onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
-              name="Author"
+              name="Title"
             />
             <br />
             <SmallInput

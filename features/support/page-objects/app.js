@@ -58,7 +58,7 @@ class App {
 
     clickDoneToggle(attr1, attr2) {
         const CSSId = this._normalizeSelector(attr1, attr2);
-        return this.nightmare.click("#" + CSSId + "-done").wait(500);
+        return this.nightmare.click("#" + CSSId + "-done").wait(800);
     }
 
     getCheckedCheckBoxes() {
@@ -124,7 +124,7 @@ class App {
     }
 
     submitBookFormWithErrorValues() {
-        return this.nightmare.click('#submit-book').wait(500);
+        return this.nightmare.click('#submit-book').wait(800);
     }
 
     clickDeleteBookButton(author, title) {
@@ -137,7 +137,7 @@ class App {
         return this.nightmare
             .click(searchString + ' .deleteButton')
             // this is not the best way of doing this but the api call takes time
-            .wait(500);
+            .wait(800);
     }
 
     clickEditBookButton(author, title, newAuthor, newTitle, newComment) {
@@ -162,7 +162,7 @@ class App {
         return  this.nightmare
           .click(searchString2 + ' .editButton')
           // this is not the best way of doing this but the api call takes time
-          .wait(500);
+          .wait(800);
     }
 
 
@@ -203,7 +203,7 @@ class App {
     }
 
     submitBlogpostFormWithErrorValues() {
-        return this.nightmare.click('#submit-blogpost').wait(500);
+        return this.nightmare.click('#submit-blogpost').wait(800);
     }
 
     clickDeleteBlogpostButton(author, title) {
@@ -216,7 +216,7 @@ class App {
           return  this.nightmare
             .click(searchString + ' .deleteButton')
             // this is not the best way of doing this but the api call takes time
-            .wait(500);
+            .wait(800);
     }
 
     clickEditBlogpostButton(author, title, newAuthor, newTitle, newLink) {
@@ -245,7 +245,7 @@ class App {
         return  this.nightmare
           .click(searchString2 + ' .editButton')
           // this is not the best way of doing this but the api call takes time
-          .wait(500);
+          .wait(800);
     }
 
 
@@ -292,7 +292,7 @@ class App {
           return  this.nightmare
             .click(searchString + ' .deleteButton')
             // this is not the best way of doing this but the api call takes time
-            .wait(500);
+            .wait(800);
     }
 
     clickEditVideoButton(title, link, newTitle, newLink) {
@@ -319,7 +319,7 @@ class App {
         return  this.nightmare
           .click(searchString2 + ' .editButton')
           // this is not the best way of doing this but the api call takes time
-          .wait(500);
+          .wait(800);
     }
 
 
