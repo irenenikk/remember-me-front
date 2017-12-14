@@ -1,11 +1,37 @@
+import getYoutubeId from 'get-youtube-id';
 let SERVER = '';
 if (process.env.NODE_ENV === 'production') {
   SERVER = process.env.REACT_APP_APIURL;
 } else {
   SERVER = process.env.REACT_APP_DEV_APIURL;
 }
+let KEY = process.env.REACT_APP_YOUTUBE_API;
 
 export default class Api {
+
+  getYoutubeTitle(url) {
+    const id = getYoutubeId(url);
+    return new Promise((resolve, reject) => {
+        fetch(`https://www.googleapis.com/youtube/v3/videos?&id=${id}&key=${KEY}&part=snippet`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          if (!resp.ok) {
+            return resp.json().then(r => reject(r));
+          }
+          return resp.json().then(r => {
+              if(r.items[0] !== undefined) {
+                resolve(r.items[0].snippet.title)
+              } else {
+                resolve('error')
+              }
+            });
+        });
+      });
+  }
 
   getBooks() {
     return new Promise((resolve, reject) => {
