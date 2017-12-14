@@ -143,7 +143,7 @@ export const postBlogpostAction = () => {
 
 export const postVideoAction = () => {
   return async (dispatch, getState, api) => {
-    if(getState().form.video.title == '') {
+    if(getState().form.video.title === '') {
       api.getYoutubeTitle(getState().form.video.url).then(
         (response) => {
           if(response === 'error'){
