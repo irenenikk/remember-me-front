@@ -6,6 +6,7 @@ import {
   FILTER_SHOW_ALL,
   FILTER_READ,
   FILTER_UNREAD,
+  CHANGE_SEARCH_STRING,
 } from '../state/actions/list-actions';
 import {
   EDIT_BOOK,
@@ -33,6 +34,7 @@ const initialState = {
   videos: [],
   showRead: false,
   showUnRead: false,
+  searchString: "",
 };
 
 export default createReducer(initialState, {
@@ -382,6 +384,14 @@ export default createReducer(initialState, {
       ...state,
       showRead: false,
       showUnread: true,
+    }
+  },
+  [CHANGE_SEARCH_STRING](state, action) {
+    return {
+      ...state,
+      showRead: false,
+      showUnread: false,
+      searchString: action.searchString,
     }
   },
 });

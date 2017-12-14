@@ -23,7 +23,7 @@ class ListVideos extends Component {
       <center>
         <Paper className="paper" zDepth={2} >
           {this.props.videos
-            .filter(v => filterer(v, this.props.showRead, this.props.showUnread))
+            .filter(v => filterer(v, this.props.showRead, this.props.showUnread, this.props.searchString))
             .map(v =>
               <Video
                 id={v.id}
@@ -56,6 +56,7 @@ const mapStateToProps = (state) => {
     showAll: state.list.showAll,
     showRead: state.list.showRead,
     showUnread: state.list.showUnread,
+    searchString: state.list.searchString,
   };
 }
 
