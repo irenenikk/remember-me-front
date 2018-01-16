@@ -146,11 +146,9 @@ export const postVideoAction = () => {
     if(getState().form.video.title === '') {
       api.getYoutubeTitle(getState().form.video.url).then(
         (response) => {
-          if(response === 'error'){
-            normalPost(dispatch, getState, api)
-          } else {
-            dispatch(inputVideoTitleChangedAction(response));
-          }
+          dispatch(inputVideoTitleChangedAction(response));
+        }, () => {
+          normalPost(dispatch, getState, api)
         })
     } else {
       normalPost(dispatch, getState, api);

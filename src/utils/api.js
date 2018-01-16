@@ -26,7 +26,7 @@ export default class Api {
               if(r.items[0] !== undefined) {
                 resolve(r.items[0].snippet.title)
               } else {
-                resolve('error')
+                reject()
               }
             });
         });
