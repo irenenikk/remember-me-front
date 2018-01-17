@@ -1,27 +1,22 @@
 language: node_js
-
 node_js:
-  - "7"
-
+- '7'
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
+- bash <(curl -s https://codecov.io/bash)
 env:
- - REACT_APP_APIURL=https://dev-remember-me-back.herokuapp.com/api/v01/
-
+- REACT_APP_APIURL=https://remember-me-back.herokuapp.com/api/v01/
 deploy:
   provider: heroku
   api_key:
-    secure: xaoO44ohK1ooIzmQKLb+aqMJJKZ51q5vw7AObqRlZsN4x1u5UsynprDWoyTOanwKriZnp9EzQ48Q6s9TG2fWacBFQ89gtROk3d9Z3rY2Uf2/RWeCKR5iMeCCRXbyPskpurJ0Wmxs9eoZ8fkLBJbT9PbjZru22wLYCMRJvFM81NidCT/cjFeXMj4kcqQ71vbBeTnzYZKrQ65phcyCJh7KCGNkVcMbCKzmVBiLMvbA2R0N6g8OZDeLZCJaLS17Y+bFQYjOgR4v1C6Yo4EEl0612WMjEtAuNBhBjK/IoER2QmcgIkX34/fMMaMKcHwSu72xO7yNSkCSuzj6QpDtChBOK9nVRNsCnuCehDQxi/kDcOUCt6nVkuH0/egdmJJ17N1RnNTyD2CtUquiRH8jP9fv/1GZbQ9T9XUsPBXF9NdWVymyqi3W31m69pj7CGhmbqk81fFCRmyO11aMWeuGL5alsjBoW9fcQcT7D2/lLo4PF1ZcTN1HbTIw8K61JOey14w+o1lNL86wtUJb+U6FXtzkZn3za8x0F2Dstp9Y6nIBzyv0BNl0nMuRikjG9F+tVzu3kfQASIcC+7KaEc9d5tTWwMrpO9bhKaa5wzI2yBnUOnTJHUDIJYzTG25CcTVP7RUZKQptarYTNCE4sXHVf6AHifnAf0bjgT6GkcdEIOeziKQ=
+    secure: S6Q4Z0MEgtx8pAJcq4czXF3cmnnFFnlBzEMoz/NzO/zdsb1wVhmQRG09Y02F0Z0auEi+elYtXdOpcZbjbk13Odp7saNNgJQPMCYJDLLQjB1uHd90y6m5DnB9RfF7+SI9AoVrtOPrN4GmG9QoF7Ba1KSKE4dPzCWmmmAyv7xbVE/dW9Th4DwpAxctmr1Cx25ylXUgMdtteFaLrIx9qN7YA2e83uZyGMutSpb9wUw0kldiOBXAVi46UZ1oxtvVOonVOoayJqvodNEbC643t4wNoje9jYZTIGkQzBJp4Ncwypf0L//oIX1dgeurTpcra3ivpCw7rNCZ+mks7YTZE1Hd91mHwPnpaTrsXA00zkVJZxzgjzGf+nVSlr2n/C37jEoKjViXCzPy3uxTHzV7rjvnHAOPEHNGM08cs77KDGHInaTo0T+WNtmeFuuo4DTJaXoB5ntaZnyeZY81T4CNf9tlwq1/4bSuCV1dtvNtcSoZbH980qQwNcoUE1x7wfb/fiH2B7Or4C+kIAGaEQ8ZdvOq939Os7iKbIQ6QnEMcFBIidDZlEUPzPfGUZth5XxOmy2R0RTcXg0t3h68ncvtDBz5FX3aMmZ8kNDykbtxVKlzRzE8rXrgCh8bhZABOX8hIAa2EzhoAnUr10bXxVRPJ+z5oIQD0nh07GGyexgDnBnznD8=
   app: remember-me-front
   on:
     repo: irenenikk/remember-me-front
-
 addons:
   apt:
     packages:
-      - xvfb
+    - xvfb
 install:
-  - export DISPLAY=':99.0'
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  - npm install
+- export DISPLAY=':99.0'
+- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+- npm install
