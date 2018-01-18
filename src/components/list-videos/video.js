@@ -16,33 +16,33 @@ import selectorNormalizer from '../../utils/selector-normalizer';
 export default class Video extends Component {
 
   render() {
-    const CSSId = selectorNormalizer(this.props.title, this.props.url);
-    if (this.props.edit) {
+    const CSSId = selectorNormalizer(this.props.video.title, this.props.video.url);
+    if (this.props.video.edit) {
       return (
         <center>
           <Card id={CSSId}>
             <SmallInput
               id="video-title-edit-input"
-              value={this.props.title}
-              onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
+              value={this.props.video.title}
+              onChange={(e) => this.props.onTitleChange(e.target.value, this.props.video.id)}
               name="Title"
             />
             <br />
             <SmallInput
               id="video-url-edit-input"
-              value={this.props.url}
-              onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
+              value={this.props.video.url}
+              onChange={(e) => this.props.onUrlChange(e.target.value, this.props.video.id)}
               name="Link"
             />
             <br />
             <LargeInput
               id="video-comment-edit-input"
-              value={this.props.comment}
-              onChange={(e) => this.props.onCommentChange(e.target.value, this.props.id)}
+              value={this.props.video.comment}
+              onChange={(e) => this.props.onCommentChange(e.target.value, this.props.video.id)}
               name="Comment"
             />
             <CardText>
-              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+              <EditButton id={this.props.video.id} onEdit={this.props.onEdit} edit={this.props.video.edit} onFinishEditing={this.props.onFinishEditing} />
             </CardText>
           </Card>
         </center>
@@ -51,17 +51,17 @@ export default class Video extends Component {
     return (
       <center>
         <Card className="video" id={CSSId}>
-          <CardTitle title={this.props.title} subtitle={this.props.author}>
+          <CardTitle title={this.props.video.title} subtitle={this.props.video.author}>
             <Type
-              type={this.props.type}
+              type={this.props.video.type}
             />
           </CardTitle>
-          <EmbeddedVideo url={this.props.url}/>
-            {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
+          <EmbeddedVideo url={this.props.video.url}/>
+            {this.props.video.comment.trim().length > 0 && <CardText>{this.props.video.comment}</CardText>}
           <CardText>
-            <DoneToggle parentId={CSSId} id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
-            <DeleteButton parentId={CSSId} id={this.props.id} onDelete={this.props.onDelete} />
-            <EditButton parentId={CSSId} id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing}/>
+            <DoneToggle parentId={CSSId} id={this.props.video.id} onDone={this.props.onDone} done={this.props.video.done}/>
+            <DeleteButton parentId={CSSId} id={this.props.video.id} onDelete={this.props.onDelete} />
+            <EditButton parentId={CSSId} id={this.props.video.id} onEdit={this.props.onEdit} edit={this.props.video.edit} onFinishEditing={this.props.onFinishEditing}/>
           </CardText>
         </Card>
       </center>

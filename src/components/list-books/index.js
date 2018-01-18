@@ -27,15 +27,8 @@ class ListBooks extends Component {
             .filter(b => filterer(b, this.props.showRead, this.props.showUnread, this.props.searchString))
             .map(b =>
               <Book
+                book={b}
                 key={b.id}
-                id={b.id}
-                title={b.title}
-                author={b.author}
-                description={b.description}
-                comment={b.comment}
-                tags={b.tags}
-                done={b.read}
-                type={b.type}
                 onDone={this.props.handleDone}
                 onDelete={this.props.handleDelete}
                 onEdit={this.props.handleEdit}

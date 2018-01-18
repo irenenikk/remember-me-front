@@ -27,15 +27,8 @@ class ListBlogposts extends Component {
             .filter(b => filterer(b, this.props.showRead, this.props.showUnread, this.props.searchString))
             .map(b =>
               <Blogpost
-                id={b.id}
+                blogpost={b}
                 key={b.id}
-                title={b.title}
-                author={b.author}
-                url={b.url}
-                comment={b.comment}
-                tags={b.tags}
-                done={b.read}
-                type={b.type}
                 onDone={this.props.handleDone}
                 onDelete={this.props.handleDelete}
                 onEdit={this.props.handleEdit}

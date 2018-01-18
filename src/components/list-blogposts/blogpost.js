@@ -14,39 +14,39 @@ import selectorNormalizer from '../../utils/selector-normalizer';
 export default class Blogpost extends Component {
 
   render() {
-    const CSSId = selectorNormalizer(this.props.title, this.props.author);
-    if (this.props.edit) {
+    const CSSId = selectorNormalizer(this.props.blogpost.title, this.props.blogpost.author);
+    if (this.props.blogpost.edit) {
       return (
         <center>
           <Card id={CSSId}>
             <SmallInput
               id="blogpost-title-edit-input"
-              value={this.props.title}
-              onChange={(e) => this.props.onTitleChange(e.target.value, this.props.id)}
+              value={this.props.blogpost.title}
+              onChange={(e) => this.props.onTitleChange(e.target.value, this.props.blogpost.id)}
               name="Title"
             />
             <br />
             <SmallInput
               id="blogpost-author-edit-input"
-              value={this.props.author}
-              onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.id)}
+              value={this.props.blogpost.author}
+              onChange={(e) => this.props.onAuthorChange(e.target.value, this.props.blogpost.id)}
               name="Author"
             />
             <br />
             <SmallInput
               id="blogpost-url-edit-input"
-              value={this.props.url}
-              onChange={(e) => this.props.onUrlChange(e.target.value, this.props.id)}
+              value={this.props.blogpost.url}
+              onChange={(e) => this.props.onUrlChange(e.target.value, this.props.blogpost.id)}
               name="Link"
             />
             <LargeInput
               id="blogpost-comment-edit-input"
-              value={this.props.comment}
-              onChange={(e) => this.props.onCommentChange(e.target.value, this.props.id)}
+              value={this.props.blogpost.comment}
+              onChange={(e) => this.props.onCommentChange(e.target.value, this.props.blogpost.id)}
               name="Comment"
             />
             <CardText>
-              <EditButton id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+              <EditButton id={this.props.blogpost.id} onEdit={this.props.onEdit} edit={this.props.blogpost.edit} onFinishEditing={this.props.onFinishEditing} />
             </CardText>
           </Card>
         </center>
@@ -55,17 +55,17 @@ export default class Blogpost extends Component {
     return (
       <center>
         <Card className="blogpost" id={CSSId}>
-          <CardTitle title={this.props.title} subtitle={this.props.author}>
-            <Type type={this.props.type}/>
+          <CardTitle title={this.props.blogpost.title} subtitle={this.props.blogpost.author}>
+            <Type type={this.props.blogpost.type}/>
           </CardTitle>
           <CardText>
-            <a href={this.props.url}>{this.props.url}</a>
+            <a href={this.props.blogpost.url}>{this.props.blogpost.url}</a>
           </CardText>
-            {this.props.comment.trim().length > 0 && <CardText>{this.props.comment}</CardText>}
+            {this.props.blogpost.comment.trim().length > 0 && <CardText>{this.props.blogpost.comment}</CardText>}
           <CardText>
-            <DoneToggle parentId={CSSId} id={this.props.id} onDone={this.props.onDone} done={this.props.done}/>
-            <DeleteButton parentId={CSSId} id={this.props.id} onDelete={this.props.onDelete} />
-            <EditButton parentId={CSSId} id={this.props.id} onEdit={this.props.onEdit} edit={this.props.edit} onFinishEditing={this.props.onFinishEditing} />
+            <DoneToggle parentId={CSSId} id={this.props.blogpost.id} onDone={this.props.onDone} done={this.props.blogpost.done}/>
+            <DeleteButton parentId={CSSId} id={this.props.blogpost.id} onDelete={this.props.onDelete} />
+            <EditButton parentId={CSSId} id={this.props.blogpost.id} onEdit={this.props.onEdit} edit={this.props.blogpost.edit} onFinishEditing={this.props.onFinishEditing} />
           </CardText>
         </Card>
       </center>

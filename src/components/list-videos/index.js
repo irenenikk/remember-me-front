@@ -26,15 +26,8 @@ class ListVideos extends Component {
             .filter(v => filterer(v, this.props.showRead, this.props.showUnread, this.props.searchString))
             .map(v =>
               <Video
-                id={v.id}
+                video={v}
                 key={v.id}
-                title={v.title}
-                url={v.url}
-                comment={v.comment}
-                tags={v.tags}
-                edit={v.edit}
-                done={v.read}
-                type={v.type}
                 onDone={this.props.handleDone}
                 onEdit={this.props.handleEdit}
                 onDelete={this.props.handleDelete}
